@@ -3,16 +3,18 @@
 <head>
   <title>KickStarter</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
   <% if logged_in? %>
-  <p class="user">Welcom <%= current_user.username %></p>
+  <p class="user">Welcom <%= current_user.email%></p>
   <%= button_to "Sign Out", session_url, method: :delete %>
+    <a href="<%= new_user_user_bio_url(current_user) %>">Edit page</a>
   <% else %>
-    <%= link_to "Sign up", new_user_url %>
-    <%= link_to "Sign In", new_session_url %>
+    <a href="<%= new_user_url %>">Sign up</a>
+    <a href="<%= new_session_url %>">Sign In</a>
+
   <% end %>
   <ul>
   <% if flash[:errors] %>

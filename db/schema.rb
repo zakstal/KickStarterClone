@@ -11,18 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141028152239) do
+ActiveRecord::Schema.define(version: 20141028183646) do
+
+  create_table "user_bios", force: true do |t|
+    t.string   "username"
+    t.string   "bio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "user_id"
+  end
+
+  add_index "user_bios", ["username"], name: "index_user_bios_on_username", unique: true
 
   create_table "users", force: true do |t|
     t.string   "password_digest", null: false
-    t.string   "username"
     t.string   "session_token",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email",           null: false
-    t.text     "bio"
   end
-
-  add_index "users", ["username"], name: "index_users_on_username"
 
 end

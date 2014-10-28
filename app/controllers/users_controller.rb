@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
+
   # before_filter :require_logged_in
+
   def new
     @user = Users.new
   end
@@ -15,6 +17,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = Users.find(params[:id])
+  end
+
+  def update
+    @user = Users.find(params[:id])
+    if @user.update_attributes(user_params)
+      redirect_to user_url(@user)
+    else
+      flash.now[:errors] = @user.errors.full_messages
+      render :edit
+    end
+
+
+  end
+
   def show
     @user = Users.find(params[:id])
   end
@@ -28,7 +46,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :username, :bio)
+    params.require(:user).permit(:email, :password)
   end
 
 end

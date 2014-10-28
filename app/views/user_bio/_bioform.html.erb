@@ -1,0 +1,23 @@
+<%= (action = (@user_bio.persisted? ? edit_user_bio_url(@user_bio): user_bio_index_url)) %>
+<%= (method_action = (@user_bio.persisted? ? "PATCH": "POST")) %>
+<h1>Change your Settings</h1>
+
+<form action="<%= action %>" method="POST">
+
+  <input type="hidden" name="_method" method="<%= method_action %>">
+
+  <%= form_auth %>
+
+  <label for="username">Name</label>
+   <br>
+  <input type="text" name="user_bio[username]" id="username" value="<%= @user_bio.username %>">
+   <br>
+  <label for="bio"></label>
+   <br>
+  <textarea name="user_bio[bio]" id="bio"><%= @user_bio.bio %></textarea>
+   <br>
+    <!-- upload pic -->
+
+
+  <input type="submit" value="Submit">
+</form>

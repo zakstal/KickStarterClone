@@ -1,7 +1,10 @@
 class Users < ActiveRecord::Base
   attr_reader :password
-  validates :email, :session_token, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true, if: :editing_email
+  validates :session_token, presence: true, uniqueness: true
   validates :password_digest, length: { minimum: 6, allow_nil: true }
+
+  has_one :user_bio, class_name: "UserBio", foreign_key: :user_id, primary_key: :id
 
    after_initialize :ensure_session
 
@@ -27,6 +30,10 @@ class Users < ActiveRecord::Base
 
   def ensure_session
     self.session_token ||= SecureRandom::urlsafe_base64(16)
+  end
+
+  def editing_email
+    true unless Users.find_by_email(:email)
   end
 
 end

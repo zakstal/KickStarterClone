@@ -1,0 +1,19 @@
+<h1>Change your Settings</h1>
+
+<form action="<%= user_bio_index_url %>" method="POST">
+
+  <%= form_auth %>
+
+  <label for="username">Name</label>
+   <br>
+  <input type="text" name="user_bio[username]" id="username" value="">
+   <br>
+  <label for="bio"></label>
+   <br>
+  <textarea name="user_bio[bio]" id="bio"></textarea>
+   <br>
+    <!-- upload pic -->
+
+
+  <input type="submit" value="Submit">
+</form>
