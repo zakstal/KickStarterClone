@@ -1,0 +1,16 @@
+<h1>Sign In</h1>
+
+<form action="<%= new_session_url %>" method="POST">
+
+  <%= form_auth %>
+
+  <label for="Name">Name</label>
+    <br>
+  <input type="text" name="user[username]" id="Name" value="<%= @user.username %>">
+    <br>
+  <label for="pass">Password</label>
+    <br>
+  <input type="password" name="user[password]" id="pass">
+    <br>
+  <input type="submit" value="Submit">
+</form>
