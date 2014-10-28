@@ -1,4 +1,4 @@
-<% (action = (user_bio.persisted? ? edit_user_bio_url(user_bio): user_bio_index_url)) %>
+<% (action = (user_bio.persisted? ? user_bio_url(user_bio): user_bio_index_url)) %>
 <% (method_action = (user_bio.persisted? ? "PATCH": "POST")) %>
 
 
@@ -7,7 +7,7 @@
 <form action="<%= action %>" method="POST">
 
  <%= form_auth %>
-  <input type="hidden" name="_method" method="<%= method_action %>">
+  <input type="hidden" name="_method" value ="<%= method_action %>">
   <input type="hidden" name="user_bio[user_id]" value="<%= user_bio.user_id %>">
 
 

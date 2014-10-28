@@ -10,7 +10,7 @@
   <% if logged_in? %>
   <p class="user">Welcom <%= current_user.email%></p>
   <%= button_to "Sign Out", session_url, method: :delete %>
-    <a href="<%= new_user_user_bio_url(current_user) %>">Edit page</a>
+   <%= render "shared/bio_new_or_edit_link" %>
   <% else %>
     <a href="<%= new_user_url %>">Sign up</a>
     <a href="<%= new_session_url %>">Sign In</a>
