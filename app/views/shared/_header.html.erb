@@ -1,5 +1,6 @@
 <div class="group header">
-<div class="signin-out-or-me">
+  <div class="title">KickStarter</div>
+
   <% if logged_in? %>
   <div class="user-tab">Me</div>
   <div class="user-info-header-dropdown">
@@ -14,6 +15,6 @@
       <a href="<%= new_user_url %>" >Sign up</a>
       <a href="<%= new_session_url %>">Sign In</a>
     </div>
-  </div>
+
   <% end %>
 </div>
