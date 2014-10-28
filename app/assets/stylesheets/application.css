@@ -11,3 +11,44 @@
  *= require_self
  *= require_tree .
  */
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.header {
+/*  background: red;*/
+  height: 50px;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-bottom: 1px solid lightgray;
+}
+
+.user-info-header-dropdown {
+  margin-top: 50px;
+  position: absolute;
+  right: 0;
+  width: 200px;
+  height: auto;
+  padding: 10px;
+  border: 1px solid lightgray;
+}
+
+.user-tab {
+  position: absolute;
+  margin-top: -10px;
+  margin-right: 30px;
+  height: auto;
+  padding: 20px;
+/*  border: 1px solid black;*/
+  right: 0;
+/*  width: 30px;*/
+  text-align: right;
+}
+
+.hidden {
+  display: none;
+}

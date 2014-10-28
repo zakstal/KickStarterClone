@@ -1,0 +1,19 @@
+<div class="group header">
+<div class="signin-out-or-me">
+  <% if logged_in? %>
+  <div class="user-tab">Me</div>
+  <div class="user-info-header-dropdown">
+     <%= button_to "Sign Out", session_url, method: :delete %>
+     <%= render "shared/bio_new_or_edit_link" %>
+  </div>
+
+
+  <% else %>
+
+    <div class="user-tab group">
+      <a href="<%= new_user_url %>" >Sign up</a>
+      <a href="<%= new_session_url %>">Sign In</a>
+    </div>
+  </div>
+  <% end %>
+</div>
