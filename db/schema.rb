@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141028183646) do
+ActiveRecord::Schema.define(version: 20141028221858) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "user_bios", force: true do |t|
     t.string   "username"
@@ -21,7 +24,7 @@ ActiveRecord::Schema.define(version: 20141028183646) do
     t.string   "user_id"
   end
 
-  add_index "user_bios", ["username"], name: "index_user_bios_on_username", unique: true
+  add_index "user_bios", ["username"], name: "index_user_bios_on_username", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "password_digest", null: false
