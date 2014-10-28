@@ -2,6 +2,7 @@ class UserBioController < ApplicationController
 
   def new
     @user_bio = UserBio.new(user_id: current_user.id)
+
   end
 
   def create
@@ -43,7 +44,7 @@ class UserBioController < ApplicationController
   private
 
   def user_bio_params
-    params.require(:user_bio).permit(:username, :bio)
+    params.require(:user_bio).permit(:username, :bio, :user_id)
   end
 
 end
