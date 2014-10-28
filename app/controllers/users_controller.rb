@@ -7,12 +7,10 @@ class UsersController < ApplicationController
   def create
     @user = Users.new(user_params)
     if @user.save
-      fail
       log_in?(@user)
       redirect_to user_url(@user)
     else
       flash.now[:errors] = @user.errors.full_messages
-      # fail
       render :new
     end
   end
