@@ -13,6 +13,7 @@
 
 -project
   user_id
+  catagorie_id
   title
   description
   has one video: need polymorphic model
