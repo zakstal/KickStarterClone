@@ -1,3 +1,31 @@
 // Place all the styles related to the catagories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.container {
+  height: 640px;
+  left: 0;
+  right: 0;
+  position: absolute;
+  background: lightgray;
+}
+
+.catagory-container {
+  width: auto;
+  margin: 0 auto;
+}
+
+ul {
+  list-style: none;
+  float: left;
+}
+
+.cat {
+  float: left;
+  width: 177px;
+  height: 100px;
+  border: 1px solid lightgray;
+  background: white;
+  border-radius: 3px;
+}

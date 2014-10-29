@@ -5,4 +5,5 @@ KickStarter::Application.routes.draw do
   end
   resources :user_bio, only: [:create, :edit, :update, :destroy]
   resource :session
+  resources :catagories, only: [:index, :show]
 end
