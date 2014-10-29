@@ -6,4 +6,5 @@ class Catagorie < ActiveRecord::Base
     "Design",
     "Games"
   ]
+  has_many :projects
 end

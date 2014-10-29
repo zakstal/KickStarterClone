@@ -1,4 +1,4 @@
--users
+f-users
   username
   email
  password
@@ -9,6 +9,8 @@
   has many projects
   pledges to many projects:
   has many websites:
+  ------extra
+  multiple sessions
 
 
 -project
@@ -22,7 +24,14 @@
   has many pledges
   has many backers through pled
   has many rewards
+  -----extra
+  calculate on lookup the amount of days left
+  add in model a method that makes funding days left into date
+
+  splitup user title description in backbone into two pages
 ?: should this have a "has a story" story has video description challenge
+
+-backed_projects
 
 
 -pledge
