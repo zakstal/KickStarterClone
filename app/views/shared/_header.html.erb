@@ -7,8 +7,9 @@
   <% if logged_in? %>
   <div class="user-tab">Me</div>
   <div class="user-info-header-dropdown">
-     <%= button_to "Sign Out", session_url, method: :delete %>
      <%= render "shared/bio_new_or_edit_link" %>
+     <p>Your are signed in as: <%= current_user.user_bio.username %></p>
+     <%= button_to "Sign Out", session_url, method: :delete %>
   </div>
 
 

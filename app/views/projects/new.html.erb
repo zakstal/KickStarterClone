@@ -17,9 +17,9 @@
   <leabel for="cat">Catagorie</leabel>
   <br>
   <!-- <input type="text" name="project[catagorie]" id="cat"> -->
-  <select name="project[catagorie_id]" id="cat">
-    <% Catagorie::CATAGORIES.each do |cat, id| %>
-      <option value="<%= id %>"><%= cat %></option>
+  <select name="project[catagory_id]" id="cat">
+    <% Catagorie::CATAGORIES.each do |cat| %>
+      <option><%= cat %></option>
     <% end %>
   </select>
   <br>
