@@ -2,9 +2,8 @@
 <% url_method = (reward.persisted? ? "PATCH" : "POST" ) %>
 
 
-<h2>How Will You Thank People</h2>
-<%= reward.project_id  %>
-<form action="<%= action %>" method="POST">
+
+<form action="<%= action %>" method="POST" class="form">
   <!-- <input type="hidden" name="_method" value="<%= url_method %>"> -->
   <%= form_auth %>
    <input type="hidden" name="reward[backer_id]" value="<%= current_user.id %>">

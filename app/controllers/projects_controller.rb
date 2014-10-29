@@ -13,7 +13,8 @@ class ProjectsController < ApplicationController
        @catagorie = Catagorie.new(catagory: @project.catagory_id, project_id: @project.id)
        @catagorie.save
       # redirect to new rewards
-      redirect_to new_project_reward_url(@project)
+      redirect_to project_rewards_url(@project)
+      #new_project_reward_url(@project)
     else
       flash.now[:errors] =  @project.errors.full_messages
       render :new

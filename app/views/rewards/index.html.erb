@@ -1,0 +1,14 @@
+<h2>How Will You Thank People</h2>
+
+<% project_id = @rewards.first.project_id %>
+
+<ul>
+
+    <% @rewards.each do |reward| %>
+
+    <li><%= render partial: "rewardform", locals: { reward: reward } %></li>
+
+    <% end %>
+
+
+</ul>

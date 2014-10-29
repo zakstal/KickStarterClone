@@ -3,7 +3,8 @@ class RewardsController < ApplicationController
     before_filter :require_logged_in, except: [:show]
 
   def index
-
+    @rewards = Reward.where(project_id: params[:project_id])
+    @rewards << Reward.new(project_id: params[:project_id])
   end
 
   def new
@@ -13,7 +14,7 @@ class RewardsController < ApplicationController
   def create
     @reward = Reward.new(reward_params)
     if @reward.save
-      redirect_to user_url(@reward.maker.id)
+      redirect_to  project_rewards_url(@reward.project_id)
     else
       flash.now[:errors] = @user.errors.full_messages
       render :new
