@@ -13,9 +13,9 @@ class ProjectsController < ApplicationController
        @catagorie = Catagorie.new(catagory: @project.catagory_id, project_id: @project.id)
        @catagorie.save
       # redirect to new rewards
-      redirect_to new_project_reward_url(@prject)
+      redirect_to new_project_reward_url(@project)
     else
-      flash.now[:errors] = ["There was a problem with your submission"]
+      flash.now[:errors] =  @project.errors.full_messages
       render :new
     end
   end
@@ -30,7 +30,7 @@ class ProjectsController < ApplicationController
     if @project.update_attributes(project_params)
       redirect_to users_url
     else
-      flash.now[:errors] = @user.errors.full_messages
+      flash.now[:errors] = @project.errors.full_messages
       render :edit
     end
 

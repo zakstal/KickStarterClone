@@ -14,10 +14,12 @@
      <div class="current-project-dropdown">
        <p>Your Projects</p>
        <ul>
-         <% current_user.projects.each do |project| %>
+         <% if !current_user.projects.empty? %>
+           <% current_user.projects.each do |project| %>
 
-           <li><a href="<%= project_url(project) %>"><%=  project.title %></a></li>
+             <li><a href="<%= project_url(project) %>"><%=  project.title %></a></li>
 
+           <% end %>
          <% end %>
 
        </ul>

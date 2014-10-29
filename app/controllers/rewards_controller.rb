@@ -7,13 +7,13 @@ class RewardsController < ApplicationController
   end
 
   def new
-    @reward = Reward.new(project_id: @project.id)
+    @reward = Reward.new(project_id: params[:project_id])
   end
 
   def create
     @reward = Reward.new(reward_params)
     if @reward.save
-      redirect_to user_url
+      redirect_to user_url(@reward.maker.id)
     else
       flash.now[:errors] = @user.errors.full_messages
       render :new
