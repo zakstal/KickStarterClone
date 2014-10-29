@@ -42,7 +42,7 @@ body, html {
 
 
 .user-info-header-dropdown {
-  margin-top: 5px;
+  margin-top: 62px;
   position: absolute;
   right: 0;
   width: 200px;
@@ -50,6 +50,7 @@ body, html {
   padding: 10px;
   border: 1px solid lightgray;
   background: white;
+  z-index: 1;
 }
 
 .user-tab {
