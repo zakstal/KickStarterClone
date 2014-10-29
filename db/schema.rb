@@ -13,11 +13,12 @@
 
 ActiveRecord::Schema.define(version: 20141029182231) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "catagories", force: true do |t|
-    t.string   "catagory"
+    t.string   "catagory",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "project_id", null: false
@@ -25,18 +26,34 @@ ActiveRecord::Schema.define(version: 20141029182231) do
 
   create_table "projects", force: true do |t|
     t.string   "title",       null: false
-    t.string   "description"
-    t.string   "catagory_id"
-    t.integer  "user_id"
+    t.string   "description",
+    t.string   "catagory_id",
+    t.integer  "user_id",
+
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "duration"
-    t.string   "fundinggoal"
+    t.string   "duration",    null: false
+    t.string   "fundinggoal", null: false
   end
 
-  add_index "projects", ["catagory_id"], name: "index_projects_on_catagory_id", using: :btree
+  add_index "projects", ["catagory_id"], name: "index_projects_on_catagory_id", unique: true, using: :btree
   add_index "projects", ["title"], name: "index_projects_on_title", unique: true, using: :btree
   add_index "projects", ["user_id"], name: "index_projects_on_user_id", using: :btree
+
+  create_table "rewards", force: true do |t|
+    t.integer  "backer_id"
+    t.integer  "project_id",   null: false
+    t.integer  "pledge_amt",   null: false
+    t.string   "description",  null: false
+    t.date     "est_delivery", null: false
+    t.integer  "qty",          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rewards", ["backer_id"], name: "index_rewards_on_backer_id", using: :btree
+  add_index "rewards", ["pledge_amt"], name: "index_rewards_on_pledge_amt", using: :btree
+  add_index "rewards", ["project_id"], name: "index_rewards_on_project_id", using: :btree
 
   create_table "user_bios", force: true do |t|
     t.string   "username"

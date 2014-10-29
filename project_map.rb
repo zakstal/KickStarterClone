@@ -33,6 +33,19 @@ when creating a new project redirect to signup if not signed in, then redirect t
   splitup user title description in backbone into two pages
 ?: should this have a "has a story" story has video description challenge
 
+-reward
+  backer_id
+  project_id
+  pledge_amt
+  description
+  delivery
+  qty
+  belongs_to project
+  has_many backers
+
+
+
+
 -backed_projects
 
 

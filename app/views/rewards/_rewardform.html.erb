@@ -1,0 +1,31 @@
+<% action = (reward.persisted? ? reward_url(reward) : rewards_url ) %>
+<% url_method = (reward.persisted? ? "PATCH" : "POST" ) %>
+
+
+<h2>How Will You Thank People</h2>
+
+<form action="<%=  %>" method="POST">
+  <!-- <input type="hidden" name="_method" value="<%= url_method %>"> -->
+  <%= form_auth %>
+   <input type="hidden" name="reward[backer_id]" value="<%= current_user.id %>">
+   <input type="hidden" name="reward[project_id]" value="<%= reward.project_id %>">
+
+    <br>
+  <label for="pledge">Pledge</label>
+    <br>
+  <input type="text" name="reward[pledge_amt]" value="<%= reward.pledge_amt %>" id="pledge">
+    <br>
+  <leabel for="description">Description</leabel>
+    <br>
+  <textarea id="description" name="reward[description]"><%= reward.description %></textarea>
+    <br>
+  <label for="estimated_delivery">Estimated Delivery</label>
+    <br>
+  <input type="date" name="reward[est_deliver]" value="<%= reward.est_delivery %>" id="estimated_delivery">
+    <br>
+  <label for="limited_quantity">Limited Quantity</label>
+    <br>
+  <input type="text" name="reward[qty]" value="<%= reward.qty %>" id="limited_quantity">
+
+  <input type="submit" value="save">
+</form>

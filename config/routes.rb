@@ -6,5 +6,8 @@ KickStarter::Application.routes.draw do
   resources :user_bio, only: [:create, :edit, :update, :destroy]
   resource :session
   resources :catagories, only: [:index, :show]
-  resources :projects, only: [:new, :create, :edit, :update, :destroy, :show]
+  resources :projects, only: [:new, :create, :edit, :update, :destroy, :show] do
+    resources :rewards, only: [:new]
+  end
+  resources :rewards, only: [:create, :edit, :update, :destroy, :index]
 end
