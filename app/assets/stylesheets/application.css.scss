@@ -39,6 +39,8 @@ body, html {
   border-bottom: 1px solid lightgray;
 }
 
+
+
 .user-info-header-dropdown {
   margin-top: 5px;
   position: absolute;
@@ -64,11 +66,21 @@ body, html {
 }
 
 .title {
+  float: left;
   font-weight: bold;
   font-size: 2em;
   font-style: sans-serif;
   padding: 10px;
 }
+
+.discover-start {
+  float: left;
+  max-height: 100%;
+  width: 80px;
+  margin: 20px;
+}
+
+
 .signin-out-or-me {
   max-height: 100%;
 }
