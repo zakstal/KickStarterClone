@@ -1,6 +1,6 @@
-<% action = (@project.persisted? ? edit_project_url(@project) : projects_url) %>
-<% url_method = (@project.persisted? ? "PATCH" : "POST") %>
-<% title = (@project.persisted? ? "Edit Your Porject" : "What are you going to create") %>
+<% action = (project.persisted? ? project_url(project) : projects_url) %>
+<% url_method = (project.persisted? ? "PATCH" : "POST") %>
+<% title = (project.persisted? ? "Edit Your Porject" : "What are you going to create") %>
 <h2><%= title %></h2>
 
 <form class="start-project-form" action="<%= action %>" method="POST">
@@ -11,28 +11,28 @@
   <br>
   <label for="title">Title</label>
   <br>
-  <input type="text" name="project[title]" id="title" value="<%= @project.title %>">
+  <input type="text" name="project[title]" id="title" value="<%= project.title %>">
   <br>
   <leabel for="description">Shrot blurb</leabel>
   <br>
-  <textarea id="description" name="project[description]"><%= @project.description %></textarea>
+  <textarea id="description" name="project[description]"><%= project.description %></textarea>
   <br>
   <leabel for="cat">Catagorie</leabel>
   <br>
   <!-- <input type="text" name="project[catagorie]" id="cat"> -->
   <select name="project[catagory_id]" id="cat">
     <% Catagorie::CATAGORIES.each do |cat| %>
-      <option <%= selected if cat == @project.catagory_id %>><%= cat %></option>
+      <option <%= selected if cat == project.catagory_id %>><%= cat %></option>
     <% end %>
   </select>
   <br>
   <leabel for="duration">Funding Duration</leabel>
   <br>
-  <input type="text" name="project[duration]" id="duration" value="<%= @project.duration %>">
+  <input type="text" name="project[duration]" id="duration" value="<%= project.duration %>">
   <br>
   <leabel for="goal">Funding Goal</leabel>
   <br>
-  <input type="text" name="project[fundinggoal]" id="goal" value="<%= @project.fundinggoal %>">
+  <input type="text" name="project[fundinggoal]" id="goal" value="<%= project.fundinggoal %>">
   <br>
   <input type="submit" value="submit">
 </form>

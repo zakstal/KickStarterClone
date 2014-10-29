@@ -8,8 +8,20 @@
   <div class="user-tab">Me</div>
   <div class="user-info-header-dropdown">
      <%= render "shared/bio_new_or_edit_link" %>
-     <p>Your are signed in as: <%= current_user.user_bio.username %></p>
+     <p>Your are signed in as: <%= current_user.user_bio.nil? ? "Guest" : current_user.user_bio.username  %></p>
+
      <%= button_to "Sign Out", session_url, method: :delete %>
+     <div class="current-project-dropdown">
+       <p>Your Projects</p>
+       <ul>
+         <% current_user.projects.each do |project| %>
+
+           <li><a href="<%= project_url(project) %>"><%=  project.title %></a></li>
+
+         <% end %>
+
+       </ul>
+     </div>
   </div>
 
 

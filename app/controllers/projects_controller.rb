@@ -15,7 +15,6 @@ class ProjectsController < ApplicationController
       # redirect to new rewards
       redirect_to users_url
     else
-      fail
       flash.now[:errors] = ["There was a problem with your submission"]
       render :new
     end
@@ -29,7 +28,7 @@ class ProjectsController < ApplicationController
      @project = Project.find(params[:id])
 
     if @project.update_attributes(project_params)
-
+      redirect_to users_url
     else
       flash.now[:errors] = @user.errors.full_messages
       render :edit

@@ -5,7 +5,7 @@ class Users < ActiveRecord::Base
   validates :password_digest, length: { minimum: 6, allow_nil: true }
 
   has_one :user_bio, class_name: "UserBio", foreign_key: :user_id, primary_key: :id
-  has_many :projects, class_name: "Users", foreign_key: :user_id
+  has_many :projects, class_name: "Project", foreign_key: :user_id, primary_key: :id
    after_initialize :ensure_session
 
   def self.find_by_credentials(email, password)
