@@ -1,33 +1,35 @@
-<!-- <% action = ( @project.persisted? ? : ) %>
-<% url_method = ( @project.persisted? ? "PATCH" : "POST" ) %> -->
+
 <h2>What are you going to create</h2>
 
 <form class="start-project-form" action="<%= projects_url %>" method="POST">
   <!-- <input type="hidden" name="_method" value="url_method"> -->
-  <input type="hidden" name="project[user_id]">
+  <input type="hidden" name="project[user_id]" value="<%= current_user.id %>">
   <%= form_auth %>
   <br>
   <label for="title">Title</label>
   <br>
   <input type="text" name="project[title]" id="title">
   <br>
+  <leabel for="description">Shrot blurb</leabel>
+  <br>
+  <textarea id="description" name="project[description]"></textarea>
+  <br>
   <leabel for="cat">Catagorie</leabel>
   <br>
   <!-- <input type="text" name="project[catagorie]" id="cat"> -->
-  <select name="project[catagorie]" id="cat">
-    <% Catagoire::CATAGORIES.each do |cat| %>
-      <option><%= cat %></option>
+  <select name="project[catagorie_id]" id="cat">
+    <% Catagorie::CATAGORIES.each do |cat, id| %>
+      <option value="<%= id %>"><%= cat %></option>
     <% end %>
   </select>
   <br>
   <leabel for="duration">Funding Duration</leabel>
   <br>
-  <placeholder>30 days</placeholder>
   <input type="text" name="project[duration]" id="duration">
   <br>
   <leabel for="goal">Funding Goal</leabel>
   <br>
-  <input type="text" name="project[goal]" id="goal">
+  <input type="text" name="project[fundinggoal]" id="goal">
   <br>
   <input type="submit" value="submit">
 </form>

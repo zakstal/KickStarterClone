@@ -1,17 +1,19 @@
 class ProjectsController < ApplicationController
 
+  before_filter :require_logged_in, except: [:show]
 
   def new
-    @project = Projects.new(user_id: current_user.id)
+    @project = Project.new
   end
 
   def create
-    @project = Projects.new(project_params)
+    @project = Project.new(project_params)
     if @project.save
       # redirect to new rewards
       redirect_to users_url
     else
-      flash.now[:errors] = @user.errors.full_messages
+      fail
+      flash.now[:errors] = ["There was a problem with your submission"]
       render :new
     end
   end
@@ -46,6 +48,6 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:user_id, :title, :catagorie, :duration, :goal)
+    params.require(:project).permit(:user_id, :description, :title, :catagorie_id, :duration, :fundinggoal)
   end
 end
