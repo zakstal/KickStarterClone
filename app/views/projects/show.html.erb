@@ -1,9 +1,13 @@
 <div class="show-main">
   <%= current_user.id == @project.user_id %>
+
   <% if current_user.id == @project.user_id %>
+
     <a href="<%= edit_project_url(@project) %>">Edit This Project</a>
     <a href="<%= project_rewards_url(@project) %>">Edit Rewards</a>
+     <%= button_to "Delete Project", project_url(@project), method: :delete %>
   <% end %>
+
   <head class="project-head group">
     <h2><%= @project.title %></h2>
     <a href=""><%= @project.user.user_bio.username %></a>

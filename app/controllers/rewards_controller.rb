@@ -27,8 +27,8 @@ class RewardsController < ApplicationController
 
   def update
     @reward = Reward.find(params[:id])
-    if @reward.update_attributes(user_params)
-      redirect_to rewards_url
+    if @reward.update_attributes(reward_params)
+      redirect_to project_rewards_url(@reward.project_id)
     else
       flash.now[:errors] = @reward.errors.full_messages
       render :edit

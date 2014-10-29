@@ -4,7 +4,7 @@
 
 
 <form action="<%= action %>" method="POST" class="form">
-  <!-- <input type="hidden" name="_method" value="<%= url_method %>"> -->
+  <input type="hidden" name="_method" value="<%= url_method %>">
   <%= form_auth %>
    <input type="hidden" name="reward[backer_id]" value="<%= current_user.id %>">
    <input type="hidden" name="reward[project_id]" value="<%= reward.project_id %>">

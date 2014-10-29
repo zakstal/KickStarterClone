@@ -29,6 +29,7 @@ f-users
   add in model a method that makes funding days left into date
 when creating a new project redirect to signup if not signed in, then redirect to start project page
   add user bio as requirment to make a project
+  needs a cancelled or active column
 
   splitup user title description in backbone into two pages
 ?: should this have a "has a story" story has video description challenge
