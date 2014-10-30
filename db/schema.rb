@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141030143801) do
+ActiveRecord::Schema.define(version: 20141030181627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20141030143801) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "user_id"
+    t.string   "filepicker_url"
   end
 
   add_index "user_bios", ["username"], name: "index_user_bios_on_username", unique: true, using: :btree
@@ -81,7 +82,6 @@ ActiveRecord::Schema.define(version: 20141030143801) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email",           null: false
-    t.string   "filepicker_url"
   end
 
 end

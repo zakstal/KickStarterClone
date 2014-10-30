@@ -44,7 +44,7 @@ class UserBioController < ApplicationController
   private
 
   def user_bio_params
-    params.require(:user_bio).permit(:username, :bio, :user_id)
+    params.require(:user_bio).permit(:username, :bio, :user_id, :filepicker_url)
   end
 
 end

@@ -3,8 +3,12 @@ KickStarter::Application.routes.draw do
   resources :users do
     resources :user_bio, only: [:new]
   end
-  resources :user_bio, only: [:create, :edit, :update, :destroy]
   resource :session
+
+  namespace :api, defaults: { format: :json} do
+
+  end
+  resources :user_bio, only: [:create, :edit, :update, :destroy]
   resources :catagories, only: [:index, :show]
   resources :projects, only: [:new, :create, :edit, :update, :destroy, :show] do
     resources :rewards, only: [:new, :index]
