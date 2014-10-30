@@ -55,3 +55,5 @@ group :production do
 end
 
 gem "backbone-on-rails"
+
+gem 'filepicker-rails'
