@@ -23,6 +23,18 @@
          <% end %>
 
        </ul>
+
+       <p>Projects You Have Backed</p>
+       <ul>
+         <% if !current_user.projects.empty? %>
+           <% current_user.backed_projects.each do |project| %>
+
+             <li><a href="<%= project_url(project) %>"><%=  project.title %></a></li>
+
+           <% end %>
+         <% end %>
+
+       </ul>
      </div>
   </div>
 

@@ -41,4 +41,8 @@ class Users < ActiveRecord::Base
     true unless Users.find_by_email(:email)
   end
 
+  def name
+    user_bio.username
+  end
+
 end

@@ -1,5 +1,4 @@
 <div class="show-main">
-  <%= current_user.id == @project.user_id %>
 
   <% if current_user.id == @project.user_id %>
 
@@ -12,8 +11,6 @@
   <head class="project-head group">
     <h2><%= @project.title %></h2>
     <a href=""><%= @project.user.user_bio.username %></a>
-    <br>
-    <a><%= @project.catagory %></a>
     <br>
     <a><%= @project.how_many_backers %> people have backed this project</a>
     <br>

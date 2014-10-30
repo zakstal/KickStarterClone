@@ -1,0 +1,13 @@
+<div class="project-blurb">
+  <a><%= project.title %></a>
+  <br>
+  <a><%= current_user.name %></a>
+  <br>
+  <a><%= project.description[0...34] %></a>
+  <br>
+  <a><%= project.catagory.catagory %></a>
+  <br>
+  <a><%= project.title %></a>
+  <br>
+  <a><%= "canceled" if project.active == true %></a>
+</div>

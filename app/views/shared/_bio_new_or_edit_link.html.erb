@@ -1,2 +1,3 @@
 <% which_url = ( !current_user.user_bio.nil? ? edit_user_bio_url(current_user.user_bio.id) : new_user_user_bio_url(current_user) )%>
    <a href="<%= which_url %>">Settings</a>
+   <a href="<%= user_url(current_user) %>">Profile</a>
