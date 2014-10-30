@@ -4,7 +4,6 @@ class RewardsController < ApplicationController
 
   def index
     @rewards = Reward.where(project_id: params[:project_id])
-    @rewards << Reward.new(project_id: params[:project_id])
   end
 
   def new

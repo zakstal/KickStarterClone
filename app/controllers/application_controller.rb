@@ -47,9 +47,13 @@ class ApplicationController < ActionController::Base
 
   def redirect_after_require_login_or(default_url)
     previous_url = session[:previous_url]
-    logged_at = session[:last_request_time]
+    logged_at = session[:last_reqeust_time]
     reset_previous_url
-    redirect_to previous_url if previous_url && logged_at < 5.minutes.ago
+    if previous_url && logged_at > 5.minutes.ago.to_i
+      redirect_to previous_url
+    else
+      redirect_to default_url
+    end
   end
 
 end

@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-
+  before_filter :store_location, only: [:new, :edit]
   before_filter :require_logged_in, except: [:show]
 
   def new

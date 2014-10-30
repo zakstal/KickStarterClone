@@ -13,8 +13,9 @@ class SessionsController < ApplicationController
 
     if @user
       log_in?(@user)
-      redirect_after_require_login_or(user_url(@user)
+      redirect_after_require_login_or(user_url(@user))
     else
+      @user = Users.new
       flash.now[:erros] = ['Invalid username or password']
       render :new
     end
