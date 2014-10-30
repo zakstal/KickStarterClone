@@ -4,8 +4,11 @@ class Users < ActiveRecord::Base
   validates :session_token, presence: true, uniqueness: true
   validates :password_digest, length: { minimum: 6, allow_nil: true }
 
-  has_one :user_bio, class_name: "UserBio", foreign_key: :user_id, primary_key: :id
-  has_many :projects, class_name: "Project", foreign_key: :user_id, primary_key: :id
+  has_many  :backed_projects, through: :rewards, source: :project
+  has_many  :rewards,         class_name: "Reward", forign_key: :backer_id
+  has_many  :projects,        class_name: "Project", foreign_key: :user_id, primary_key: :id
+  has_one   :user_bio,        class_name: "UserBio", foreign_key: :user_id, primary_key: :id
+
    after_initialize :ensure_session
 
   def self.find_by_credentials(email, password)
