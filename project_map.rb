@@ -1,3 +1,25 @@
+for thrusday
+  filepicker io
+  add pic column where needed
+  vidio uploder
+  add facebook sign up
+  start backbone
+  create api space for controllers and routes and models
+
+  ----later
+
+
+
+
+
+
+
+
+
+
+
+
+
 f-users
   username
   email
