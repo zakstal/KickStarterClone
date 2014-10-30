@@ -12,6 +12,20 @@
   <head class="project-head group">
     <h2><%= @project.title %></h2>
     <a href=""><%= @project.user.user_bio.username %></a>
-    <a><%= @project.catagorie %></a>
+    <br>
+    <a><%= @project.catagory %></a>
+    <br>
+    <a><%= @project.how_many_backers %> people have backed this project</a>
+    <br>
+    <a>$<%= @project.amt_pledged %> pledged of a <%= @project.fundinggoal %></a>
+    <br>
+    <a><%= @project.catagory_id %></a>
+    <br>
+    <h3>Our Story</h3>
+    <a><%= @project.story.story %></a>
+    <br>
+    <h3>Challenges</h3>
+    <a><%= @project.story.challenges %></a>
+
   </head>
 </div>
