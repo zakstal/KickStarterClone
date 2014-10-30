@@ -7,6 +7,5 @@ class CreateStories < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :stroies, :project_id
   end
 end

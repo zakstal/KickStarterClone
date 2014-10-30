@@ -28,4 +28,28 @@ class ApplicationController < ActionController::Base
       redirect_to new_session_url
     end
   end
+
+  def store_location
+    return unless request.get?
+    if (request.path != "/sessions/new" &&
+        request.path != "/users/new" &&
+        !request.xhr?)
+      if request.format == "text/html" || request.content_type == "text/html"
+        session[:previous_url] = request.fullpath
+        session[:last_reqeust_time] = Time.now.utc.to_i
+      end
+    end
+  end
+
+  def reset_previous_url
+    session[:previous_url] = nil
+  end
+
+  def redirect_after_require_login_or(default_url)
+    previous_url = session[:previous_url]
+    logged_at = session[:last_request_time]
+    reset_previous_url
+    redirect_to previous_url if previous_url && logged_at < 5.minutes.ago
+  end
+
 end
