@@ -35,7 +35,6 @@ class ProjectsController < ApplicationController
       render :edit
     end
 
-
   end
 
   def show

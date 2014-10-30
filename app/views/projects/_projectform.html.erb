@@ -3,7 +3,7 @@
 <% title = (project.persisted? ? "Edit Your Porject" : "What are you going to create") %>
 <h2><%= title %></h2>
 
-<form class="start-project-form form" action="<%= action %>" method="POST">
+<form class="form start-project-form " action="<%= action %>" method="POST">
   <input type="hidden" name="_method" value="<%= url_method %>">
 
   <input type="hidden" name="project[user_id]" value="<%= current_user.id %>">

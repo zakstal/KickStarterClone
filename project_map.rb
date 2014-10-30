@@ -44,6 +44,13 @@ when creating a new project redirect to signup if not signed in, then redirect t
   belongs_to project
   has_many backers
 
+-story
+  addvideo column
+  description
+  challneges
+
+-backers
+
 
 
 
@@ -90,5 +97,10 @@ when creating a new project redirect to signup if not signed in, then redirect t
 
 -go back to user settings partial add backed projects and created projects
 
+----notes
 
+is there a way to for a linknto to send a request through a controller and have it reutrun to
+the current page but only from this page
+
+project sign up links are weird when it leavs the reward page
 

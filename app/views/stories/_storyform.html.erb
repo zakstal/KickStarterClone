@@ -1,0 +1,21 @@
+<% action = (story.persisted? ? story_url(story) : stories_url ) %>
+<% url_method = (story.persisted? ? "PATCH" : "POST" ) %>
+
+
+
+<form action="<%= action %>" method="POST" class="form">
+  <input type="hidden" name="_method" value="<%= url_method %>">
+  <%= form_auth %>
+   <input type="hidden" name="stories[project_id]" value="<%= story.project_id %>">
+
+    <br>
+  <label for="description">Description</label>
+    <br>
+  <textarea name="stories[story]" id="description"><%=  story.story %></textarea>
+    <br>
+  <label for="challenge">Challenges</label>
+    <br>
+  <textarea name="stories[challenges]" id="challenge"><%=  story.challenges %></textarea>
+    <br>
+  <input type="submit" value="save">
+</form>
