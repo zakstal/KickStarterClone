@@ -21,3 +21,7 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree .
+//
+// EJS Templates
+//= require_tree ../templates
+

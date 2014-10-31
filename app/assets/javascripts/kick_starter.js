@@ -1,13 +1,16 @@
-window.KickStarter = {
+window.KS = {
   Models: {},
   Collections: {},
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    new KS.Routers.UserRoute({
+      $rootEl: $('main')
+    });
+    Backbone.history.start()
   }
 };
 
 $(document).ready(function(){
-  KickStarter.initialize();
+  KS.initialize();
 });

@@ -3,10 +3,11 @@
 <head>
   <title>KickStarter</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-
+    <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <main>
   <%= render "shared/header" %>
   <ul>
   <% if flash[:errors] %>
@@ -20,7 +21,9 @@
   <% end %>
 </ul>
 
+
 <%= yield %>
+</main>
 
 </body>
 </html>

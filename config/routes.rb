@@ -1,5 +1,6 @@
 KickStarter::Application.routes.draw do
-  root to: "sessions#new"
+  # root to: "sessions#new"
+  root to: "static_pages#root"
   resources :users do
     resources :user_bio, only: [:new]
   end

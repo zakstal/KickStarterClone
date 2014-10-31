@@ -1,0 +1,27 @@
+<h1>Change your Settings</h1>
+
+<form action="<%= users_url(@user) %>" method="POST">
+
+  <%= form_auth %>
+
+  <label for="email">Email</label>
+    <br>
+  <input type="text" name="user[email]" id="eamil" value="<%= @user.email %>">
+    <br>
+  <label for="pass">Password</label>
+    <br>
+  <input type="password" name="user[password]" id="pass" value="can't change password yet">
+   <br>
+  <label for="username">Name</label>
+   <br>
+  <input type="text" name="user[username]" id="username" value="<%= @user.username %>">
+   <br>
+  <label for="bio"></label>
+   <br>
+  <textarea name="user[bio]" id="bio"><%= @user.bio %></textarea>
+   <br>
+    <!-- upload pic -->
+
+
+  <input type="submit" value="Submit">
+</form>

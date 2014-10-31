@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< Local Changes
+<<<<<<< Local Changes
 ActiveRecord::Schema.define(version: 20141030181627) do
+=======
+ActiveRecord::Schema.define(version: 20141030205825) do
+>>>>>>> External Changes
+=======
+ActiveRecord::Schema.define(version: 20141030210342) do
+>>>>>>> External Changes
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +31,20 @@ ActiveRecord::Schema.define(version: 20141030181627) do
     t.integer  "project_id", null: false
   end
 
+<<<<<<< Local Changes
+  create_table "pictures", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+=======
+  create_table "pictures", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "filepicker_url"
+  end
+
+>>>>>>> External Changes
   create_table "projects", force: true do |t|
     t.string   "title",                       null: false
     t.string   "description"
