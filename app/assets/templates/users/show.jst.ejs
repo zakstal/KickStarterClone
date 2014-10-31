@@ -1,10 +1,4 @@
 <div class="user">
-  <% bio = current_user.user_bio %>
-
-<%= filepicker_save_button "Save", bio.filepicker_url, "image/jpg" %>
-
-<%= filepicker_image_tag bio.filepicker_url, w: 160, h: 160, fit: 'clip' %>
-
 
 <h1><%= bio.username %></h1>
 <p><%= bio.bio %></p>
@@ -15,21 +9,13 @@
 <div class="projects-blurb-list">
   <p>Your Projects</p>
   <ul>
-    <% current_user.projects.each do |project| %>
 
-      <li><%= render partial: "projects/projectblurb", locals: { project: project } %></li>
-
-    <% end %>
   </ul>
 </div>
 <div class="projects-blurb-list">
   <p>Projects You Backed</p>
   <ul>
-    <% current_user.backed_projects.each do |project| %>
 
-      <li><%= render partial: "projects/projectblurb", locals: { project: project } %></li>
-
-    <% end %>
   </ul>
 </div>
 </div>
