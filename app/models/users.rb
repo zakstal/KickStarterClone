@@ -4,9 +4,10 @@ class Users < ActiveRecord::Base
   validates :session_token, presence: true, uniqueness: true
   validates :password_digest, length: { minimum: 6, allow_nil: true }
 
-  has_many  :rewards,         class_name: "Reward",   foreign_key: :backer_id,  primary_key: :id
-  has_many  :projects,        class_name: "Project",  foreign_key: :user_id,    primary_key: :id
-  has_one   :user_bio,        class_name: "UserBio",  foreign_key: :user_id,    primary_key: :id
+  has_many  :rewards,          through: :claimed_rewards, source: :rewards
+  has_many  :projects,         class_name: "Project",  foreign_key: :user_id,    primary_key: :id
+  has_one   :user_bio,         class_name: "UserBio",  foreign_key: :user_id,    primary_key: :id
+  has_many  :claimed_rewards,  class_name: "ClaimedRewards", foreign_key: :user_id
 
   has_many  :backed_projects, through: :rewards,      source: :project
 

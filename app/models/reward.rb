@@ -3,7 +3,7 @@ class Reward < ActiveRecord::Base
   belongs_to  :backer,  class_name: "Users", foreign_key: :backer_id, primary_key: :id
   has_one     :maker,   through: :project, source: :user
   has_many    :duplicates, class_name: "Reward", foreign_key: :id, primary_key: :id
-  has_many    :claimed_rewards, class_name: "ClaimedRewards"
+  has_many    :claimed_rewards, class_name: "ClaimedRewards", foreign_key: :reward_id
   #validate quantity left
   def times_backed
     duplicates.count
