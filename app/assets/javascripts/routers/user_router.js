@@ -1,14 +1,30 @@
 KS.Routers.UserRoute = Backbone.Router.extend({
+
   initialize: function (options){
+    KS.currentUser = new KS.Models.User()
     this.$rootEl = options.$rootEl
   },
 
   routes: {
-    "": "index"
+    "": "index",
+    //new before :id
+    "user/new": "new",
+    "user/show": "show"
   },
 
   index: function () {
-    this._headerFooter()
+    var body = new KS.Views.Blank()
+    this._headerFooter(body)
+  },
+
+  new: function () {
+    var showSignUp = new KS.Views.SignUp()
+    this._headerFooter(showSignUp);
+  },
+
+  show: function () {
+    var showBody = new KS.Views.UserShow({ model: KS.currentUser })
+    this._headerFooter(showBody);
   },
 
   _swapView: function(view) {
@@ -18,13 +34,13 @@ KS.Routers.UserRoute = Backbone.Router.extend({
   },
 
   _headerFooter: function(body) {
-   body = (body === 'undefined' ? new KS.Views.Blank() : body)
+    this.body = body
     var view = new KS.Views.HeadFoot({
-      body: body
+      body: this.body
     });
 
     this._swapView(view)
   }
 
 
-})
+});

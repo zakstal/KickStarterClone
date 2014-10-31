@@ -1,0 +1,26 @@
+<div class="runner-board group">
+  <div class="container">
+    <image class="user-image">
+      <div class="user-container">
+
+
+      <% if current_user.user_bio %>
+        <% bio = current_user.user_bio %>
+
+
+        <% if bio.filepicker_url %>
+          <%= filepicker_save_button "Save", bio.filepicker_url, "image/jpg" %>
+
+          <%= filepicker_image_tag bio.filepicker_url, w: 160, h: 160, fit: 'clip' %>
+        <% end %>
+
+        <h1><%= bio.username %></h1>
+        <p>Backed <%= current_user.backed_projects.count %> projects</p>
+        <p><%= bio.bio %></p>
+
+
+      <% end %>
+    </div>
+
+  </div>
+</div>

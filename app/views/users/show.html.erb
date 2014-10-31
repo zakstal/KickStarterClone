@@ -1,35 +1,21 @@
-<div class="user">
-  <% bio = current_user.user_bio %>
+<%= render "userprofile" %>
+<div class="container group">
+  <!-- <div class="projects-blurb-list">
+    <p>Your Projects</p>
+    <ul>
+      <% current_user.projects.each do |project| %>
 
-<%= filepicker_save_button "Save", bio.filepicker_url, "image/jpg" %>
+        <li><%= render partial: "projects/project_image_title", locals: { project: project } %></li>
 
-<%= filepicker_image_tag bio.filepicker_url, w: 160, h: 160, fit: 'clip' %>
+      <% end %>
+    </ul>
+  </div> -->
 
+    <p>Projects You Backed</p>
+      <% current_user.backed_projects.each do |project| %>
 
-<h1><%= bio.username %></h1>
-<p><%= bio.bio %></p>
+         <div><%= render partial: "projects/project_image_title", locals: { project: project } %></div>
 
+      <% end %>
 
-
-
-<div class="projects-blurb-list">
-  <p>Your Projects</p>
-  <ul>
-    <% current_user.projects.each do |project| %>
-
-      <li><%= render partial: "projects/projectblurb", locals: { project: project } %></li>
-
-    <% end %>
-  </ul>
-</div>
-<div class="projects-blurb-list">
-  <p>Projects You Backed</p>
-  <ul>
-    <% current_user.backed_projects.each do |project| %>
-
-      <li><%= render partial: "projects/projectblurb", locals: { project: project } %></li>
-
-    <% end %>
-  </ul>
-</div>
 </div>

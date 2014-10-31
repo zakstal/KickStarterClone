@@ -12,10 +12,21 @@
  *= require_tree .
  */
 
-body, html, a, div, ul {
+body, html {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+body, html, a, div, ul, h1 {
   padding: 0;
   margin: 0;
 
+}
+
+a, p, h1, h2, h3 {
+  text-decoration: none;
 }
 
 body, html {
@@ -37,6 +48,7 @@ body, html {
   left: 0;
   right: 0;
   border-bottom: 1px solid lightgray;
+  background: white;
 }
 
 
@@ -91,4 +103,11 @@ body, html {
 
 .hidden {
   display: none;
+}
+
+.runner-board {
+  height: 220px;
+  width: 100%;
+  background: #F7F7F7;
+  border-bottom: 1px solid lightgray;
 }

@@ -1,28 +1,59 @@
-<div class="show-main">
+<div class="background-project">
+  <div class="user-edit">
+    <% if current_user.id == @project.user_id %>
 
-  <% if current_user.id == @project.user_id %>
+      <a href="<%= edit_project_url(@project) %>">Edit This Project</a>
+      <a href="<%= project_rewards_url(@project) %>">Edit Rewards</a>
+      <a href="<%= edit_story_url(@project.story.id) %>">Edit Story</a>
+       <%= button_to "Delete Project", project_url(@project), method: :delete %>
+    <% end %>
+  </div>
 
-    <a href="<%= edit_project_url(@project) %>">Edit This Project</a>
-    <a href="<%= project_rewards_url(@project) %>">Edit Rewards</a>
-    <a href="<%= edit_story_url(@project.story.id) %>">Edit Story</a>
-     <%= button_to "Delete Project", project_url(@project), method: :delete %>
-  <% end %>
+  <div class="project-runner">
+    <div class="container">
+        <h2><%= @project.title %></h2>
+        <a href=""><%= @project.user.user_bio.username %></a>
+    </div>
+    <a ><%= @project.catagory_id %></a>
+  </div>
 
-  <head class="project-head group">
-    <h2><%= @project.title %></h2>
-    <a href=""><%= @project.user.user_bio.username %></a>
-    <br>
-    <a><%= @project.how_many_backers %> people have backed this project</a>
-    <br>
-    <a>$<%= @project.amt_pledged %> pledged of a <%= @project.fundinggoal %></a>
-    <br>
-    <a><%= @project.catagory_id %></a>
-    <br>
-    <h3>Our Story</h3>
-    <a><%= @project.story.story %></a>
-    <br>
-    <h3>Challenges</h3>
-    <a><%= @project.story.challenges %></a>
+  <div class="project-main group">
 
-  </head>
+
+
+    <div class="project-body group">
+
+      <image class="user-video">
+      <br>
+      <h3>Our Story</h3>
+      <a><%= @project.story.story %></a>
+      <br>
+      <h3>Challenges</h3>
+      <a><%= @project.story.challenges %></a>
+
+    </div>
+
+      <div class="right-container">
+        <br>
+        <h1><%= @project.how_many_backers %> </h1>
+        <p>Backers</p>
+        <br>
+        <h1>$<%= @project.amt_pledged %> </h1>
+        <p>pledged of a <%= @project.fundinggoal %></p>
+        <br>
+
+        <h1><%= @project.duration %></h1>
+        <p>Days to go</p>
+
+      </div>
+
+      <div>
+        <% @project.rewards.each do |reward| %>
+
+          <div><%= render partial: "rewards/reward_project", locals: { project: @project, user: current_user, reward: reward }%></div>
+
+        <% end %>
+      </div>
+
+  </div>
 </div>

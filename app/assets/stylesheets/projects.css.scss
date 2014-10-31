@@ -1,3 +1,66 @@
 // Place all the styles related to the Projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.project-thumbnail-large {
+  float: left;
+}
+
+.right-container {
+  float: right;
+  width: 280px;
+  max-height: 100%;
+}
+
+.project-main {
+  max-height: auto;
+  margin: auto;
+  width: 1002px;
+  border: 1px solid lightgray;
+  background: white;
+  border-radius: 4px;
+  padding: 30px 20px 30px 20px;
+}
+
+.project-runner {
+  height: 185px;
+  width: 100%;
+  background: #fff;
+  border: none;
+  background: #F7F7F7;
+}
+
+.project-runner > .container {
+  text-align: center;
+}
+
+.project-runner > .container > h2 {
+  font-size: 32px;
+  margin: 0;
+  padding: 40px 0 40px 0;
+}
+
+.project-body {
+  float: left;
+  height: auto;
+  width: 640px;
+}
+
+.user-video {
+  height: 480px;
+  width: 600px;
+}
+
+.project-runner > a {
+  position: absolute;
+  right: 310px;
+  margin-top: 25px;
+}
+
+.background-project {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background: #F7F7F7;
+}

@@ -1,6 +1,7 @@
 KickStarter::Application.routes.draw do
-  # root to: "sessions#new"
-  root to: "static_pages#root"
+
+  # root to: "static_pages#root"
+  root to: 'users#index'
   resources :users do
     resources :user_bio, only: [:new]
   end
@@ -17,4 +18,5 @@ KickStarter::Application.routes.draw do
   end
   resources :rewards, only: [:create, :edit, :update, :destroy]
   resources :stories, only: [:create, :edit, :update, :destroy]
+  resources :claimed_rewards, only: [:create]
 end

@@ -13,6 +13,7 @@
      <%= button_to "Sign Out", session_url, method: :delete %>
      <div class="current-project-dropdown">
        <p>Your Projects</p>
+       <br>
        <ul>
          <% if !current_user.projects.empty? %>
            <% current_user.projects.each do |project| %>
@@ -23,8 +24,9 @@
          <% end %>
 
        </ul>
-
+       <br>
        <p>Projects You Have Backed</p>
+       <br>
        <ul>
          <% if !current_user.projects.empty? %>
            <% current_user.backed_projects.each do |project| %>

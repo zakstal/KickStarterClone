@@ -10,7 +10,7 @@ gem 'jbuilder', '~> 1.2'
 gem "backbone-on-rails"
 gem 'filepicker-rails'
 gem 'ejs'
-gem 'bcrypt-ruby', require: 'bcrypt'
+gem 'bcrypt', require: 'bcrypt'
 
 group :doc do
   gem 'sdoc', require: false

@@ -19,7 +19,7 @@ end
 
 2.times do |i|
     Project.create({
-    title: "the best number is: #{i}",
+    title: "The best number is: #{i}",
     description: "number #{i} is the best",
     user_id: i + 1,
     catagory_id: "dance",
