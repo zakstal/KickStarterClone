@@ -6,7 +6,7 @@ KS.Views.ProjectThumnailList = Backbone.View.extend({
     var that = this
     this.collection.forEach(function (project) {
       var projectThum = new KS.Views.ProjectThumnail({
-        model: project.attributes
+        model: project
       });
       that.$el.append(projectThum.render().$el)
     });

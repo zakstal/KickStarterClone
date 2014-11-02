@@ -21,6 +21,7 @@
     <p class="dropdown-footer-content">Your are signed in as: <%= user.username %></p>
 
     <form class="dropdown-footer-content" action="/session" method="POST">
+
       <input type="hidden" name="_method" value="DELETE">
       <input type="submit" value="Sign Out">
     </form>

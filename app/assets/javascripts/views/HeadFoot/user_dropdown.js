@@ -19,17 +19,17 @@ KS.Views.Dropdown = Backbone.View.extend({
   },
 
   renderProjectList: function () {
-    console.log("projects")
     var project = new KS.Views.ProjectThumnailList({
-      collection: this.model.projects()
+      collection: this.model.attributes.projects
     });
-    this.$('.backed-projects-in-dropdown').html(project.render().$el)
+    project.$el.prepend('<h4>Created Projects</h4>')
+    this.$('.user-projects-in-dropdown').html(project.render().$el)
   },
 
   renderBackedProjectList: function () {
     var backedList = new KS.Views.ProjectThumnailList({
       collection: this.model.backedProjects
     });
-    this.$('.user-projects-in-dropdown').html(backedList.render().$el)
+    this.$('.backed-projects-in-dropdown').html(backedList.render().$el)
   }
 });
