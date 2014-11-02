@@ -7,23 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
   <main>
-  <%= render "shared/header" %>
-  <ul>
-  <% if flash[:errors] %>
-
-    <% flash[:errors]. each do |error| %>
-
-      <li><%= error %> error</li>
-
-    <% end %>
-
-  <% end %>
-</ul>
-
-
-<%= yield %>
+  <%= render 'shared/header_and_errors' %>
 </main>
+<%= yield %>
+
 
 </body>
 </html>

@@ -1,7 +1,7 @@
 KS.Routers.UserRoute = Backbone.Router.extend({
 
   initialize: function (options){
-    KS.currentUser = new KS.Models.User()
+
     this.$rootEl = options.$rootEl
   },
 
@@ -13,6 +13,7 @@ KS.Routers.UserRoute = Backbone.Router.extend({
   },
 
   index: function () {
+    this._get_current_user()
     var body = new KS.Views.Blank()
     this._headerFooter(body)
   },
@@ -23,7 +24,7 @@ KS.Routers.UserRoute = Backbone.Router.extend({
   },
 
   show: function () {
-    var showBody = new KS.Views.UserShow({ model: KS.currentUser })
+    var showBody = new KS.Views.UserShow({ model: this.currentUser })
     this._headerFooter(showBody);
   },
 
@@ -36,10 +37,16 @@ KS.Routers.UserRoute = Backbone.Router.extend({
   _headerFooter: function(body) {
     this.body = body
     var view = new KS.Views.HeadFoot({
-      body: this.body
+      body: this.body,
+      currentUser: this.currentUser
     });
 
     this._swapView(view)
+  },
+
+  _get_current_user: function () {
+    this.currentUser = new KS.Models.CurrentUser()
+   this.currentUser.fetch()
   }
 
 

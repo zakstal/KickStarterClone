@@ -1,0 +1,28 @@
+<div class="dropdown-container">
+
+  <div class="dropdown user-info-header-dropdown group active">
+     <div class="dropdown-sub user-menue-in-dropdown">
+       <h4>My stuff</h4>
+       <a>Profile</a>
+       <h4>Settings</h4>
+       <a >Edit profile</a>
+     </div>
+
+     <div class="dropdown-sub backed-projects-in-dropdown">
+        <h4>Backed Projects</h4>
+     </div>
+
+     <div class="dropdown-sub user-projects-in-dropdown">
+        <h4>Created Projects</h4>
+     </div>
+  </div>
+
+  <div class="dropdown-footer group">
+    <p class="dropdown-footer-content">Your are signed in as: <%= user.username %></p>
+
+    <form class="dropdown-footer-content" action="/session" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Sign Out">
+    </form>
+  </div>
+</div>

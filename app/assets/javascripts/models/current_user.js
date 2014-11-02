@@ -1,5 +1,5 @@
-KS.Models.User = Backbone.Model.extend({
-  urlRoot: 'api/users',
+KS.Models.CurrentUser = Backbone.Model.extend({
+  urlRoot: 'api/cuser',
 
   projects: function() {
     if(!this._projects) {
@@ -12,7 +12,7 @@ KS.Models.User = Backbone.Model.extend({
 
   parse: function(response) {
     if (response.projects){
-      this.projects.set(response.projects, { parse: true })
+      this.projects().set(response.projects, { parse: true })
       delete response.projects
     }
     return response

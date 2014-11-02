@@ -19,10 +19,11 @@ body, html {
   left: 0;
 }
 
-body, html, a, div, ul, h1 {
+body, html, a, div, ul, h1, p {
   padding: 0;
   margin: 0;
-
+  border: none;
+  font-style: sans-serif;
 }
 
 a, p, h1, h2, h3 {
@@ -52,31 +53,6 @@ body, html {
 }
 
 
-
-.user-info-header-dropdown {
-  margin-top: 62px;
-  position: absolute;
-  right: 0;
-  width: 200px;
-  height: auto;
-  padding: 10px;
-  border: 1px solid lightgray;
-  background: white;
-  z-index: 1;
-}
-
-.user-tab {
-  position: absolute;
-  float: right;
-  right: 0;
-  top: 0;
-  min-width: 80px;
-  max-height: 100%;
-  border-left: 1px solid lightgray;
-  padding: 20px;
-  right: 0;
-  text-align: center;
-}
 
 .title {
   float: left;
@@ -114,4 +90,8 @@ body, html {
 
 form {
   margin-left: 20px;
+}
+
+.float-left {
+  float: left;
 }

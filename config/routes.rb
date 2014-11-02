@@ -1,14 +1,14 @@
 KickStarter::Application.routes.draw do
 
-  # root to: "static_pages#root"
-  root to: 'users#index'
+  root to: "static_pages#root"
+  # root to: 'users#index'
   resources :users do
     resources :user_bio, only: [:new]
   end
   resource :session
 
   namespace :api, defaults: { format: :json} do
-
+    get '/cuser', as: :cuser, to: 'users#cuser'
   end
   resources :user_bio, only: [:create, :edit, :update, :destroy]
   resources :catagories, only: [:index, :show]

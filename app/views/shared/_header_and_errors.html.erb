@@ -1,0 +1,12 @@
+  <%= render "shared/header" %>
+  <ul>
+  <% if flash[:errors] %>
+
+    <% flash[:errors]. each do |error| %>
+
+      <li><%= error %> error</li>
+
+    <% end %>
+
+  <% end %>
+</ul>

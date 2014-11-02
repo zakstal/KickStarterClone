@@ -12,5 +12,5 @@ window.KS = {
 };
 
 $(document).ready(function(){
-  // KS.initialize();
+  KS.initialize();
 });

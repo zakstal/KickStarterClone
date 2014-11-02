@@ -129,3 +129,11 @@ project sign up links are weird when it leavs the reward page
 make user_id in userbio table an integer
 
 add url bounce back for updates of project data
+
+refine seed database
+
+bulid an employers tab to fill in fomrs
+
+look into codeacademy api
+
+add image association to project model

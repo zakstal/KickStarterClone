@@ -10,7 +10,11 @@ class UsersController < ApplicationController
     @user = Users.new(user_params)
     if @user.save
       log_in?(@user)
-      redirect_to user_url(@user)
+
+      # redirect_to user_url(@user)
+      # make a swich if last url is from backbone got to below
+      redirect_to root_url
+
     else
       flash.now[:errors] = @user.errors.full_messages
       render :new

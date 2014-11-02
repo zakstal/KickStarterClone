@@ -57,3 +57,38 @@ end
       })
   end
 end
+
+
+Users.create(email: 'james@me.com', password: 'password')
+
+UserBio.create({ username: "james", bio: "I like blue sharks", user_id: 3})
+
+Project.create({
+title: "Sun for Summer",
+description: "Solar manipulation device for summer",
+user_id: 4,
+catagory_id: "technology",
+duration: "30",
+fundinggoal: "10000",
+})
+
+Story.create({
+ story: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+ challenges: "this is my challenge",
+ project_id: 3
+})
+
+Project.create({
+title: "Wombats in disguise",
+description: "Creating the secret poliece of the Wombat order. Hoping for some secret missions",
+user_id: 4,
+catagory_id: "food",
+duration: "30",
+fundinggoal: "$5",
+})
+
+Story.create({
+ story: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+ challenges: "this is my challenge",
+ project_id: 4
+})
