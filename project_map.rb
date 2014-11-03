@@ -130,7 +130,7 @@ make user_id in userbio table an integer
 
 add url bounce back for updates of project data
 
-refine seed database
+refine seed database use faker gem
 
 bulid an employers tab to fill in fomrs
 

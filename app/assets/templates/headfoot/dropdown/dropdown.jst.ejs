@@ -27,3 +27,23 @@
     </form>
   </div>
 </div>
+
+<script>
+$(document).ready(function() {
+
+  var dropDown = $('.dropdown-container')
+
+  dropDown.on('click', function(event){
+    event.prevnetDefault();
+
+    if (dropDown.hasClass('hidden')){
+
+      dropDown.removeClass('hidden')
+    } else {
+
+      dropDown.addClass('hidden')
+    }
+  })
+
+});
+</script>

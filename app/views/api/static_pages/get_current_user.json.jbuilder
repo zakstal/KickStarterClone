@@ -26,19 +26,20 @@ if !@user.projects.empty?
   end
 end
 #
-# if !@user.backed_projects.empty?
-#   json.backed_projects @user.backed_projects do |backed_project|
-#     json.title backed_project.title
-#     json.description backed_project.description
-#     json.catagory_id backed_project.catagory_id
-#     json.created_at backed_project.created_at
-#     json.updated_at backed_project.updated_at
-#     json.duration backed_project.duration
-#     json.fundinggoal backed_project.fundinggoal
-#     json.active backed_project.active
-#     json.funded backed_project.funded
-#   end
-# end
+if !@user.backed_projects.empty?
+  json.backed_projects @user.backed_projects do |backed_project|
+    json.title backed_project.title
+    json.description backed_project.description
+    json.catagory_id backed_project.catagory_id
+    json.created_at backed_project.created_at
+    json.updated_at backed_project.updated_at
+    json.duration backed_project.duration
+    json.fundinggoal backed_project.fundinggoal
+    json.active backed_project.active
+    json.funded backed_project.funded
+  end
+end
+
 # do |backed_project|
 #   json.title backed_project.backed_projects.title
 # end

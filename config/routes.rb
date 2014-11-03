@@ -9,6 +9,7 @@ KickStarter::Application.routes.draw do
 
   namespace :api, defaults: { format: :json} do
     get '/get_current_user', as: :get_current_user, to: 'static_pages#get_current_user'
+    resources :projects, only: [:show]
   end
   resources :user_bio, only: [:create, :edit, :update, :destroy]
   resources :catagories, only: [:index, :show]

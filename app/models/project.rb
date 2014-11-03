@@ -12,12 +12,18 @@ class Project < ActiveRecord::Base
   belongs_to  :user,            class_name: "Users",      foreign_key: :user_id,      primary_key: :id
   belongs_to  :catagory,        class_name: "Catagorie",  foreign_key: :catagory_id,  primary_key: :catagory
 
+
   def amt_pledged
     # claimed_rewards.inject(:+)
   end
 
   def how_many_backers
     backers.count
+  end
+
+  def username
+    return if user.user_bio.nil?
+    user.user_bio.pluck(:username)
   end
 
 end

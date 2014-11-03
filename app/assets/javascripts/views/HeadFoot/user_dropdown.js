@@ -2,8 +2,10 @@ KS.Views.Dropdown = Backbone.View.extend({
   template: JST['headfoot/dropdown/dropdown'],
   signedInTemplate: JST['headfoot/dropdown/signed_in'],
 
-  //backed projects template
-  //user projects template
+  events: {
+    "click .user-tab": "toggleDropDown"
+  },
+
 
   render: function () {
     var rendered = this.signedInTemplate()
@@ -31,5 +33,27 @@ KS.Views.Dropdown = Backbone.View.extend({
       collection: this.model.backedProjects
     });
     this.$('.backed-projects-in-dropdown').html(backedList.render().$el)
+  },
+
+  toggleDropDown: function(event) {
+    var dropDown = $('.dropdown-container');
+      if (dropDown.hasClass('hidden')){
+
+        dropDown.removeClass('hidden')
+      } else {
+
+        dropDown.addClass('hidden')
+      }
   }
 });
+
+
+
+
+
+
+
+
+
+
+
