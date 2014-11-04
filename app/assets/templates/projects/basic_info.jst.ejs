@@ -1,0 +1,34 @@
+
+
+<form class="start-project-form" action="" method="POST">
+  <input type="hidden" name="_method" value="">
+
+  <input type="hidden" name="project[user_id]" value="">
+  <br>
+  <label for="title">Title</label>
+  <br>
+  <input type="text" name="project[title]" id="title" value="">
+  <br>
+  <leabel for="description">Shrot blurb</leabel>
+  <br>
+  <textarea id="description" name="project[description]"></textarea>
+  <br>
+  <leabel for="cat">Catagorie</leabel>
+  <br>
+  <!-- <input type="text" name="project[catagorie]" id="cat"> -->
+  <select name="project[catagory_id]" id="cat">
+    <% catagories.forEach( function(cat){ %>
+      <option><%= cat %></option>
+    <% });  %>
+  </select>
+  <br>
+  <leabel for="duration">Funding Duration</leabel>
+  <br>
+  <input type="text" name="project[duration]" id="duration" value="">
+  <br>
+  <leabel for="goal">Funding Goal</leabel>
+  <br>
+  <input type="text" name="project[fundinggoal]" id="goal" value="">
+  <br>
+  <button class="submit">Submit</button>
+</form>

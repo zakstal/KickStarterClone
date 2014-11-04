@@ -30,7 +30,7 @@ class Project < ActiveRecord::Base
 
   def username
     return if user.user_bio.nil?
-    user.user_bio.pluck(:username)
+    user.user_bio.username
   end
 
   def project_story

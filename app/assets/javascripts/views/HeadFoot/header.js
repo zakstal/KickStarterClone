@@ -43,7 +43,7 @@ KS.Views.Head = Backbone.View.extend({
   },
 
   navStart: function(event) {
-    Backbone.history.navigate("", {trigger: true })
+    Backbone.history.navigate("/project/new", {trigger: true })
   },
 
 });

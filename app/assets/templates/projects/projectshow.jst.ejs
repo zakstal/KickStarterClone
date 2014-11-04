@@ -5,7 +5,7 @@
   <div class="project-runner">
     <div class="container">
         <h2><%= project.escape('title') %></h2>
-        <a href=""><%= project.escape('username') %></a>
+        <a href="">by <%= project.escape('username') %></a>
     </div>
     <a ><%= project.escape("catagory_id") %></a>
   </div>
@@ -37,10 +37,10 @@
 
         <h1><%= project.escape("duration") %></h1>
         <p>Days to go</p>
-        
+
         <div class="user-blurb-in-project">
         </div>
-        
+
         <div class="rewards-in-project">
         </div>
       </div>
