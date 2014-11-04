@@ -11,6 +11,9 @@ KS.Models.Project = Backbone.Model.extend({
   },
 
   parse: function(response) {
+    if (response.model){
+      
+    }
     if (response.project){
       this.set(response.project, { parse: true })
       delete response.user

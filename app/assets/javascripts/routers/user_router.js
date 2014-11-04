@@ -3,16 +3,13 @@ KS.Routers.UserRoute = KS.RootRouter.extend({
 
   routes: {
     "": "index",
-    //new before :id
     "user/new": "new",
     "user/:id": "show",
     "user/:id/edit": "edit"
   },
 
   index: function () {
-    this._get_current_user();
-    var body = new KS.Views.Blank();
-    this._headerFooter(body);
+    console.log("here")
   },
 
   new: function () {

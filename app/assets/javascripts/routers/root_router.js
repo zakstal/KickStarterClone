@@ -3,6 +3,13 @@ KS.RootRouter = Backbone.Router.extend({
   initialize: function (options){
 
     this.$rootEl = options.$rootEl
+    var currentUser = this._getCurrentUserInfo
+
+    var view = new KS.Views.Head({
+      currentUser: currentUser()
+    });
+
+    this.$rootEl.html(view.render().$el)
   },
 
 
@@ -12,21 +19,18 @@ KS.RootRouter = Backbone.Router.extend({
     this.$rootEl.html(view.render().$el)
   },
 
-  _headerFooter: function(body) {
-    this._get_current_user()
-    this.body = body
-    var view = new KS.Views.HeadFoot({
-      body: this.body,
-      currentUser: this.currentUser
-    });
 
-    this._swapView(view)
-  },
+  _getCurrentUserInfo: function () {
+    var currentUser = new KS.Models.CurrentUser()
+    currentUser.fetch({
+      success: function (){
+        if ( typeof currentUser.get('id') !== 'undefined') {
 
-  _get_current_user: function () {
-      this.currentUser = this.currentUser || new KS.Models.CurrentUser()
-      this.currentUser.fetch()
-      return this.currentUser
+          KS.currentUserId = currentUser.get('id')
+        }
+      }
+    })
+    return currentUser
   }
 
 });

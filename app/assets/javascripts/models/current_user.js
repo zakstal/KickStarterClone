@@ -13,18 +13,15 @@ KS.Models.CurrentUser = Backbone.Model.extend({
   parse: function(response) {
     if (response.user){
       this.set(response.user, { parse: true })
-
+      delete response.user
     }
+
+    if (response.projects){
+       this.projects().set(response.projects, { parse: true })
+       delete response.projects
+     }
+
     return response;
   }
 
-  // parse: function(response) {
- //    debugger;
- //    if (response.projects){
- //      this.projects().set(response.projects, { parse: true })
- //      delete response.projects
- //    }
- //    return response;
- //    // this kept giving cannot read prototype of undefined.
- //  }
 });

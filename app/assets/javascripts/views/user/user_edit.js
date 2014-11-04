@@ -3,7 +3,7 @@ KS.Views.UserEdit = Backbone.View.extend({
   template: JST['users/edit'],
 
   events: {
-    "click .submit": "updateProfile"
+    "click": "updateProfile"
   },
 
   render: function () {

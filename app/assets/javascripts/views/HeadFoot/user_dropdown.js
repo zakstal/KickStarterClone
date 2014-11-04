@@ -1,41 +1,61 @@
 KS.Views.Dropdown = Backbone.View.extend({
-  template: JST['headfoot/dropdown/dropdown'],
 
-  signedInTemplate: JST['headfoot/dropdown/signed_in'],
+  projectThumbNail: JST['headfoot/dropdown/project_thumbnail'],
+
+  dropdownTemplate: JST['headfoot/dropdown/dropdown'],
+
+  signedOutTemplate: JST['headfoot/signed_out'],
+
+  signedInTemplate: JST['headfoot/signed_in'],
+
 
   events: {
-    "click .user-tab": "toggleDropDown"
+    "click .user-tab": "toggleDropDown",
+    "click": "hideDropdownToNavigate"
   },
 
+  initialize: function () {
+    this.projects = this.model.projects()
+    this.backedProjects = this.model.backedProjects
+  },
 
   render: function () {
-    var rendered = this.signedInTemplate()
-    var dropdown = this.template({ user: this.model })
-    this.$el.html(rendered);
-    this.$el.append(dropdown)
-    this.renderProjectList()
-    // this.renderBackedProjectList()
 
+    if (typeof KS.currentUserId === 'undefined') {
+
+      var signedOut = this.signedOutTemplate()
+      this.$el.html(signedOut)
+    } else  {
+
+      var signedIn = this.signedInTemplate()
+      var dropdown = this.dropdownTemplate({ user: this.model })
+
+      this.$el.html(signedIn);
+      this.$el.append(dropdown)
+
+      this.renderProjectList(this.projects)
+      this.renderProjectList(this.backedProjects)
+    }
 
     return this;
   },
 
-  renderProjectList: function () {
-    var project = new KS.Views.ProjectThumnailList({
-      collection: this.model.attributes.projects
-    });
-    project.$el.prepend('<h4>Created Projects</h4>')
-    this.$('.user-projects-in-dropdown').html(project.render().$el)
+  renderProjectList: function (projectType) {
+    var that = this
+    if ( typeof projectType !== 'undefined') {
+      projectType.each(function (project) {
+        var projectThumb = that.projectThumbNail({
+          project: project
+        });
+
+        that.$('.user-projects-in-dropdown').append(projectThumb)
+      });
+    }
   },
 
-  renderBackedProjectList: function () {
-    var backedList = new KS.Views.ProjectThumnailList({
-      collection: this.model.backedProjects
-    });
-    this.$('.backed-projects-in-dropdown').html(backedList.render().$el)
-  },
 
   toggleDropDown: function(event) {
+    
     var dropDown = $('.dropdown-container');
       if (dropDown.hasClass('hidden')){
 
@@ -44,16 +64,15 @@ KS.Views.Dropdown = Backbone.View.extend({
 
         dropDown.addClass('hidden')
       }
+  },
+
+  hideDropdownToNavigate: function(event) {
+
+    if (!$(event.target).hasClass('user-tab')) {
+    var dropDown = $('.dropdown-container');
+      if (!dropDown.hasClass('hidden')) {
+        dropDown.addClass('hidden')
+      }
+    }
   }
 });
-
-
-
-
-
-
-
-
-
-
-

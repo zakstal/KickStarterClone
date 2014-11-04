@@ -14,6 +14,6 @@ KS.Routers.ProjectRoute = KS.RootRouter.extend({
       project: project
     });
 
-    this._headerFooter(showBody);
+    this._swapView(showBody);
   }
 });
