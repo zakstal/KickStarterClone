@@ -1,5 +1,6 @@
 KS.Views.Dropdown = Backbone.View.extend({
   template: JST['headfoot/dropdown/dropdown'],
+
   signedInTemplate: JST['headfoot/dropdown/signed_in'],
 
   events: {
@@ -10,7 +11,6 @@ KS.Views.Dropdown = Backbone.View.extend({
   render: function () {
     var rendered = this.signedInTemplate()
     var dropdown = this.template({ user: this.model })
-
     this.$el.html(rendered);
     this.$el.append(dropdown)
     this.renderProjectList()

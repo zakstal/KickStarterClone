@@ -1,27 +1,26 @@
 <h1>Change your Settings</h1>
 
-<form action="" method="POST">
+<form class="update-user-settings-form">
 
-  <%= form_auth %>
 
   <label for="email">Email</label>
     <br>
-  <input type="text" name="user[email]" id="eamil" value="">
+  <input type="text" name="user[email]" id="eamil" value="<%= user.escape('email') %>">
     <br>
-  <label for="pass">Password</label>
+  <!-- <label for="pass">Password</label>
     <br>
-  <input type="password" name="user[password]" id="pass" value="can't change password yet">
+  <input type="password" name="user[password]" id="pass" value="can't change password yet"> -->
    <br>
   <label for="username">Name</label>
    <br>
-  <input type="text" name="user[username]" id="username" value="">
+  <input type="text" name="user[username]" id="username" value="<%= user.escape('username') %>">
    <br>
-  <label for="bio"></label>
+  <label for="bio">Biography</label>
    <br>
-  <textarea name="user[bio]" id="bio"></textarea>
+  <textarea name="user[bio]" id="bio"><%= user.escape('bio') %></textarea>
    <br>
     <!-- upload pic -->
 
 
-  <input type="submit" value="Submit">
+  <a class="submit">Submit</a>
 </form>

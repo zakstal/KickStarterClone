@@ -10,6 +10,14 @@ KS.Models.CurrentUser = Backbone.Model.extend({
       return this._projects;
   },
 
+  parse: function(response) {
+    if (response.user){
+      this.set(response.user, { parse: true })
+
+    }
+    return response;
+  }
+
   // parse: function(response) {
  //    debugger;
  //    if (response.projects){

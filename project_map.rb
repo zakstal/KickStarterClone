@@ -3,7 +3,7 @@ for thrusday
   add pic column where needed
   vidio uploder
   add facebook sign up
-
+  there is a problem with the userdrop down rendering the project getting a 404
   ----later
 
 

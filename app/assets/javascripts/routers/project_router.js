@@ -8,6 +8,7 @@ KS.Routers.ProjectRoute = KS.RootRouter.extend({
 
   show: function(id) {
     var project = new KS.Models.Project({ id: id })
+    console.log(id)
     project.fetch()
     var showBody = new KS.Views.ProjectShow({
       project: project

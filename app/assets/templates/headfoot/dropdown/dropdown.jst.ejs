@@ -3,9 +3,9 @@
   <div class="dropdown user-info-header-dropdown group active">
      <div class="dropdown-sub user-menue-in-dropdown">
        <h4>My stuff</h4>
-       <a>Profile</a>
+       <a href="#/user/<%= user.escape('id') %>">Profile</a>
        <h4>Settings</h4>
-       <a >Edit profile</a>
+       <a href="#/user/<%= user.escape('id') %>/edit" >Edit profile</a>
      </div>
 
      <div class="dropdown-sub backed-projects-in-dropdown">
@@ -18,7 +18,7 @@
   </div>
 
   <div class="dropdown-footer group">
-    <p class="dropdown-footer-content">Your are signed in as: <%= user.username %></p>
+    <p class="dropdown-footer-content">Your are signed in as: <%= user.escape('username') %></p>
 
     <form class="dropdown-footer-content" action="/session" method="POST">
 

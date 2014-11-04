@@ -1,21 +1,12 @@
-<div class="user">
+<div class="runner-board group">
+  <div class="container">
+    <image class="user-image">
+      <div class="user-container">
+        <% if (typeof user !== 'undefined') { %>
+        <p><%= user.escape('username') %></p>
+        <p><%= user.escape('bio') %></p>
+        <% } %>
+    </div>
 
-<h1><%= bio.username %></h1>
-<p><%= bio.bio %></p>
-
-
-
-
-<div class="projects-blurb-list">
-  <p>Your Projects</p>
-  <ul>
-
-  </ul>
-</div>
-<div class="projects-blurb-list">
-  <p>Projects You Backed</p>
-  <ul>
-
-  </ul>
-</div>
+  </div>
 </div>
