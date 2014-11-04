@@ -3,10 +3,17 @@ window.KS = {
   Collections: {},
   Views: {},
   Routers: {},
+
   initialize: function() {
+    var $main = $('main');
     new KS.Routers.UserRoute({
-      $rootEl: $('main')
+      $rootEl: $main
     });
+
+    new KS.Routers.ProjectRoute({
+      $rootEl: $main
+    });
+
     Backbone.history.start()
   }
 };

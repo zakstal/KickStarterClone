@@ -1,4 +1,4 @@
-<div class="dropdown-container">
+<div class="dropdown-container hidden">
 
   <div class="dropdown user-info-header-dropdown group active">
      <div class="dropdown-sub user-menue-in-dropdown">
@@ -27,23 +27,3 @@
     </form>
   </div>
 </div>
-
-<script>
-$(document).ready(function() {
-
-  var dropDown = $('.dropdown-container')
-
-  dropDown.on('click', function(event){
-    event.prevnetDefault();
-
-    if (dropDown.hasClass('hidden')){
-
-      dropDown.removeClass('hidden')
-    } else {
-
-      dropDown.addClass('hidden')
-    }
-  })
-
-});
-</script>

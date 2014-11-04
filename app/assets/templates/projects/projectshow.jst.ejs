@@ -1,0 +1,51 @@
+<div class="background-project">
+  <div class="user-edit">
+
+
+  <div class="project-runner">
+    <div class="container">
+        <h2><%= project.escape('title') %></h2>
+        <a href=""><%= project.escape('username') %></a>
+    </div>
+    <a ><%= project.escape("catagory_id") %></a>
+  </div>
+
+  <div class="project-main group">
+
+
+
+    <div class="project-body group">
+
+      <image class="user-video">
+      <br>
+      <h3>Our Story</h3>
+      <a><%= project.escape("story") %></a>
+      <br>
+      <h3>Challenges</h3>
+      <a><%= project.escape("challenges") %></a>
+
+    </div>
+
+      <div class="right-container">
+        <br>
+        <h1><%= project.escape('number_of_backers') %> </h1>
+        <p>Backers</p>
+        <br>
+        <h1>$<%= project.escape('amt_pledged') %> </h1>
+        <p>pledged of a $<%= project.escape("fundinggoal") %></p>
+        <br>
+
+        <h1><%= project.escape("duration") %></h1>
+        <p>Days to go</p>
+        
+        <div class="user-blurb-in-project">
+        </div>
+        
+        <div class="rewards-in-project">
+        </div>
+      </div>
+
+
+
+  </div>
+</div>

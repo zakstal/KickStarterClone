@@ -48,7 +48,6 @@ end
 2.times do |i|
   3.times do |j|
     Reward.create({
-      backer_id: ((i + j).even? ? 2 : 1),
       project_id: i + 1,
       pledge_amt: i + 1,
       description: "so cool product of mine",
@@ -92,3 +91,11 @@ Story.create({
  challenges: "this is my challenge",
  project_id: 4
 })
+
+Reward.create({ project_id: 4, pledge_amt: 5, description: "great thing to have", est_delivery: "11/30/14", qty: 5})
+Reward.create({ project_id: 4, pledge_amt: 10, description: "bad reward", est_delivery: "11/30/14", qty: 6})
+Reward.create({ project_id: 4, pledge_amt: 20, description: "having things is good :)", est_delivery: "11/30/14", qty: 9})
+
+ClaimedRewards.create({ reward_id: 7, user_id: 1})
+ClaimedRewards.create({ reward_id: 8, user_id: 2})
+ClaimedRewards.create({ reward_id: 7, user_id: 3})

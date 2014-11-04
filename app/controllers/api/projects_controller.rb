@@ -2,8 +2,10 @@ module Api
   class ProjectsController < ApplicationController
 
     def show
+      puts "heree!!!!!!!!!!!!!!!!!!"
       @project = Project.find(params[:id])
-      render json: @project
+      puts @project
+      render :project
     end
 
     private

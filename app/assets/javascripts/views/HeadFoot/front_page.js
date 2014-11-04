@@ -7,6 +7,7 @@ KS.Views.HeadFoot = Backbone.View.extend({
     this.body = options.body
     this.currentUser = options.currentUser
     this.listenTo(this.currentUser, "sync", this.render)
+
   },
 
 
@@ -19,7 +20,6 @@ KS.Views.HeadFoot = Backbone.View.extend({
     this.$el.html(rendered);
     this.renderSignedInOut()
     this.$el.append(this.body.render().$el)
-
     return this
   },
 
@@ -36,7 +36,13 @@ KS.Views.HeadFoot = Backbone.View.extend({
      this.$('#signed-in-out').html(rendered)
   },
 
-
+  addCurrentUserId: function(){
+    //add the current user_id to all bodyies that are passed in
+    // if ( typeof this.currentUser.attributes.user === 'undefined') {
+//       console.log(this.currentUser.attributes.user.id)
+//       this.body.currentUserId = this.currentUser.attributes.user.id
+//     }
+  }
 
 });
 
