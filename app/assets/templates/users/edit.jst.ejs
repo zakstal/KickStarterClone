@@ -2,7 +2,8 @@
 
 <form class="update-user-settings-form">
 
-
+  <input type="hidden" name="user[id]" value="<%= KS.currentUserId %>">
+  <input type="hidden" name="user[user_id]" value="<%= KS.currentUserId %>">
   <label for="email">Email</label>
     <br>
   <input type="text" name="user[email]" id="eamil" value="<%= user.escape('email') %>">

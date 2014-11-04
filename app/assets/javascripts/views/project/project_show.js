@@ -8,6 +8,7 @@ KS.Views.ProjectShow = Backbone.View.extend({
 
   initialize: function(options){
     this.project = options.project
+    this.listenTo(this.project, "sync", this.render)
 
   },
 

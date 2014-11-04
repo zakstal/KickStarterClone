@@ -1,5 +1,5 @@
 KS.Models.CurrentUser = Backbone.Model.extend({
-  urlRoot: 'api/get_current_user',
+  urlRoot: 'api/users',
 
   projects: function() {
     if(!this._projects) {

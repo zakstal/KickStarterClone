@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141103164742) do
+ActiveRecord::Schema.define(version: 20141104205033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,8 +86,6 @@ ActiveRecord::Schema.define(version: 20141103164742) do
     t.string   "user_id"
     t.string   "filepicker_url"
   end
-
-  add_index "user_bios", ["username"], name: "index_user_bios_on_username", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "password_digest", null: false

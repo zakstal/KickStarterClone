@@ -2,10 +2,10 @@ KS.Routers.UserRoute = KS.RootRouter.extend({
 
 
   routes: {
-    "": "index",
-    "user/new": "new",
-    "user/:id": "show",
-    "user/:id/edit": "edit"
+    ""              : "index",
+    "user/new"      : "new",
+    "user/:id"      : "show",
+    "user/:id/edit" : "edit"
   },
 
   index: function () {
@@ -14,17 +14,17 @@ KS.Routers.UserRoute = KS.RootRouter.extend({
 
   new: function () {
     var showSignUp = new KS.Views.SignUp();
-    this._headerFooter(showSignUp);
+    this._swapView(showSignUp);
   },
 
   show: function () {
-    var showBody = new KS.Views.UserShow({ model: this._get_current_user() });
-    this._headerFooter(showBody);
+    var showBody = new KS.Views.UserShow({ model: this._getCurrentUserInfo() });
+    this._swapView(showBody);
   },
 
   edit: function() {
-    var showBody = new KS.Views.UserEdit({ model: this._get_current_user() });
-    this._headerFooter(showBody);
+    var showBody = new KS.Views.UserEdit({ model: this._getCurrentUserInfo() });
+    this._swapView(showBody);
   }
 
 });

@@ -8,6 +8,10 @@ for thrusday
 
 
 
+ swich current user json to user
+ current user json just fectch id || send id to initialize on singin/signup
+
+
 
 
 

@@ -1,7 +1,7 @@
 KS.Collections.Projects = Backbone.Collection.extend({
   url: "api/projects",
 
-  model: KS.Models.Project
+  model: KS.Models.Project,
 
   getOrFetch: function (id) {
     var projects = this

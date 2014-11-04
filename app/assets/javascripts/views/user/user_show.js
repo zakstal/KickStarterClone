@@ -2,8 +2,12 @@ KS.Views.UserShow = Backbone.View.extend({
 
   template: JST['users/show'],
 
-  render: function () {
+  initialize: function () {
+    this.listenTo(this.model, "sync", this.render)
+  },
 
+  render: function () {
+    console.log(this.model)
     var show = this.template({
       user: this.model
     });

@@ -2,8 +2,12 @@ KS.Views.UserEdit = Backbone.View.extend({
 
   template: JST['users/edit'],
 
+  initialize: function () {
+    this.listenTo(this.model, "sync", this.render)
+  },
+
   events: {
-    "click": "updateProfile"
+    "click .submit": "updateProfile"
   },
 
   render: function () {
@@ -24,6 +28,10 @@ KS.Views.UserEdit = Backbone.View.extend({
 
     var attr = this.$('.update-user-settings-form').serializeJSON();
 
-    console.log(attr)
+    this.model.save(attr, {
+      success: function () {
+        this.render
+      }
+    });
   }
 });
