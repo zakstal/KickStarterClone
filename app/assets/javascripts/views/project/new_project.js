@@ -96,7 +96,7 @@ KS.Views.ProjectNew = Backbone.View.extend({
     if (event) {
      event.preventDefault();
     }
-    
+
     var newProjectTemplate = this.storyTemplate({
       project: this.project
     });

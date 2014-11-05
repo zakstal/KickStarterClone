@@ -12,7 +12,7 @@ KS.Views.ProjectPartialReward = Backbone.View.extend({
 
   initialize: function (options) {
     this.project = options.project,
-    thsi.projectView = options.projectView
+    this.projectView = options.projectView
   },
 
   render: function () {
@@ -74,10 +74,11 @@ KS.Views.ProjectPartialReward = Backbone.View.extend({
   },
 
   saveAndNext: function (event) {
-
+    event.preventDefault();
+    console.log("save and next")
     this.save(event)
 
-    this.
+    this.projectView.story(false)
   }
 
 });
