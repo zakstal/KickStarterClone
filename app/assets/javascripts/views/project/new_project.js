@@ -8,8 +8,6 @@ KS.Views.ProjectNew = Backbone.View.extend({
 
   basicInfoTemplate: JST['projects/basic_info'],
 
-  rewardsTemplate: JST['projects/rewards'],
-
   storyTemplate: JST['projects/story'],
 
   aboutYouTemplate: JST['projects/about_you'],
@@ -32,7 +30,7 @@ KS.Views.ProjectNew = Backbone.View.extend({
 
     this.$el.html(newProject);
 
-    this.renderSubView();
+    this.renderBasicInfo();
 
     return this;
 
@@ -40,15 +38,12 @@ KS.Views.ProjectNew = Backbone.View.extend({
 
   renderBasicInfo: function () {
 
-    console.log(this.project, "here")
     var basicInfoTemplate = this.basicInfoTemplate({
       catagories: this.catagories(),
-      project: this.project,
-      escapeIf: this.escapeIf
+      project: this.project
     });
 
-    this.$('.project-body').html(basicInfoTemplate);
-    this.renderSubView();
+    this.addSubView(basicInfoTemplate);
   },
 
 
@@ -61,16 +56,14 @@ KS.Views.ProjectNew = Backbone.View.extend({
     });
 
     this.addSubView(newProjectTemplate);
-    this.renderSubView();
   },
 
   rewards: function (event) {
     event.preventDefault();
-    console.log(this.project)
-    var newProjectTemplate = this.rewardsTemplate();
 
-    this.addSubView(newProjectTemplate);
-    this.renderSubView();
+    var newProjectTemplate = new KS.Views.ProjectPartialReward();
+
+    this.addSubView(newProjectTemplate.render().$el);
   },
 
   addReward: function (event) {
@@ -88,35 +81,21 @@ KS.Views.ProjectNew = Backbone.View.extend({
     });
 
     this.addSubView(newProjectTemplate);
-    this.renderSubView();
   },
 
   aboutYou: function (event) {
     event.preventDefault();
     var newProjectTemplate = this.aboutYouTemplate({
-      project: this.project
     });
 
     this.addSubView(newProjectTemplate);
-    this.renderSubView();
 
   },
 
   addSubView: function(subview) {
     this.currentTemplate = subview
-    this.$('.project-body').html(subview)
-  },
-
-  renderSubView: function() {
-    console.log(this.project, "here")
-    if ( typeof this.currentTemplate === 'undefined') {
-      this.currentTemplate = this.basicInfoTemplate({
-        catagories: this.catagories(),
-        project: this.project
-      });
-    }
     this.$('.project-body').html(this.currentTemplate)
-  }
+  },
 
 
 });
