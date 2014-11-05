@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
 
-  validates   :title,     :description, :catagory_id, :duration, :fundinggoal, presence: true
+  validates   :title,     :title, :user_id, presence: true
   validates   :title,     uniqueness: true
 
   has_many    :rewards,         class_name: "Reward"

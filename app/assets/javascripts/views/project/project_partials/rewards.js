@@ -4,15 +4,22 @@ KS.Views.ProjectPartialReward = Backbone.View.extend({
 
   events: {
     "click #reward-button-save" : "save",
-    "click" : "wind"
+    "click #new-reward" : "addNewReward"
+  },
+
+
+  initialize: function (options) {
+    this.project = options.project
   },
 
   render: function () {
-    console.log("in reward partial render")
-    var rendered = this.rewards({ reward: this.model })
+    var rendered = this.rewards({
+      reward: this.model,
+      project: this.project
+    })
 
     this.$el.html(rendered);
-    console.log(this.$('#reward-button-save'))
+
     return this;
   },
 
@@ -22,20 +29,33 @@ KS.Views.ProjectPartialReward = Backbone.View.extend({
     console.log("in partial rewards")
     var attr = this.$('.project-reward-form').serializeJSON();
 
-    console.log(attr)
+    if (typeof this.reward === 'undefined') {
+      this.reward = new KS.Models.Reward()
+    }
+
+    var saved = false
+
+    if (saved) {
+      this.reward.save(attr, {
+        error: function (error) {
+          console.log(error, "there was an error")
+        },
+        success: function () {
+          saved = true
+        }
+      });
+    }
   },
 
   addNewReward: function (event) {
     console.log('in add new reward')
     event.preventDefault();
 
-    this.save(event);
+      this.save(event);
 
-    event.empty();
+
+    $(event.currentTarget).empty();
 
   },
 
-  wind: function (event) {
-      console.log(event, "windy")
-  }
 });

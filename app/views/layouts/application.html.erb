@@ -15,6 +15,9 @@
 <%= yield %>
 
  <script>
+  <% if logged_in? %>
+    window.currentUserId = <%= current_user.id %>
+  <% end %>
 
 </script>
 </body>

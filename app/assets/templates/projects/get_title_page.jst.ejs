@@ -1,0 +1,26 @@
+<div class="background-project">
+  <div class="user-edit">
+
+
+  <div class="project-runner">
+    <div class="container">
+        <h2></h2>
+        <div class="menue group">
+          <h1>What is the title of your project?</h1>
+        </div>
+
+    </div>
+
+  </div>
+
+  <div class="project-main group">
+    <% console.log(currentUserId, "this is the id") %>
+    <form class="title-form">
+      <input type="text" name="project[title]" placeholder="Title">
+      <input type="hidden" name="project[user_id]" value="<%= window.currentUserId %>">
+      <button class="submit-title-form">Next</buttom>
+    </form>
+
+
+  </div>
+</div>

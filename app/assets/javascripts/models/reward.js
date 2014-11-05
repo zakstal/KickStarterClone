@@ -1,4 +1,4 @@
-KS.Models.Rewards = Backbone.Model.extend({
+KS.Models.Reward = Backbone.Model.extend({
   urlRoot: 'api/rewards',
 
 });
