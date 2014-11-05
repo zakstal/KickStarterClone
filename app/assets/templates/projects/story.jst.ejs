@@ -1,17 +1,17 @@
 
 
 <form data-id="story">
-  <input type="hidden" name="_method" value="">
-   <input type="hidden" name="stories[project_id]" value="">
+
+   <input type="hidden" name="stories[project_id]" value="<%= project.id %>">
 
     <br>
   <label for="description">Description</label>
     <br>
-  <textarea name="stories[story]" id="description"></textarea>
+  <textarea name="stories[story]" id="description"><%= project.story %></textarea>
     <br>
   <label for="challenge">Challenges</label>
     <br>
-  <textarea name="stories[challenges]" id="challenge"></textarea>
+  <textarea name="stories[challenges]" id="challenge"><%= project.challenges %></textarea>
     <br>
   <input type="submit" value="save">
 </form>

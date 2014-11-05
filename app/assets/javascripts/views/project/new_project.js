@@ -16,13 +16,15 @@ KS.Views.ProjectNew = Backbone.View.extend({
 
   initialize: function (options) {
     this.project = options.project
+    this.listenTo(this.project, "sync", this.render)
   },
 
   events: {
-    "click #basic-info-new-project": "basicInfo",
-    "click #reward-info-new-project": "rewards",
-    "click #story-info-new-project": "story",
-    "click #about-info-new-project": "aboutYou"
+    "click #basic-info-new-project"   : "basicInfo",
+    "click #reward-info-new-project"  : "rewards",
+    "click #story-info-new-project"   : "story",
+    "click #about-info-new-project"   : "aboutYou",
+    "click #new-reward"               : "addReward"
   },
 
   render: function () {
@@ -37,7 +39,8 @@ KS.Views.ProjectNew = Backbone.View.extend({
   },
 
   renderBasicInfo: function () {
-    debugger;
+
+    console.log(this.project, "here")
     var basicInfoTemplate = this.basicInfoTemplate({
       catagories: this.catagories(),
       project: this.project,
@@ -63,17 +66,26 @@ KS.Views.ProjectNew = Backbone.View.extend({
 
   rewards: function (event) {
     event.preventDefault();
-
+    console.log(this.project)
     var newProjectTemplate = this.rewardsTemplate();
 
     this.addSubView(newProjectTemplate);
     this.renderSubView();
   },
 
+  addReward: function (event) {
+    event.preventDefault();
+
+    var newProjectTemplate = this.rewardsTemplate();
+    this.$('.project-body').append(newProjectTemplate)
+  },
+
   story: function (event) {
     event.preventDefault();
 
-    var newProjectTemplate = this.storyTemplate();
+    var newProjectTemplate = this.storyTemplate({
+      project: this.project
+    });
 
     this.addSubView(newProjectTemplate);
     this.renderSubView();
@@ -81,7 +93,9 @@ KS.Views.ProjectNew = Backbone.View.extend({
 
   aboutYou: function (event) {
     event.preventDefault();
-    var newProjectTemplate = this.aboutYouTemplate();
+    var newProjectTemplate = this.aboutYouTemplate({
+      project: this.project
+    });
 
     this.addSubView(newProjectTemplate);
     this.renderSubView();
@@ -94,22 +108,14 @@ KS.Views.ProjectNew = Backbone.View.extend({
   },
 
   renderSubView: function() {
+    console.log(this.project, "here")
     if ( typeof this.currentTemplate === 'undefined') {
       this.currentTemplate = this.basicInfoTemplate({
         catagories: this.catagories(),
-        project: this.project,
-        escapeIf: this.escapeIf
+        project: this.project
       });
     }
     this.$('.project-body').html(this.currentTemplate)
-  },
-
-  escapeIf: function (info) {
-    if (typeof info === 'undefined') {
-      return ""
-    } else {
-      return info
-    }
   }
 
 
