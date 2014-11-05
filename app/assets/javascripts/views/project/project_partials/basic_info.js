@@ -13,6 +13,9 @@ KS.Views.ProjectPartialBasic = Backbone.View.extend({
 
   initialize: function (options) {
     this.project = options.project
+    this.projectView = options.projectView
+    console.log(this.projectView, "project view in basic info")
+    this.listenTo(this.project, "sync", this.render)
   },
 
   render: function () {
@@ -27,13 +30,18 @@ KS.Views.ProjectPartialBasic = Backbone.View.extend({
   },
 
   save: function (event) {
-      event.preventDefault();
-
-      var attr = this.$('.title-form').serializeJSON();
-      this.project.save(attr, {
-        error: function (error) {
-          console.log(error, attr)
-        }
-      });
-    }
+    event.preventDefault();
+    console.log("inhere")
+    var attr = this.$('.start-project-form').serializeJSON();
+    var that = this
+    this.project.save(attr, {
+      error: function (error) {
+        console.log(error, attr)
+      },
+      success: function () {
+        that.projectView.rewards(false)
+        console.log("project Updated")
+      }
+    });
   },
+});

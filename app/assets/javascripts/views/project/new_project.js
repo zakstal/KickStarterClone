@@ -22,15 +22,16 @@ KS.Views.ProjectNew = Backbone.View.extend({
   },
 
   events: {
-    "click #basic-info-new-project"   : "basicInfo",
+    "click #basic-info-new-project"   : "renderBasicInfo",
     "click #reward-info-new-project"  : "rewards",
     "click #story-info-new-project"   : "story",
     "click #about-info-new-project"   : "aboutYou",
     "click #new-reward"               : "addReward",
-    "click .submit-title-form"        : "saveProject"
+    "click .submit-title-form"        : "saveProjectTitle"
   },
 
   render: function () {
+    console.log(this.project.get('id'), "current prject")
     if ( typeof this.project.get('id') === 'undefined') {
       var newProject = this.getTitlePage();
     } else {
@@ -39,7 +40,7 @@ KS.Views.ProjectNew = Backbone.View.extend({
     }
     this.$el.html(newProject);
 
-    this.renderBasicInfo();
+    this.addAndRenderSubView();
 
     return this;
 
@@ -47,17 +48,17 @@ KS.Views.ProjectNew = Backbone.View.extend({
 
 
   renderBasicInfo: function () {
-    var basicInfoTemplate = this.basicInfoTemplate({
-      catagories: this.catagories(),
-      project: this.project
+    var basicInfoTemplate = new KS.Views.ProjectPartialBasic({
+      project: this.project,
+      projectView: this
     });
 
-    this.addAndRenderSubView();
+    this.addAndRenderSubView(basicInfoTemplate.render().$el);
   },
 
 
 
-  saveProject: function (event) {
+  saveProjectTitle: function (event) {
     event.preventDefault();
 
     var attr = this.$('.title-form').serializeJSON();
@@ -69,20 +70,13 @@ KS.Views.ProjectNew = Backbone.View.extend({
   },
 
 
-  basicInfo: function (event) {
-    // event.preventDefault();
-    var newProjectTemplate = this.basicInfoTemplate({
-      catagories: this.catagories(),
-      project: this.project
-    });
-
-    this.addAndRenderSubView(newProjectTemplate);
-  },
-
   rewards: function (event) {
-    event.preventDefault();
+    if (event) {
+      event.preventDefault();
+    }
     var newProjectTemplate = new KS.Views.ProjectPartialReward({
-      project: this.project
+      project: this.project,
+      projectView: this
     });
 
     this.addAndRenderSubView(newProjectTemplate.render().$el);
@@ -91,14 +85,18 @@ KS.Views.ProjectNew = Backbone.View.extend({
   addReward: function (event) {
     event.preventDefault();
     var newProjectTemplate = new KS.Views.ProjectPartialReward({
-      project: this.project
+      project: this.project,
+      projectView: this
     });
 
     this.$('.project-body').append(newProjectTemplate.render().$el)
   },
 
   story: function (event) {
-    event.preventDefault();
+    if (event) {
+     event.preventDefault();
+    }
+    
     var newProjectTemplate = this.storyTemplate({
       project: this.project
     });
@@ -116,10 +114,22 @@ KS.Views.ProjectNew = Backbone.View.extend({
   },
 
   addAndRenderSubView: function(subview) {
-    if (typeof subview === 'undefined'){
-      this.basicInfo()
+    if (typeof subview === 'undefined' ) {
+
+      if (typeof this.currentTemplate === 'undefined') {
+        console.log("in add and render subview")
+        this.renderBasicInfo()
+      }
     } else {
-      this.currentTemplate = subview
+      console.log("in add and render subview 2")
+      if ( !(subview === this.currentTemplate)) {
+        this.currentTemplate && this.currentTemplate.remove();
+        this.currentTemplate = subview
+      }
+    }
+
+    if ( !(subview === this.currentTemplate)) {
+      console.log("in add and render subview 3")
       this.$('.project-body').html(this.currentTemplate)
     }
   },

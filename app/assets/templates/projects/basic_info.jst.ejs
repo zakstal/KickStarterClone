@@ -3,7 +3,7 @@
 <form class="start-project-form" data-id="basic">
   <input type="hidden" name="_method" value="">
 
-  <input type="hidden" name="project[user_id]" value="<%= project.escape('id') %>">
+  <input type="hidden" name="project[user_id]" value="<%= window.currentUserId %>">
   <br>
   <label for="title">Title</label>
   <br>
@@ -18,11 +18,10 @@
   <!-- <input type="text" name="project[catagorie]" id="cat"> -->
   <select name="project[catagory_id]" id="cat">
     <% catagories.forEach( function(cat){ %>
-      <option <% if (project.escape('catagory_id') === cat) { %>
+      <% if (project.escape('catagory_id') === cat) { %>
+      <option  <%= selected %>><%= cat %></option>
 
-        <%= selected %>
-
-        <% } %>><%= cat %></option>
+        <% } %>
 
     <% });  %>
   </select>
@@ -35,5 +34,8 @@
   <br>
   <input type="text" name="project[fundinggoal]" id="goal" value="<%= project.escape('fundinggoal') %>">
   <br>
-  <button class="submit">Submit</button>
+  <button id="project-button-save">Save</button>
 </form>
+
+
+  <button id="project-button-save">Next</button>

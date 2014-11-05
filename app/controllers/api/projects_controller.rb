@@ -19,6 +19,19 @@ module Api
       end
     end
 
+    def update
+      puts params
+      @project = Project.find(params[:id])
+
+      if @project.update(project_params)
+        render json: @project
+      else
+        puts @project.errors.full_messages
+        render json: @project.errors.full_messages, status: :unprocessable_entity
+      end
+
+    end
+
     private
 
     def project_params
