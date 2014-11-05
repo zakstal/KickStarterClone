@@ -3,8 +3,9 @@ KS.Views.ProjectPartialReward = Backbone.View.extend({
   rewards: JST['projects/rewards'],
 
   events: {
-    "click #reward-button-save" : "save",
-    "click #new-reward" : "addNewReward"
+    "click #reward-button-save"       : "save",
+    "click #new-reward"               : "addNewReward",
+    "click .new-project-reward-radio" : "revealQtyToggle"
   },
 
 
@@ -57,5 +58,17 @@ KS.Views.ProjectPartialReward = Backbone.View.extend({
     $(event.currentTarget).empty();
 
   },
+
+  revealQtyToggle: function (event) {
+    event.preventDefault();
+    var rewardQty = this.$('.new-project-reward-qty')
+    var isHidden = rewardQty.hasClass('hidden')
+    console.log(rewardQty, isHidden, "in toggel reward")
+    if (isHidden) {
+      rewardQty.removeClass('hidden')
+    } else {
+      rewardQty.addClass('hidden')
+    }
+  }
 
 });
