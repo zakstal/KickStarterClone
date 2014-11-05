@@ -1,34 +1,39 @@
 
 
-<form class="start-project-form" action="" method="POST">
+<form class="start-project-form" data-id="basic">
   <input type="hidden" name="_method" value="">
 
-  <input type="hidden" name="project[user_id]" value="">
+  <input type="hidden" name="project[user_id]" value="<%= project.escape('id') %>">
   <br>
   <label for="title">Title</label>
   <br>
-  <input type="text" name="project[title]" id="title" value="">
+  <input type="text" name="project[title]" id="title" value="<%= project.escape('title') %>">
   <br>
   <leabel for="description">Shrot blurb</leabel>
   <br>
-  <textarea id="description" name="project[description]"></textarea>
+  <textarea id="description" name="project[description]"><%= project.escape('description') %></textarea>
   <br>
   <leabel for="cat">Catagorie</leabel>
   <br>
   <!-- <input type="text" name="project[catagorie]" id="cat"> -->
   <select name="project[catagory_id]" id="cat">
     <% catagories.forEach( function(cat){ %>
-      <option><%= cat %></option>
+      <option <% if (project.escape('catagory_id') === cat) { %>
+
+        <%= selected %>
+
+        <% } %>><%= cat %></option>
+        
     <% });  %>
   </select>
   <br>
   <leabel for="duration">Funding Duration</leabel>
   <br>
-  <input type="text" name="project[duration]" id="duration" value="">
+  <input type="text" name="project[duration]" id="duration" value="<%= project.escape('duration') %>">
   <br>
   <leabel for="goal">Funding Goal</leabel>
   <br>
-  <input type="text" name="project[fundinggoal]" id="goal" value="">
+  <input type="text" name="project[fundinggoal]" id="goal" value="<%= project.escape('fundinggoal') %>">
   <br>
   <button class="submit">Submit</button>
 </form>

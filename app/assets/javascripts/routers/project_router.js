@@ -18,7 +18,8 @@ KS.Routers.ProjectRoute = KS.RootRouter.extend({
 
   new: function () {
     console.log("in new")
-    var newProject = new KS.Views.ProjectNew()
+    var emptyProject = new KS.Models.Project()
+    var newProject = new KS.Views.ProjectNew({ project: emptyProject })
 
     this._swapView(newProject)
   }
