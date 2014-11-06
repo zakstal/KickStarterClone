@@ -1,8 +1,8 @@
 KS.Views.ProjectShow = Backbone.View.extend({
 
   template: JST['projects/projectshow'],
-
-  rewardsTemplate: JST['projects/reward'],
+  //
+  // rewardsTemplate: JST['projects/reward'],
 
   userPartialTemplate: JST['projects/user_partial'],
 
@@ -13,6 +13,7 @@ KS.Views.ProjectShow = Backbone.View.extend({
   },
 
   render: function () {
+    console.log(this.project, "in show")
     var template = this.template({ project: this.project });
 
     this.$el.html(template);
@@ -27,9 +28,9 @@ KS.Views.ProjectShow = Backbone.View.extend({
     var that = this
 
     this.project.rewards().forEach(function (reward){
-        console.log(reward, "reward")
-      var rewardTemplate = that.rewardsTemplate({ reward: reward })
-      appendRewards.append(rewardTemplate)
+      // var rewardTemplate = that.rewardsTemplate({ reward: reward })
+        var rewardTemplate = new KS.Views.RewardSubShow({ reward: reward })
+      appendRewards.append(rewardTemplate.render().$el)
 
     });
 

@@ -29,7 +29,6 @@ KS.Views.ProjectPartialReward = Backbone.View.extend({
   save: function (event) {
 
     event.preventDefault();
-    console.log("in partial rewards")
     var attr = this.$('.project-reward-form').serializeJSON();
 
     if (typeof this.reward === 'undefined') {
@@ -51,7 +50,6 @@ KS.Views.ProjectPartialReward = Backbone.View.extend({
   },
 
   addNewReward: function (event) {
-    console.log('in add new reward')
     event.preventDefault();
 
       this.save(event);
@@ -65,7 +63,6 @@ KS.Views.ProjectPartialReward = Backbone.View.extend({
     event.preventDefault();
     var rewardQty = this.$('.new-project-reward-qty')
     var isHidden = rewardQty.hasClass('hidden')
-    console.log(rewardQty, isHidden, "in toggel reward")
     if (isHidden) {
       rewardQty.removeClass('hidden')
     } else {
@@ -75,7 +72,6 @@ KS.Views.ProjectPartialReward = Backbone.View.extend({
 
   saveAndNext: function (event) {
     event.preventDefault();
-    console.log("save and next")
     this.save(event)
 
     this.projectView.story(false)

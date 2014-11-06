@@ -7,16 +7,22 @@
         <h2><%= project.escape('title') %></h2>
         <a href="">by <%= project.escape('username') %></a>
     </div>
-    <a ><%= project.escape("catagory_id") %></a>
+
   </div>
 
   <div class="project-main group">
-
+    <a class="cat-in-project-show" ><%= project.escape("catagory_id") %></a>
 
 
     <div class="project-body group">
-
-      <image class="user-video">
+      <div class="project-picture-container">
+        <a class="play">
+          <div class="play-center">
+            Play
+          </div>
+        <a>
+      <image class="user-video" src="<%= project.get('that_url') %>">
+      </div>
       <br>
       <h3>Our Story</h3>
       <a><%= project.escape("story") %></a>

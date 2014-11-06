@@ -16,6 +16,12 @@ window.KS = {
       $rootEl: $main,
       $rootBody: $body
     });
+
+    new KS.Routers.CatagoryRoute({
+      $rootEl: $main,
+      $rootBody: $body
+    });
+
     Backbone.history.start()
   }
 };

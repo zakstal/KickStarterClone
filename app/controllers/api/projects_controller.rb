@@ -4,7 +4,8 @@ module Api
     def show
 
       @project = Project.find(params[:id])
-      puts @project
+      puts "here!!!!!!!!!!!!!!!!"
+      puts @project.title
       render :project
     end
 

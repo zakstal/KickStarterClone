@@ -1,5 +1,8 @@
-
-<div><a href=""><%= project.escape('username') %></a></div>
-<div><a href=""><%= project.escape('users_backed_projects') %> Backed</a></div>
-<div><a href=""><%= project.escape('users_projects') %> Created</a></div>
-
+<div class="user-partial-in-project">
+  <div class="circle-picture">
+    <img src="<%= project.escape('user_pic') %>"
+  </div>
+  <div><a href=""><%= project.escape('username') %></a></div>
+  <div><a href=""><%= project.escape('users_backed_projects') %> Backed</a> | <a href=""><%= project.escape('users_projects') %> Created</a></div>
+  <div></div>
+</div>

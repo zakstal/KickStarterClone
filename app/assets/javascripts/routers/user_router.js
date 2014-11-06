@@ -9,7 +9,6 @@ KS.Routers.UserRoute = KS.RootRouter.extend({
   },
 
   index: function () {
-    console.log("here")
   },
 
   new: function () {

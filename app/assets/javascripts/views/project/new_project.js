@@ -19,7 +19,6 @@ KS.Views.ProjectNew = Backbone.View.extend({
     this.currentUser = options.currentUser
 
     this.listenTo(this.project, "sync", this.render)
-    console.log(this.project, "in new project")
   },
 
   events: {
@@ -32,7 +31,6 @@ KS.Views.ProjectNew = Backbone.View.extend({
   },
 
   render: function () {
-    console.log(this.project.get('id'), "current prject")
     if ( typeof this.project.get('id') === 'undefined') {
       var newProject = this.getTitlePage();
     } else {
@@ -63,11 +61,9 @@ KS.Views.ProjectNew = Backbone.View.extend({
     event.preventDefault();
     var that = this
     var attr = this.$('.title-form').serializeJSON();
-    console.log(this.currentUser, "current user")
 
     this.project.save(attr, {
       success: function () {
-        console.log(that.project, "save project")
         that.currentUser().backedProjects.add(that.project)
       }
     });
@@ -121,11 +117,9 @@ KS.Views.ProjectNew = Backbone.View.extend({
     if (typeof subview === 'undefined' ) {
 
       if (typeof this.currentTemplate === 'undefined') {
-        console.log("in add and render subview")
         this.renderBasicInfo()
       }
     } else {
-      console.log("in add and render subview 2")
       if ( !(subview === this.currentTemplate)) {
         this.currentTemplate && this.currentTemplate.remove();
         this.currentTemplate = subview

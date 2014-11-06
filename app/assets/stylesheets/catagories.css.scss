@@ -19,6 +19,7 @@
 ul {
   list-style: none;
   float: left;
+  width: 1000px;
 }
 
 .cat {
@@ -28,4 +29,5 @@ ul {
   border: 1px solid lightgray;
   background: white;
   border-radius: 3px;
+  margin: 10px;
 }

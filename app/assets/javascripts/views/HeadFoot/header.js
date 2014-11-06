@@ -21,7 +21,6 @@ KS.Views.Head = Backbone.View.extend({
   },
 
   renderSignedInOut: function () {
-    console.log(this.currentUser, "in render signed in out")
       var signedInTemplate = new KS.Views.Dropdown({
         model: this.currentUser
       })

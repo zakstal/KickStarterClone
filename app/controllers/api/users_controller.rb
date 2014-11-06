@@ -5,7 +5,7 @@ module Api
       if current_user
         @user = Users.find(current_user.id)
         puts "@@@@@@@@@@@@@@@@@@@@@@"
-        puts @user.pictures.first.pic.url(:small)
+        # puts @user.pictures.first.pic.url(:small)
           render :get_current_user
       else
         render json: {}
@@ -14,9 +14,11 @@ module Api
 
     def update
       @user = Users.find(params[:id])
-
+      puts @user.pictures.nil?
+      puts "!!!!!!!!!!!!!!!!!!!!"
       if @user.update(user_params)
-        @user.pictures.create!(photo_params)
+          @user.pictures.destroy if !photo_params.empty? && !@user.pictures.nil?
+          @user.pictures.create!(photo_params)
           if @user.user_bio.nil?
             UserBio.create(user_bio_params)
           else
@@ -41,5 +43,6 @@ module Api
     def photo_params
       params.permit(:pic)
     end
+
   end
 end
