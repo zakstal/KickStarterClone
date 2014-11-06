@@ -42,6 +42,8 @@ if !@user.backed_projects.empty?
   end
 end
 
+json.that_url @user.pictures.first.pic.url()
+
 # do |backed_project|
 #   json.title backed_project.backed_projects.title
 # end

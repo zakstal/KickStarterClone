@@ -7,7 +7,8 @@ KS.Views.UserEdit = Backbone.View.extend({
   },
 
   events: {
-    "click .submit": "updateProfile"
+    "click .submit": "updateProfile",
+    "change .my-photo-upload": "handleFile"
   },
 
   render: function () {
@@ -33,5 +34,17 @@ KS.Views.UserEdit = Backbone.View.extend({
         this.render
       }
     });
+  },
+
+  handleFile: function(event) {
+
+    var file = event.currentTarget.files[0];
+    var view = this;
+    var reader = new FileReader();
+    reader.onload = function(event) {
+      view.model.set('pic', this.result);
+    }
+
+    reader.readAsDataURL(file);
   }
 });

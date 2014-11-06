@@ -12,6 +12,9 @@ gem "backbone-on-rails"
 gem 'filepicker-rails'
 gem 'ejs'
 gem 'bcrypt', require: 'bcrypt'
+gem 'figaro'
+gem 'paperclip', '~> 4.2'
+gem 'aws-sdk'
 
 group :doc do
   gem 'sdoc', require: false
@@ -30,4 +33,3 @@ end
 group :production do
   gem 'rails_12factor'
 end
-

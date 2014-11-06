@@ -10,6 +10,7 @@ class Users < ActiveRecord::Base
   has_many  :claimed_rewards,  class_name: "ClaimedRewards", foreign_key: :user_id
 
   has_many  :backed_projects,  through: :rewards,      source: :project
+  has_many  :pictures, as: :image 
 
 
    after_initialize :ensure_session

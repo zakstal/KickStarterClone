@@ -1,12 +1,11 @@
 <div class="runner-board group">
   <div class="container">
-    <image class="user-image">
+    <image class="user-image" src="<%= user.get('that_url') %>">
       <div class="user-container">
         <% if (typeof user !== 'undefined') { %>
         <p><%= user.escape('username') %></p>
         <p><%= user.escape('bio') %></p>
         <% } %>
     </div>
-
   </div>
 </div>
