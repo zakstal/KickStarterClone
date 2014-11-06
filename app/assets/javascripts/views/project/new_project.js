@@ -16,6 +16,7 @@ KS.Views.ProjectNew = Backbone.View.extend({
 
   initialize: function (options) {
     this.project = options.project
+    this.currentUser = options.currentUser
 
     this.listenTo(this.project, "sync", this.render)
     console.log(this.project, "in new project")
@@ -60,11 +61,14 @@ KS.Views.ProjectNew = Backbone.View.extend({
 
   saveProjectTitle: function (event) {
     event.preventDefault();
-
+    var that = this
     var attr = this.$('.title-form').serializeJSON();
+    console.log(this.currentUser, "current user")
+
     this.project.save(attr, {
-      error: function (error) {
-        console.log(error, attr)
+      success: function () {
+        console.log(that.project, "save project")
+        that.currentUser().backedProjects.add(that.project)
       }
     });
   },

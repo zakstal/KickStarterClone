@@ -11,13 +11,6 @@ KS.Models.Project = Backbone.Model.extend({
   },
 
   parse: function(response) {
-    if (response.model){
-
-    }
-    if (response.project){
-      this.set(response.project, { parse: true })
-      delete response.project
-    }
 
     if (response.rewards) {
       this.rewards().set(response.rewards, { parse: true })

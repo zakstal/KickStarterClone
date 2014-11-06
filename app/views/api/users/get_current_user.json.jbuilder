@@ -30,6 +30,7 @@ end
 #
 if !@user.backed_projects.empty?
   json.backed_projects @user.backed_projects do |backed_project|
+    json.id           backed_project.id
     json.title        backed_project.title
     json.description  backed_project.description
     json.catagory_id  backed_project.catagory_id

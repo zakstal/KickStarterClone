@@ -19,9 +19,12 @@ KS.Routers.ProjectRoute = KS.RootRouter.extend({
   },
 
   new: function () {
-    console.log("in new")
+    console.log(this.currentUser(),"in new")
     var emptyProject = new KS.Models.Project()
-    var newProject = new KS.Views.ProjectNew({ project: emptyProject })
+    var newProject = new KS.Views.ProjectNew({
+      project: emptyProject,
+      currentUser: this.currentUser
+    });
 
     this._swapView(newProject)
   },
@@ -37,8 +40,10 @@ KS.Routers.ProjectRoute = KS.RootRouter.extend({
 
   showReward: function(id) {
     console.log("in show reward")
+
     var reward = new KS.Models.Reward({ id: id})
     reward.fetch()
+
     console.log(reward.get('project_id'))
     var rewardView = new KS.Views.RewardConfirm({
       reward: reward

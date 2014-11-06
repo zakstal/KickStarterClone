@@ -5,10 +5,10 @@ KS.RootRouter = Backbone.Router.extend({
     this.$rootEl = options.$rootEl
     this.$rootBody = options.$rootBody
 
-    var currentUser = this._getCurrentUserInfo
-
+     this.currentUser = this._getCurrentUserInfo
+    console.log(this.currentUse, "user")
     var view = new KS.Views.Head({
-      currentUser: currentUser()
+        currentUser: this.currentUser()
     });
 
     this.$rootEl.html(view.render().$el)

@@ -24,10 +24,8 @@ KS.Views.RewardConfirm = Backbone.View.extend({
     event.preventDefault();
     var form = this.$('.confirm-reward-form')
 
-    console.log(form, "form")
     var attr = form.serializeJSON();
 
-    console.log("in confirm", attr)
 
     var claimed = new KS.Models.ClaimedReward();
 

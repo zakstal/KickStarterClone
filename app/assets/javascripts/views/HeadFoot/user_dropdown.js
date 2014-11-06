@@ -16,7 +16,9 @@ KS.Views.Dropdown = Backbone.View.extend({
 
   initialize: function () {
     this.projects = this.model.projects()
-    this.backedProjects = this.model.backedProjects
+    this.backedProjects = this.model.backedProjects()
+    this.listenTo(this.projects, "add", this.render)
+    this.listenTo(this.backedProjects, "add", this.render)
   },
 
   render: function () {
@@ -32,9 +34,9 @@ KS.Views.Dropdown = Backbone.View.extend({
 
       this.$el.html(signedIn);
       this.$el.append(dropdown)
-
       this.renderProjectList(this.projects)
-      this.renderProjectList(this.backedProjects)
+
+      this.renderBackedProjectList(this.backedProjects)
     }
 
     return this;
@@ -53,9 +55,22 @@ KS.Views.Dropdown = Backbone.View.extend({
     }
   },
 
+  renderBackedProjectList: function (projectType) {
+    var that = this
+    if ( typeof projectType !== 'undefined') {
+      projectType.each(function (project) {
+        var projectThumb = that.projectThumbNail({
+          project: project
+        });
+
+        that.$('.backed-projects-in-dropdown').append(projectThumb)
+      });
+    }
+  },
+
 
   toggleDropDown: function(event) {
-    
+
     var dropDown = $('.dropdown-container');
       if (dropDown.hasClass('hidden')){
 

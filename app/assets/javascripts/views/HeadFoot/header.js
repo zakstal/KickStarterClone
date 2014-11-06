@@ -1,11 +1,7 @@
 KS.Views.Head = Backbone.View.extend({
   header: JST['headfoot/header'],
 
-  events: {
-    "click .title": "navigateIndex",
-    "click .discover": "navDiscover",
-    "click .start": "navStart"
-  },
+
 
   initialize: function(options) {
     this.currentUser = options.currentUser
@@ -25,6 +21,7 @@ KS.Views.Head = Backbone.View.extend({
   },
 
   renderSignedInOut: function () {
+    console.log(this.currentUser, "in render signed in out")
       var signedInTemplate = new KS.Views.Dropdown({
         model: this.currentUser
       })
@@ -34,16 +31,5 @@ KS.Views.Head = Backbone.View.extend({
       this.$('#signed-in-out').html(rendered)
   },
 
-  navigateIndex: function(event) {
-    Backbone.history.navigate("", {trigger: true })
-  },
-
-  navDiscover: function(event) {
-    Backbone.history.navigate("", {trigger: true })
-  },
-
-  navStart: function(event) {
-    Backbone.history.navigate("/project/new", {trigger: true })
-  },
 
 });
