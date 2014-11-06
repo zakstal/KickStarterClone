@@ -141,3 +141,5 @@ bulid an employers tab to fill in fomrs
 look into codeacademy api
 
 add image association to project model
+
+need to brew install imagemagick

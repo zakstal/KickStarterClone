@@ -4,7 +4,8 @@ KS.Routers.ProjectRoute = KS.RootRouter.extend({
     //new before :id
     "project/new": "new",
     "project/:id": "show",
-    "project/:id/edit": "edit"
+    "project/:id/edit": "edit",
+    "project/reward/:id": "showReward"
   },
 
   show: function(id) {
@@ -28,9 +29,21 @@ KS.Routers.ProjectRoute = KS.RootRouter.extend({
   edit: function (id) {
     var project = new KS.Models.Project({ id: id })
     project.fetch()
-    
+
     var newProject = new KS.Views.ProjectNew({ project: project })
 
     this._swapView(newProject)
+  },
+
+  showReward: function(id) {
+    console.log("in show reward")
+    var reward = new KS.Models.Reward({ id: id})
+    reward.fetch()
+    console.log(reward.get('project_id'))
+    var rewardView = new KS.Views.RewardConfirm({
+      reward: reward
+    });
+
+    this._swapView(rewardView)
   }
 });

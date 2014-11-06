@@ -1,0 +1,36 @@
+<div class="background-project">
+  <div class="user-edit">
+
+
+  <div class="project-runner">
+    <div class="container">
+        <h2>Great Choice!</h2>
+
+    </div>
+
+  </div>
+
+  <div class="project-main group">
+    <div class="project-body group reward-confirm">
+
+      <% console.log(reward, "here") %>
+      <h3>You are pledging $<%= reward.escape('pledge_amt') %></h3>
+
+      <p><%= reward.escape('description') %><p>
+
+      <p>Expected delivery date <%= reward.escape('est_delivery')%>
+
+      <form class="confirm-reward-form">
+        <input type="hidden" name="claim[user_id]" value="<%= window.currentUserId %>">
+        <input type="hidden" name="claim[reward_id]" value="<%= reward.escape('id')%>">
+        <button class="submit confirm">Confirm Order</button>
+      </form>
+
+      <div class="hidden confirm-window">
+        <h3>Thangs for your Pledge!</h3>
+
+        <a href="#/project/<%= reward.escape('project_id')%>">Back To Project</a>
+      </div>
+    </div>
+  </div>
+</div>

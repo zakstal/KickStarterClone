@@ -16,7 +16,6 @@ window.KS = {
       $rootEl: $main,
       $rootBody: $body
     });
-
     Backbone.history.start()
   }
 };

@@ -11,7 +11,8 @@ KickStarter::Application.routes.draw do
     get '/users', as: :get_current_user, to: 'users#get_current_user'
     resources :users, only: [:gest_current_user, :update]
     resources :projects, only: [:show, :create, :update]
-    resources :rewards, only: [:create]
+    resources :rewards, only: [:create, :show]
+    resources :claimed_rewards, only: [:create]
   end
 
   resources :user_bio, only: [:create, :edit, :update, :destroy]

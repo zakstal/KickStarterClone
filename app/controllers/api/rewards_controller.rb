@@ -1,6 +1,12 @@
 module Api
   class RewardsController < ApplicationController
 
+    def show
+      @reward = Reward.find(params[:id])
+
+      render :reward_show
+    end
+
     def create
       @reward = Reward.new(reward_params)
 

@@ -11,7 +11,8 @@ class Project < ActiveRecord::Base
   belongs_to  :user,            class_name: "Users",        foreign_key: :user_id,      primary_key: :id
   belongs_to  :catagory,        class_name: "Catagorie",    foreign_key: :catagory_id,  primary_key: :catagory
 
-
+  has_many  :pictures, as: :image
+  
   def backers
     claimed_rewards.map do |claimed|
       claimed.user.id

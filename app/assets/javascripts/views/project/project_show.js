@@ -25,8 +25,9 @@ KS.Views.ProjectShow = Backbone.View.extend({
   renderRewards: function () {
     var appendRewards = this.$el.find('.rewards-in-project');
     var that = this
-    this.project.rewards().forEach(function (reward){
 
+    this.project.rewards().forEach(function (reward){
+        console.log(reward, "reward")
       var rewardTemplate = that.rewardsTemplate({ reward: reward })
       appendRewards.append(rewardTemplate)
 
