@@ -9,6 +9,9 @@ KS.Routers.UserRoute = KS.RootRouter.extend({
   },
 
   index: function () {
+    var front = new KS.Views.FrontPage();
+
+    this._swapView(front);
   },
 
   new: function () {

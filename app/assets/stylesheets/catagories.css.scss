@@ -10,24 +10,122 @@
 //  position: absolute;
 //  background: lightgray;
 //}
+.container {
+  background: transparent;
+}
+.catagory-container li {
+  float: left;
+  border: 1px solid lightgray;
+  background: white;
+  border-radius: 3px;
+  margin: 5px;
+  text-align: center;
+  font-size: 20px;
+  color: #888;
+}
 
+.cat {
+  display: block;
+  width: 177px;
+  height: 60px;
+  border: 1px solid lightgray;
+  background: white;
+  border-radius: 3px;
+  padding-top: 40px;
+  text-align: center;
+  font-size: 20px;
+  color: #888;
+}
+
+.catagory-container > ul {
+  padding-top: 30px;
+  background: transparent;
+}
 .catagory-container {
   width: auto;
   margin: 0 auto;
+  background: transparent;
 }
 
+div.back > div.project-runner > div.container > h2 {
+  font-size: 60px;
+  color: #333;
+}
+
+div.project-runner {
+  background: transparent;
+  height: 150px;
+}
+
+div.catagory-container li:nth-child(1) a {
+  transition: all 0.2s;
+
+  &:hover {
+    background: #39e;
+    color: #fff;
+  }
+}
+
+div.catagory-container li:nth-child(2) a {
+  transition: all 0.2s;
+  &:hover {
+    // background: #3ef;
+    background: image-url("backgound9.jpg") no-repeat center;
+    color: #fff;
+  }
+}
+
+div.catagory-container li:nth-child(3) a {
+  transition: all 0.2s;
+  &:hover {
+    background: #f8f;
+    color: #fff;
+  }
+}
+
+div.catagory-container li:nth-child(4) a {
+  transition: all 0.2s;
+  &:hover {
+    // background: rgb(55,100,200);
+    // opacity: 0.7;
+    background: transparent;
+    background: image-url("background9.png") no-repeat center;
+    color: #555;
+  }
+}
+
+div.catagory-container li:nth-child(4) {
+  transition: all 0.2s;
+  &:hover {
+    background: #f8f;
+    // opacity: 0.2;
+    // background: image-url("bacground1.jpg") no-repeat center;
+    color: #FFF;
+    // font-weight: bold;
+  }
+}
+
+div.catagory-container li:nth-child(5) a {
+  transition: all 0.2s;
+  &:hover {
+    background: #f8a;
+    color: #fff;
+  }
+}
+
+
+
+.back {
+  // color: white;
+  position: relative;
+  display: block;
+  height: 800px;
+  // background: red;
+  background: image-url("baground2.jpg") no-repeat center;
+  background-size: 100%;
+}
 ul {
   list-style: none;
   float: left;
   width: 1000px;
-}
-
-.cat {
-  float: left;
-  width: 177px;
-  height: 100px;
-  border: 1px solid lightgray;
-  background: white;
-  border-radius: 3px;
-  margin: 10px;
 }

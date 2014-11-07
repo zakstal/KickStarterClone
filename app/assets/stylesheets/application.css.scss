@@ -13,45 +13,43 @@
  */
 
 body, html {
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
+  position: relative;
+  min-height: 100%;
 }
 
-body, html, a, div, ul, h1, p {
+body, html, a, div, ul, h1, h1, h2,
+h3, p, button, input, textarea {
   padding: 0;
   margin: 0;
-  border: none;
-  color: black;
-  font-style: sans-serif;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  text-decoration: none;
+  text-align: inherit;
+  vertical-align: baseline;
+}
 
+body {
+  font-family: sans-serif;
 }
 
 button, input, textarea {
   display: inline-block;
   box-sizing: content-box;
   -webkit-apperance: none;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  font: inherit;
-  color: inherit;
-  background: transparent;
-  vertical-align: baseline;
-}
-
-a, p, h1, h2, h3 {
-  text-decoration: none;
 
 }
 
-body, html {
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
+h1 {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+h3 {
+font-size: 30px;
+font-weight: bold;
 }
 
 .group:after {
@@ -75,7 +73,6 @@ body, html {
   float: left;
   font-weight: bold;
   font-size: 2em;
-  font-style: sans-serif;
   padding: 10px;
 }
 
@@ -121,4 +118,62 @@ button, input, textarea {
 
 button {
   cursor: pointer;
+}
+
+.front-page {
+  color: white;
+  position: relative;
+  display: block;
+  height: 800px;
+  background: image-url("front-page17.gif") no-repeat center;
+  background-size: 100%;
+}
+
+.front-title {
+
+  display: block;
+  font-size: 100px;
+  text-align: center;
+  padding-top: 200px;
+
+}
+
+.font-title > p {
+
+}
+
+.front-page {
+  color: white;
+  position: relative;
+  display: block;
+  height: 800px;
+  background: image-url("front-page.gif") no-repeat center;
+  background-size: 100%;
+}
+
+.front-page1 {
+  color: white;
+  position: relative;
+  display: block;
+  height: 800px;
+  background: image-url("front-page17.gif") no-repeat center;
+  background-size: 100%;
+}
+
+.front-page2 {
+  color: white;
+  position: relative;
+  display: block;
+  height: 800px;
+  background: image-url("front-page2.gif") no-repeat center;
+  background-size: 100%;
+}
+
+.front-page3 {
+  color: white;
+  position: relative;
+  display: block;
+  height: 800px;
+  background: image-url("front-page2.gif") no-repeat center;
+  background-size: 100%;
 }
