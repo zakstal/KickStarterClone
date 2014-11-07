@@ -15,7 +15,7 @@ gem 'bcrypt', require: 'bcrypt'
 gem 'figaro'
 gem 'paperclip', '~> 4.2'
 gem 'aws-sdk'
-gem 'rmagick'
+
 
 group :doc do
   gem 'sdoc', require: false

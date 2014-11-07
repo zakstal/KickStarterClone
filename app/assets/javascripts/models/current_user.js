@@ -20,7 +20,7 @@ KS.Models.CurrentUser = Backbone.Model.extend({
   },
 
   parse: function(response) {
-    console.log(response, "in parse user")
+    // console.log(response, "in parse user")
     if (response.user){
       this.set(response.user, { parse: true })
       delete response.user
