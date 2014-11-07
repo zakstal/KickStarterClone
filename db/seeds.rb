@@ -92,6 +92,9 @@ Story.create({
  project_id: 4
 })
 
+
+UserBio.create({username: "James Adams", bio: "love to go wing suiting"})
+
 Reward.create({ project_id: 4, pledge_amt: 5, description: "great thing to have", est_delivery: "11/30/14", qty: 5})
 Reward.create({ project_id: 4, pledge_amt: 10, description: "bad reward", est_delivery: "11/30/14", qty: 6})
 Reward.create({ project_id: 4, pledge_amt: 20, description: "having things is good :)", est_delivery: "11/30/14", qty: 9})
