@@ -8,6 +8,7 @@ KS.Views.ProjectPartialBasic = Backbone.View.extend({
 
   events: {
     "click #project-button-save": "save",
+    "change .my-photo-upload": "handleFile"
   },
 
 
@@ -38,10 +39,24 @@ KS.Views.ProjectPartialBasic = Backbone.View.extend({
       error: function (error) {
         console.log(error, attr)
       },
-      success: function () {
-        that.projectView.rewards(false)
-        console.log("project Updated")
+      success: function (resp) {
+        console.log(resp.get('id'), "save project" ),
+        // var projId = resp.get('id'),
+        Backbone.history.navigate("project/" + resp.get('id') + "/rewards", {trigger: true})
       }
     });
   },
+
+  handleFile: function(event) {
+
+    var file = event.currentTarget.files[0];
+    var view = this;
+    var reader = new FileReader();
+    reader.onload = function(event) {
+      view.project.set('pic', this.result);
+    }
+
+    reader.readAsDataURL(file);
+  }
+
 });

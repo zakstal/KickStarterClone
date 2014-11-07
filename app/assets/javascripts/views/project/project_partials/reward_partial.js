@@ -1,8 +1,8 @@
-KS.Views.ProjectPartialReward = Backbone.View.extend({
+KS.Views.ProjectPartialRewardPartial = Backbone.View.extend({
 
-  rewards: JST['projects/rewards'],
 
-  reward: JST['projects/rewards_partial'],
+
+  rewards: JST['projects/rewards_partial'],
 
   events: {
     "click #reward-button-save"       : "save",
@@ -13,11 +13,9 @@ KS.Views.ProjectPartialReward = Backbone.View.extend({
 
 
   initialize: function (options) {
-    this.project = options.project;
-    this.projectView = options.projectView;
-    this.reward = new KS.Models.Reward();
-    this.listenTo(this.project, "sync", this.render);
-    // this.listenTo(this.reward, "sync", this.render)
+    this.project = options.project,
+    this.projectView = options.projectView
+    this.listenTo(this.project, "sync", this.render)
   },
 
   render: function () {
@@ -36,23 +34,22 @@ KS.Views.ProjectPartialReward = Backbone.View.extend({
     event.preventDefault();
     var attr = this.$('.project-reward-form').serializeJSON();
 
-     var success = false
-     var that = this;
+    if (typeof this.reward === 'undefined') {
+      this.reward = new KS.Models.Reward()
+    }
+
+    var saved = false
     console.log("in save", this.reward, attr)
-
-    this.reward.save(attr, {
-      error: function (error) {
-        console.log(error, "there was an error")
-      },
-      success: function () {
-        success = true
-        console.log("here", success)
-      }
-    });
-
-    console.log("here", success)
-
-    return success;
+    if (saved) {
+      this.reward.save(attr, {
+        error: function (error) {
+          console.log(error, "there was an error")
+        },
+        success: function () {
+          saved = true
+        }
+      });
+    }
   },
 
   addNewReward: function (event) {
@@ -73,10 +70,8 @@ KS.Views.ProjectPartialReward = Backbone.View.extend({
   },
 
   revealQtyToggle: function (event) {
-    // event.preventDefault();
+    event.preventDefault();
     var rewardQty = this.$('.new-project-reward-qty')
-    console.log(rewardQty, "in reaveal quty")
-
     var isHidden = rewardQty.hasClass('hidden')
     if (isHidden) {
       rewardQty.removeClass('hidden')
@@ -88,8 +83,12 @@ KS.Views.ProjectPartialReward = Backbone.View.extend({
   saveAndNext: function (event) {
     console.log("in save and next")
     event.preventDefault();
-    // if (this.save(event)) {}
-      Backbone.history.navigate("project/" + this.project.get("id") + "/story", {trigger: true})
+    this.save(event, {
+      success: function (resp) {
+        console.log("in success partial")
+          Backbone.history.navigate("project/" + resp.get('id') + "/story", {trigger: true})
+      }
+    });
 
   }
 

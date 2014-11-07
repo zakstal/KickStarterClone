@@ -5,7 +5,10 @@ KS.Routers.ProjectRoute = KS.RootRouter.extend({
     "project/new": "new",
     "project/:id": "show",
     "project/:id/edit": "edit",
-    "project/reward/:id": "showReward"
+    "project/reward/:id": "showReward",
+    "project/:id/basic": "basicNew",
+    "project/:id/rewards": "rewardsNew",
+    "project/:id/story": "storyNew"
   },
 
   show: function(id) {
@@ -40,6 +43,7 @@ KS.Routers.ProjectRoute = KS.RootRouter.extend({
   },
 
   showReward: function(id) {
+    this.currentUser = this._getCurrentUserInfo
     console.log("in show reward")
 
     var reward = new KS.Models.Reward({ id: id})
@@ -51,5 +55,50 @@ KS.Routers.ProjectRoute = KS.RootRouter.extend({
     });
 
     this._swapView(rewardView)
+  },
+
+  basicNew: function (id) {
+    console.log(id, "in basic")
+
+
+    var project = new KS.Models.Project({ id: id })
+    project.fetch()
+
+    var basic = new KS.Views.ProjectPartialBasic({
+      project: project
+    });
+
+    this._swapView(basic)
+  },
+
+  rewardsNew: function (id) {
+    console.log(id, "in rewards")
+
+
+    var project = new KS.Models.Project({ id: id })
+    project.fetch()
+    console.log(project, "in rewards")
+    var basic = new KS.Views.ProjectPartialReward({
+      project: project
+    });
+
+    this._swapView(basic)
+  },
+
+  storyNew: function (id) {
+    console.log(id, "in story")
+
+
+    var project = new KS.Models.Project({ id: id })
+    project.fetch()
+
+    console.log(project, "in story")
+    var basic = new KS.Views.ProjectPartialStory({
+      project: project
+    });
+
+    this._swapView(basic)
   }
+
+
 });

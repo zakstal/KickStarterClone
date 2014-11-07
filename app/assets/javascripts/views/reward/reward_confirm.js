@@ -33,7 +33,8 @@ KS.Views.RewardConfirm = Backbone.View.extend({
     claimed.save(attr, {
       success: function () {
         console.log("claim saved")
-        this.$('.confirm-window').removeClass('hidden')
+        // this.$('.confirm-window').removeClass('hidden')
+        this.$('.confirm-window').addClass('show-confirm-window') 
       }
     });
 

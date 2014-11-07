@@ -29,7 +29,7 @@
       if project.pictures.first.nil?
         json.that_url image_path('cute.jpg')
       else
-        json.that_url @user.pictures.first.pic.url()
+        json.that_url project.pictures.first.pic.url()
       end
 
     end
@@ -51,7 +51,7 @@
       if backed_project.pictures.first.nil?
         json.that_url image_path('cute.jpg')
       else
-        json.that_url @user.pictures.first.pic.url()
+        json.that_url backed_project.pictures.first.pic.url()
       end
 
     end

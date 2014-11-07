@@ -177,3 +177,17 @@ button {
   background: image-url("front-page2.gif") no-repeat center;
   background-size: 100%;
 }
+
+
+form label {
+  font-weight: bold;
+  padding: 5px 0 10px 0;
+  display: block;
+
+}
+
+form input, textarea {
+  display: block;
+  padding: 5px;
+  margin: 5px 5px 5px 0;
+}

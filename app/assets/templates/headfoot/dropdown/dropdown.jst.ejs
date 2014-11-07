@@ -22,7 +22,7 @@
     <p class="dropdown-footer-content">Your are signed in as: <%= user.escape('username') %></p>
 
     <form class="dropdown-footer-content" action="/session" method="POST">
-
+        <% window.from_auth %>
       <input type="hidden" name="_method" value="DELETE">
       <input type="submit" value="Sign Out">
     </form>

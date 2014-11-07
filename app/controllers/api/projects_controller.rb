@@ -4,7 +4,6 @@ module Api
     def show
 
       @project = Project.find(params[:id])
-      puts "here!!!!!!!!!!!!!!!!"
       puts @project.title
       render :project
     end
@@ -14,6 +13,14 @@ module Api
       @project = Project.new(project_params)
 
       if @project.save
+
+        @project.pictures.destroy if !photo_params.empty? && !@project.pictures.nil?
+
+        @project.pictures.create!(photo_params)
+        puts "!!!!!!!!!!!!!!!!!!"
+        puts photo_params
+        puts @project.pictures
+        puts"!!!!!!!!!!!!!!!!!!!!!!"
         render json: @project
       else
         render json: @project.errors.full_messages, status: :unprocessable_entity
@@ -37,6 +44,10 @@ module Api
 
     def project_params
       params.require(:project).permit(:user_id, :description, :title, :catagory_id, :duration, :fundinggoal)
+    end
+
+    def photo_params
+      params.permit(:pic)
     end
   end
 end
