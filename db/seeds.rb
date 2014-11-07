@@ -123,14 +123,14 @@ fundinggoal: "10000",
 })
 
 Story.create({
- story: "We’re the Young@Heart Chorus and we’re launching the Young@Heart Prison Project, a series of rehearsals and concerts in 3 prisons which will be recorded for a new live-from-prison album featuring Young@Heart singing with inmates. Our goal is to foster a sense of hope among inmates, to provide them with an inspiring and transformative creative outlet, and to demonstrate that it's never too late to begin anew. .",
+ story: "We’re the Young@Heart Chorus and we’re launching the Young@Heart Prison Project, a series of rehearsals and ",
  challenges: "this is my challenge",
  project_id: 3
 })
 
 Project.create({
 title: "Hours of power",
-description: "n 2006, the Young@Heart (Y@H) performed at the Hampshire County House of Correction. The concert was filmed as part of the award winning Fox Searchlight film Young@Heart. Viewed by millions, the prison performance remains to this day, the single most emotional, impactful and rewarding concert in the 32-year history of Y@H. Newsweek film critic David Ansen picked the scene as his favorite cultural movie moment of 2008 writing, “Lots of movies make me cry—it's not that hard to do—but this moment cut so deep, it left me gasping for air.”",
+description: "n 2006, the Young@Heart (Y@H) performed at the Hampshire County House of Correction. The concert was filmed ”",
 user_id: 4,
 catagory_id: "food",
 duration: "30",
