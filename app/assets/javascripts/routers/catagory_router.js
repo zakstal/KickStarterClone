@@ -12,11 +12,13 @@ KS.Routers.CatagoryRoute = KS.RootRouter.extend({
   },
 
   show: function(id) {
-    var project = new KS.Models.Project({ id: id })
-    project.fetch()
 
-    var showBody = new KS.Views.ProjectShow({
-      project: project
+    var catagory = new KS.Models.Catagory({ id: id })
+    catagory.fetch()
+    console.log(catagory, "in show")
+    
+    var showBody = new KS.Views.CatagoryShow({
+      catagory: catagory
     });
 
     this._swapView(showBody);

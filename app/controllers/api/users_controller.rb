@@ -15,9 +15,11 @@ module Api
     def update
       @user = Users.find(params[:id])
       puts @user.pictures.nil?
-      puts "!!!!!!!!!!!!!!!!!!!!"
+      
       if @user.update(user_params)
+
           @user.pictures.destroy if !photo_params.empty? && !@user.pictures.nil?
+
           @user.pictures.create!(photo_params)
           if @user.user_bio.nil?
             UserBio.create(user_bio_params)
