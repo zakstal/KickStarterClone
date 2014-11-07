@@ -60,7 +60,6 @@ end
 
 Users.create(email: 'james@me.com', password: 'password')
 
-UserBio.create({ username: "james", bio: "I like blue sharks", user_id: 3})
 
 Project.create({
 title: "Sun for Summer",
@@ -93,7 +92,7 @@ Story.create({
 })
 
 
-UserBio.create({username: "James Adams", bio: "love to go wing suiting"})
+UserBio.create({username: "James Adams", bio: "love to go wing suiting", user_id: 4})
 
 Reward.create({ project_id: 4, pledge_amt: 5, description: "great thing to have", est_delivery: "11/30/14", qty: 5})
 Reward.create({ project_id: 4, pledge_amt: 10, description: "bad reward", est_delivery: "11/30/14", qty: 6})
@@ -102,3 +101,54 @@ Reward.create({ project_id: 4, pledge_amt: 20, description: "having things is go
 ClaimedRewards.create({ reward_id: 7, user_id: 1})
 ClaimedRewards.create({ reward_id: 8, user_id: 2})
 ClaimedRewards.create({ reward_id: 7, user_id: 3})
+
+
+
+
+
+
+
+
+Users.create(email: 'zak@me.com', password: 'password')
+
+UserBio.create({ username: "Zak", bio: "I like blue sharks", user_id: 5})
+
+Project.create({
+title: "Homes clothes",
+description: "Solar manipulation device for summer",
+user_id: 4,
+catagory_id: "technology",
+duration: "30",
+fundinggoal: "10000",
+})
+
+Story.create({
+ story: "We’re the Young@Heart Chorus and we’re launching the Young@Heart Prison Project, a series of rehearsals and concerts in 3 prisons which will be recorded for a new live-from-prison album featuring Young@Heart singing with inmates. Our goal is to foster a sense of hope among inmates, to provide them with an inspiring and transformative creative outlet, and to demonstrate that it's never too late to begin anew. .",
+ challenges: "this is my challenge",
+ project_id: 3
+})
+
+Project.create({
+title: "Hours of power",
+description: "n 2006, the Young@Heart (Y@H) performed at the Hampshire County House of Correction. The concert was filmed as part of the award winning Fox Searchlight film Young@Heart. Viewed by millions, the prison performance remains to this day, the single most emotional, impactful and rewarding concert in the 32-year history of Y@H. Newsweek film critic David Ansen picked the scene as his favorite cultural movie moment of 2008 writing, “Lots of movies make me cry—it's not that hard to do—but this moment cut so deep, it left me gasping for air.”",
+user_id: 4,
+catagory_id: "food",
+duration: "30",
+fundinggoal: "5",
+})
+
+Story.create({
+ story: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+ challenges: "this is my challenge",
+ project_id: 4
+})
+
+
+UserBio.create({username: "Zak Stallings", bio: "love to go wing suiting too", user_id: 5})
+
+Reward.create({ project_id: 4, pledge_amt: 5, description: "great thing to have", est_delivery: "11/30/14", qty: 5})
+Reward.create({ project_id: 4, pledge_amt: 10, description: "bad reward", est_delivery: "11/30/14", qty: 6})
+Reward.create({ project_id: 4, pledge_amt: 20, description: "having things is good :)", est_delivery: "11/30/14", qty: 9})
+
+ClaimedRewards.create({ reward_id: 7, user_id: 1})
+ClaimedRewards.create({ reward_id: 8, user_id: 2})
