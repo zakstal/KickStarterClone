@@ -83,7 +83,7 @@ description: "Creating the secret poliece of the Wombat order. Hoping for some s
 user_id: 4,
 catagory_id: "food",
 duration: "30",
-fundinggoal: "$5",
+fundinggoal: "5",
 })
 
 Story.create({
