@@ -5,7 +5,8 @@ KickStarter::Application.routes.draw do
   resources :users do
     resources :user_bio, only: [:new]
   end
-  resource :session
+  resource :session, only: [:new, :create]
+  get "/session", to: "sessions#destroy"
 
   namespace :api, defaults: { format: :json} do
     get '/users', as: :get_current_user, to: 'users#get_current_user'

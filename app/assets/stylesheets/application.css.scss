@@ -36,7 +36,7 @@ body {
 }
 
 button, input, textarea {
-  display: inline-block;
+  display: block;
   box-sizing: content-box;
   -webkit-apperance: none;
 
@@ -92,7 +92,7 @@ font-weight: bold;
   display: none;
 }
 
-.runner-board {
+.runner-bord {
   height: 220px;
   width: 100%;
   background: #F7F7F7;
@@ -181,13 +181,23 @@ button {
 
 form label {
   font-weight: bold;
-  padding: 5px 0 10px 0;
+  padding: 20px 0 10px 0;
   display: block;
 
 }
 
 form input, textarea {
   display: block;
-  padding: 5px;
-  margin: 5px 5px 5px 0;
+  padding: 10px 5px;
+  // margin: 5px 5px 5px 0;
+  border-radius: 5px;
+
+}
+
+form {
+  width: 400px;
+}
+
+textarea {
+  height: 75px;
 }

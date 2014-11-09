@@ -1,31 +1,44 @@
-<h1>Change your Settings</h1>
-
-<form class="update-user-settings-form">
-
-  <label for="photo">Upload Your Picture</label>
-  <br>
-  <input type="file" class="my-photo-upload" id="photo">
-  <br>
-  <input type="hidden" name="user[id]" value="<%= KS.currentUserId %>">
-  <input type="hidden" name="user[user_id]" value="<%= KS.currentUserId %>">
-  <label for="email">Email</label>
-    <br>
-  <input type="text" name="user[email]" id="eamil" value="<%= user.escape('email') %>">
-    <br>
-  <!-- <label for="pass">Password</label>
-    <br>
-  <input type="password" name="user[password]" id="pass" value="can't change password yet"> -->
-   <br>
-  <label for="username">Name</label>
-   <br>
-  <input type="text" name="user[username]" id="username" value="<%= user.escape('username') %>">
-   <br>
-  <label for="bio">Biography</label>
-   <br>
-  <textarea name="user[bio]" id="bio"><%= user.escape('bio') %></textarea>
-   <br>
-    <!-- upload pic -->
+<div class="runner-bord-edit group">
+  <div class="container">
+    <h1>Change your Settings</h1>
+    </div>
+  </div>
+</div>
 
 
-  <a href="http://google.com" class="submit">Submit</a>
-</form>
+
+
+
+
+<div class="from-container">
+
+  <form class="update-user-settings-form">
+    <image class="user-image-edit" src="<%= user.escape("that_url") %>">
+    <label for="photo">Upload Your Picture</label>
+
+    <input type="file" class="my-photo-upload" id="photo">
+
+    <input type="hidden" name="user[id]" value="<%= KS.currentUserId %>">
+    <input type="hidden" name="user[user_id]" value="<%= KS.currentUserId %>">
+    <label for="email">Email</label>
+
+    <input type="text" name="user[email]" id="eamil" value="<%= user.escape('email') %>">
+
+    <!-- <label for="pass">Password</label>
+
+    <input type="password" name="user[password]" id="pass" value="can't change password yet"> -->
+
+    <label for="username">Name</label>
+
+    <input type="text" name="user[username]" id="username" value="<%= user.escape('username') %>">
+
+    <label for="bio">Biography</label>
+
+    <textarea name="user[bio]" id="bio"><%= user.escape('bio') %></textarea>
+
+      <!-- upload pic -->
+
+
+    <a href="http://google.com" class="submit">Save Settings</a>
+  </form>
+</div>

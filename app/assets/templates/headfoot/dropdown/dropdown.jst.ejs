@@ -21,10 +21,11 @@
   <div class="dropdown-footer group">
     <p class="dropdown-footer-content">Your are signed in as: <%= user.escape('username') %></p>
 
-    <form class="dropdown-footer-content" action="/session" method="POST">
-        <% window.from_auth %>
-      <input type="hidden" name="_method" value="DELETE">
-      <input type="submit" value="Sign Out">
+    <form class="dropdown-footer-content" action="/session" method="DELETE">
+      <%= JST['form_auth']() %>
+      <input type="hidden" name="_method" method="DELETE">
+      <a href="session" class="sign-out" type="submit" >Sign Out</a>
+
     </form>
   </div>
 </div>

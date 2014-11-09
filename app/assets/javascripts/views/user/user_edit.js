@@ -4,6 +4,7 @@ KS.Views.UserEdit = Backbone.View.extend({
 
   initialize: function () {
     this.listenTo(this.model, "sync", this.render)
+    console.log(this.model, "user edit")
   },
 
   events: {
@@ -30,7 +31,8 @@ KS.Views.UserEdit = Backbone.View.extend({
     var attr = this.$('.update-user-settings-form').serializeJSON();
 
     this.model.save(attr, {
-      success: function () {
+      success: function (resp) {
+        console.log(resp, "response")
         this.render
       }
     });

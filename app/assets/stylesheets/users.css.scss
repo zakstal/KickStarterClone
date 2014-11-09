@@ -17,11 +17,25 @@
 }
 
 .user-image {
+  display: block;
   float: left;
   height: 160px;
   width: 160px;
   margin: 30px 10px 25px 10px;
 }
+
+.user-image-edit {
+  right: 0;
+  margin-right: -10px;
+  margin-top: 50px;
+  position: absolute;
+  display: block;
+  float: left;
+  height: 130px;
+  width: 130px;
+  // margin: 30px 10px 25px 10px;
+}
+
 
 .user-container {
   float: left;
@@ -102,6 +116,70 @@ overflow: auto;
   width: 40px;
 }
 
-.submit {
+form.update-user-settings-form  a.submit {
+  display: inline-block;
+
+  margin-top: 30px;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 5px;
+  background: #e45;
+  color: #fff;
+}
+
+form.update-user-settings-form input, textarea {
+  width: 400px
+}
+
+.runner-bord-edit {
+  height: 120px;
+  width: 100%;
+  padding: 40px 0 40px 0;
+  // background: #F7F7F7;
+  // border-bottom: 1px solid lightgray;
+}
+
+
+.runner-bord-edit > h1 {
+  width: 960px;
+  margin: auto;
+  text-align: left;
+  padding-top: 100px;
+  font-weight: none;
+}
+
+.update-user-settings-form {
+  position: relative;
+  width: 400px;
+}
+
+input.my-photo-upload::-webkit-file-upload-button {
+  visibility: hidden;
+  text-align: right;
+}
+
+form.update-user-settings-form input.my-photo-upload {
+  padding: 30px;
+  padding-top: 50px;
+  font-weight: bold;
+  color: #e45;
+  display: inline-block;
+  border: 1px dashed #aaa;
+  height: 50px;
+
+  width: 350px;
+}
+
+form.update-user-settings-form input.my-photo-upload:hover {
+  background: #eab;
+}
+
+.from-container {
+  width: 960px;
+  margin: auto;
+
+}
+
+.sing-out {
   cursor: pointer;
 }

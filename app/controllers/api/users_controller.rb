@@ -31,7 +31,7 @@ module Api
           else
             @user.user_bio.update(user_bio_params)
           end
-          render json: @user
+          render :get_current_user
 
       else
         render json: @user.errors.full_messages, status: :unprocessable_entity
