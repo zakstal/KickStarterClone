@@ -1,8 +1,7 @@
 class ClaimedRewardsController < ApplicationController
 
   def create
-    puts "hello!!!!!!!!!!!!!!!!!!!"
-    puts params
+    
     @claimed = ClaimedRewards.new(claimed_params)
 
     @claimed.save
