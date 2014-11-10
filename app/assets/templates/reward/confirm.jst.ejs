@@ -21,12 +21,12 @@
 
       <form class="confirm-reward-form group">
 
-        <input type="hidden" name="claim[user_id]" value="<%= window.currentUserId %>">
+        <input type="hidden" name="claim[user_id]" value="<%= KS.currentUserId %>">
         <input type="hidden" name="claim[reward_id]" value="<%= reward.escape('id')%>">
 
         <button class="submit confirm">Confirm Order</button>
 
-        <div class=" confirm-window group">
+        <div class="confirm-window group">
           <h3>Thanks for your Pledge!</h3>
 
           <a class="confirm-button"href="#/project/<%= reward.escape('project_id')%>">Back To Project</a>

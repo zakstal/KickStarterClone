@@ -51,7 +51,8 @@ KS.Routers.ProjectRoute = KS.RootRouter.extend({
 
     console.log(reward.get('project_id'))
     var rewardView = new KS.Views.RewardConfirm({
-      reward: reward
+      reward: reward,
+      currentUser: this.currentUser
     });
 
     this._swapView(rewardView)
