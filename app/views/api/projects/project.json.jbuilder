@@ -37,3 +37,7 @@
     json.description        reward.description
     json.times_backed       reward.times_backed
   end
+
+if !@project.story.nil?
+  json.story            @project.story
+end

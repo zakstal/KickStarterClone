@@ -25,7 +25,7 @@
 
 <%= project.escape('duration') %>
 
-<form class="start-project-form form" data-id="basic">
+<form class="update-settings-form form" data-id="basic">
 
   <label for="photo">Upload a project picture</label>
   <br>
@@ -61,11 +61,11 @@
   <br>
   <input type="text" name="project[fundinggoal]" id="goal" value="<%= project.escape('fundinggoal') %>">
   <br>
-  <button id="project-button-save">Save</button>
+  <button id="project-button-save" class="submit" >Save</button>
 </form>
 
 
-  <button id="project-button-save">Next</button>
+  <button id="project-button-save" class="submit">Next</button>
 
 
 </div>

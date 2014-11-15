@@ -13,7 +13,11 @@ KS.Views.ProjectPartialStory = Backbone.View.extend({
   },
 
   render: function () {
-    var story = this.story({ project: this.project });
+    console.log(this.project.story(),"story")
+    var story = this.story({
+      project: this.project,
+      story: this.project.story()
+      });
 
     this.$el.html(story);
 
@@ -25,7 +29,14 @@ KS.Views.ProjectPartialStory = Backbone.View.extend({
 
     var attr = this.$('.project-story-form').serializeJSON();
 
-    console.log(attr);
+    // if (this.project.story) {
+      if (this.project.story().isNew()) {
+        this.project.story().save(attr, { patch: true })
+      } else {
+        this.project.story().save(attr)
+      }
+
+    Backbone.history.navigate("/user/" + KS.currentUserId + "/edit", { trigger: true })
   },
 
   handleFile: function(event) {
@@ -34,7 +45,7 @@ KS.Views.ProjectPartialStory = Backbone.View.extend({
     var view = this;
     var reader = new FileReader();
     reader.onload = function(event) {
-      view.model.set('pic', this.result);
+      view.project.set('pic', this.result);
     }
 
     reader.readAsDataURL(file);

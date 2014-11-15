@@ -25,26 +25,35 @@
 
 <h1>Change your Settings</h1>
 
-<form data-id="about" class="form">
+<form class="update-settings-form">
+  <image class="user-image-edit" src="<%= user.escape("that_url") %>">
+  <label for="photo">Upload Your Picture</label>
 
-  <input type="hidden" name="_method" value ="">
-  <input type="hidden" name="user_bio[user_id]" value="">
+  <input type="file" class="my-photo-upload" id="photo">
 
+  <input type="hidden" name="user[id]" value="<%= KS.currentUserId %>">
+  <input type="hidden" name="user[user_id]" value="<%= KS.currentUserId %>">
+  <label for="email">Email</label>
+
+  <input type="text" name="user[email]" id="eamil" value="<%= user.escape('email') %>">
+
+  <!-- <label for="pass">Password</label>
+
+  <input type="password" name="user[password]" id="pass" value="can't change password yet"> -->
 
   <label for="username">Name</label>
-   <br>
-  <input type="text" name="user_bio[username]" id="username" value="<%= project.username %>">
-   <br>
-  <label for="bio"></label>
-   <br>
-  <textarea name="user_bio[bio]" id="bio"><%= project.bio %></textarea>
-   <br>
+
+  <input type="text" name="user[username]" id="username" value="<%= user.escape('username') %>">
+
+  <label for="bio">Biography</label>
+
+  <textarea name="user[bio]" id="bio"><%= user.escape('bio') %></textarea>
+
     <!-- upload pic -->
 
 
-  <input type="submit" value="Submit">
+  <a href="http://google.com" class="submit">Save Settings</a>
 </form>
-
 </div>
 
 <div class="right-container">

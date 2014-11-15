@@ -27,7 +27,7 @@ KS.Routers.ProjectRoute = KS.RootRouter.extend({
     var emptyProject = new KS.Models.Project()
     var newProject = new KS.Views.ProjectNew({
       project: emptyProject,
-      currentUser: this.currentUser
+      currentUser: this.currentUser()
     });
 
     this._swapView(newProject)

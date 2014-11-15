@@ -23,22 +23,21 @@
 
 
 
-
-
     <form class="update-settings-form project-story-form">
-      <image class="user-image-edit" src="">
+      <image class="user-image-edit" src="<%= project.escape("that_url") %>">
       <label for="photo">Upload Your Picture</label>
 
       <input type="file" class="my-photo-upload" id="photo">
-      <input type="hidden" name="stories[project_id]" value="">
+      <input type="hidden" name="story[project_id]" value="<%= project.escape('id') %>">
+      <input type="hidden" name="story[id]" value="<%= story.escape('id') %>">
         <br>
       <label for="description">Description</label>
         <br>
-      <textarea name="stories[story]" id="description"></textarea>
+      <textarea name="story[story]" id="description"><%= story.escape('story') %></textarea>
         <br>
       <label for="challenge">Challenges</label>
         <br>
-      <textarea name="stories[challenges]" id="challenge"></textarea>
+      <textarea name="story[challenges]" id="challenge"><%= story.escape('challenges') %></textarea>
         <br>
 
         <a href="" class="save-story-next submit">Save Settings</a>

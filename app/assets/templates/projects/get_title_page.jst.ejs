@@ -12,11 +12,11 @@
     </div>
 
   </div>
-
+<% console.log(KS.currentUserId, "userid") %>
   <div class="project-main group">
     <form class="title-form">
       <input type="text" name="project[title]" placeholder="Title">
-      <input type="hidden" name="project[user_id]" value="<%= window.currentUserId %>">
+      <input type="hidden" name="project[user_id]" value="<%= KS.currentUserId %>">
       <button class="submit-title-form">Next</buttom>
     </form>
 
