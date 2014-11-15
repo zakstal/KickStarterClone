@@ -28,7 +28,7 @@ KS.Views.UserEdit = Backbone.View.extend({
     console.log('here')
 
 
-    var attr = this.$('.update-user-settings-form').serializeJSON();
+    var attr = this.$('.update-settings-form').serializeJSON();
 
     this.model.save(attr, {
       success: function (resp) {

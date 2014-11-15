@@ -201,3 +201,8 @@ form {
 textarea {
   height: 75px;
 }
+
+input.my-photo-upload::-webkit-file-upload-button {
+  visibility: hidden;
+  text-align: right;
+}

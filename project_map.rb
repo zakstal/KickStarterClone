@@ -1,3 +1,30 @@
+  -kickstarter
+    -working project start
+    -styling for catagory pages
+    -reward update number when purchased
+    -working video upload
+    -working photo upload
+    -faker gem fake records
+    -good readme
+    -styled logo
+    -faker gem fake records
+    -facebook login
+    -inbox alerts for when some one sings up for porjects
+    -shifting front page view
+    -regex email check
+    -search bar
+    -working signin redirect
+    -error alerts
+    -needs remove method for views
+    -paginatepages
+    -comments
+    -add tests
+    -password confirmation
+    -pingdome
+    -no shake for wrong username and password
+
+
+
 for thrusday
   filepicker io
   add pic column where needed

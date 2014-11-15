@@ -1,9 +1,10 @@
 KS.Views.ProjectPartialStory = Backbone.View.extend({
 
-  story: JST['projects/stroy'],
+  story: JST['projects/story'],
 
   events: {
-    "click .save-story-next" : "save"
+    "click .save-story-next" : "save",
+    "change .my-photo-upload": "handleFile"
   },
 
   initialize: function (options) {
@@ -26,5 +27,17 @@ KS.Views.ProjectPartialStory = Backbone.View.extend({
 
     console.log(attr);
   },
+
+  handleFile: function(event) {
+
+    var file = event.currentTarget.files[0];
+    var view = this;
+    var reader = new FileReader();
+    reader.onload = function(event) {
+      view.model.set('pic', this.result);
+    }
+
+    reader.readAsDataURL(file);
+  }
 
 });

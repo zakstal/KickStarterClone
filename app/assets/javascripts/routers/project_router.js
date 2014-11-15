@@ -23,7 +23,7 @@ KS.Routers.ProjectRoute = KS.RootRouter.extend({
   },
 
   new: function () {
-    console.log(this.currentUser(),"in new")
+    // console.log(this.currentUser(),"in new")
     var emptyProject = new KS.Models.Project()
     var newProject = new KS.Views.ProjectNew({
       project: emptyProject,

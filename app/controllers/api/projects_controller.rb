@@ -2,7 +2,7 @@ module Api
   class ProjectsController < ApplicationController
 
     def show
-
+      puts "!!!!!!!!!!!!!!#$$$$$$$$$$$"
       @project = Project.find(params[:id])
       puts @project.title
       render :project

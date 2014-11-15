@@ -116,7 +116,7 @@ overflow: auto;
   width: 40px;
 }
 
-form.update-user-settings-form  a.submit {
+form.update-settings-form  a.submit {
   display: inline-block;
 
   margin-top: 30px;
@@ -127,7 +127,7 @@ form.update-user-settings-form  a.submit {
   color: #fff;
 }
 
-form.update-user-settings-form input, textarea {
+form.update-settings-form input, textarea {
   width: 400px
 }
 
@@ -148,7 +148,7 @@ form.update-user-settings-form input, textarea {
   font-weight: none;
 }
 
-.update-user-settings-form {
+.update-settings-form {
   position: relative;
   width: 400px;
 }
@@ -158,7 +158,7 @@ input.my-photo-upload::-webkit-file-upload-button {
   text-align: right;
 }
 
-form.update-user-settings-form input.my-photo-upload {
+form.update-settings-form input.my-photo-upload {
   padding: 30px;
   padding-top: 50px;
   font-weight: bold;
@@ -170,7 +170,7 @@ form.update-user-settings-form input.my-photo-upload {
   width: 350px;
 }
 
-form.update-user-settings-form input.my-photo-upload:hover {
+form.update-settings-form input.my-photo-upload:hover {
   background: #eab;
 }
 
