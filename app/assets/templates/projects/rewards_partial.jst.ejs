@@ -1,52 +1,26 @@
-<div class="background-project">
-  <div class="user-edit">
-
-
-  <div class="project-runner">
-    <div class="container">
-        <h2></h2>
-        <div class="menue group">
-            <ul>
-            <li class="float-left" ><a class="new-menu-box" id="basic-info-new-project">Basic Info</a></li>
-            <li class="float-left" ><a class="new-menu-box" id="reward-info-new-project">Rewards</a></li>
-            <li class="float-left" ><a class="new-menu-box" id="story-info-new-project">Story</a></li>
-            <li class="float-left" ><a class="new-menu-box" id="about-info-new-project">About You</a></li>
-
-            </ul>
-        </div>
-
-    </div>
-
-  </div>
-
-  <div class="project-main group">
-
-    <div class="project-body group">
-
 <form class="project-reward-form form">
   <input type="hidden" name="_method" value="">
    <input type="hidden" name="reward[project_id]" value="<%= project.escape('id') %>">
 
-
+    <br>
   <label for="pledge">Pledge</label>
-
+    <br>
   <input type="text" name="reward[pledge_amt]" value="" id="pledge">
-
+    <br>
   <label for="description">Description</leabel>
-
+    <br>
   <textarea id="description" name="reward[description]"></textarea>
-
+    <br>
   <label for="estimated_delivery">Estimated Delivery</label>
-
+    <br>
   <input type="date" name="reward[est_delivery]" value="" id="estimated_delivery">
-
+    <br>
   <label for="limited_quantity">Limited Quantity</label>
-
+    <br>
   <input class="new-project-reward-radio" type="checkbox" id="toggle">
-  <label for="limited_quantity">Limited Quantity?</label>
-
+  <label for="tottle">Limited Quantity?<label>
   <input class="new-project-reward-qty hidden" type="text" name="reward[qty]" value="" id="limited_quantity">
-
+  <br>
   <button id="reward-button-save">Save</button>
 </form>
 
@@ -54,16 +28,3 @@
 
 
 <button id="save-reward-next">Next</button>
-
-
-</div>
-
-<div class="right-container">
-
-
-</div>
-
-
-
-</div>
-</div>

@@ -1,9 +1,12 @@
 KS.Views.UserEdit = Backbone.View.extend({
 
-  template: JST['users/edit'],
+  template:  JST['users/edit'],
+  aboutTemplate: JST['projects/about_you'],
 
-  initialize: function () {
+  initialize: function (options) {
+    this.userEdit = options.userEdit
     this.listenTo(this.model, "sync", this.render)
+    // console.log(this.template, "user edit")
   },
 
   events: {
@@ -13,9 +16,16 @@ KS.Views.UserEdit = Backbone.View.extend({
 
   render: function () {
     console.log(this.model)
-    var show = this.template({
-      user: this.model
-    });
+    if (this.userEdit === "true") {
+      var show = this.template({
+        user: this.model
+      });
+    } else {
+      var show = this.aboutTemplate({
+        user: this.model
+      });
+    }
+
 
     this.$el.html(show);
 
@@ -27,10 +37,11 @@ KS.Views.UserEdit = Backbone.View.extend({
     console.log('here')
 
 
-    var attr = this.$('.update-user-settings-form').serializeJSON();
+    var attr = this.$('.update-settings-form').serializeJSON();
 
     this.model.save(attr, {
-      success: function () {
+      success: function (resp) {
+        console.log(resp, "response")
         this.render
       }
     });
@@ -42,6 +53,7 @@ KS.Views.UserEdit = Backbone.View.extend({
     var view = this;
     var reader = new FileReader();
     reader.onload = function(event) {
+
       view.model.set('pic', this.result);
     }
 

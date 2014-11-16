@@ -4,6 +4,7 @@ KS.Views.RewardConfirm = Backbone.View.extend({
 
   initialize: function (options) {
     this.reward = options.reward
+    this.currentUser = options.currentUser
     this.listenTo(this.reward, "sync", this.render)
   },
 
@@ -22,21 +23,26 @@ KS.Views.RewardConfirm = Backbone.View.extend({
 
   confirm: function (event) {
     event.preventDefault();
-    var form = this.$('.confirm-reward-form')
+    console.log(this.currentUser())
+    if( typeof KS.currentUserId === 'undefined') {
+      Backbone.history.navigate("session/new", { trigger: true })
+    } else {
+      var form = this.$('.confirm-reward-form')
 
-    var attr = form.serializeJSON();
+      var attr = form.serializeJSON();
 
 
-    var claimed = new KS.Models.ClaimedReward();
-
-    var that = this;
-    claimed.save(attr, {
-      success: function () {
-        console.log("claim saved")
-        this.$('.confirm-window').removeClass('hidden')
-      }
-    });
-
+      var claimed = new KS.Models.ClaimedReward();
+      console.log(attr, "attributes", KS.currentUserId)
+      var that = this;
+      claimed.save(attr, {
+        success: function () {
+          console.log("claim saved")
+          // this.$('.confirm-window').removeClass('hidden')
+          this.$('.confirm-window').addClass('show-confirm-window')
+        }
+      });
+    }
   }
 
 

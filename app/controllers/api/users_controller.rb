@@ -15,10 +15,15 @@ module Api
     def update
       @user = Users.find(params[:id])
       puts @user.pictures.nil?
-      
+
       if @user.update(user_params)
 
-          @user.pictures.destroy if !photo_params.empty? && !@user.pictures.nil?
+        puts "!!!!!!!!!!!!!!!!!!"
+        puts photo_params
+        puts @user.pictures
+        puts"!!!!!!!!!!!!!!!!!!!!!!"
+
+          # @user.pictures.destroy if !photo_params.empty? && !@user.pictures.nil?
 
           @user.pictures.create!(photo_params)
           if @user.user_bio.nil?
@@ -26,7 +31,7 @@ module Api
           else
             @user.user_bio.update(user_bio_params)
           end
-          render json: @user
+          render :get_current_user
 
       else
         render json: @user.errors.full_messages, status: :unprocessable_entity

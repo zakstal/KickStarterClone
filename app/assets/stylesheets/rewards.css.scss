@@ -1,8 +1,62 @@
 // Place all the styles related to the rewards controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.reward-project {
- display: block;
+
+div.reward-confirm > h3 {
+  padding-bottom: 60px;
+}
+
+div.reward-confirm > p {
+  padding-bottom: 10px;
+}
+.reward-confirm {
   padding: 10px;
-  padding-left: 0;
+  position: relative
+}
+
+.confirm-reward-form > button {
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+
+.confirm-window {
+  position: absolute;
+  margin-top: 40px;
+  margin-left: -30px;
+  color: transparent;
+  background: #f4d;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  height: 0px;
+  padding: 0 30px 0 30px;
+
+
+}
+
+.show-confirm-window {
+  height: 70px;
+  transition: all .2s;
+  padding: 30px;
+  color: #333;
+}
+
+.confirm-window > h3 {
+  padding-bottom: 20px;
+}
+
+
+.confirm-window a.confirm-button {
+  padding:5px 10px;
+  margin-top: 10px;
+  font-weight: bold;
+  background: #fff;
+  border-radius: 5px;
+
+}
+
+.confirm-window a.confirm-button:hover {
+  background: #fa8;
+  // color: #fff;
 }

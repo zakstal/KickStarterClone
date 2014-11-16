@@ -11,14 +11,14 @@
   </div>
 
   <div class="project-main group">
-    <a class="cat-in-project-show" ><%= project.escape("catagory_id") %></a>
+    <a href="#/catagory/<%= project.escape('catagory_id') %>" class="cat-in-project-show" ><%= project.escape("catagory_id") %></a>
 
 
     <div class="project-body group">
       <div class="project-picture-container">
         <a class="play">
           <div class="play-center">
-            ▶  
+            ▶
           </div>
         <a>
       <image class="user-video" src="<%= project.get('that_url') %>">

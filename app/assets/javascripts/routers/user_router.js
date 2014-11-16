@@ -9,6 +9,7 @@ KS.Routers.UserRoute = KS.RootRouter.extend({
   },
 
   index: function () {
+    this.currentUser = this._getCurrentUserInfo
     var front = new KS.Views.FrontPage();
 
     this._swapView(front);
@@ -25,7 +26,10 @@ KS.Routers.UserRoute = KS.RootRouter.extend({
   },
 
   edit: function() {
-    var showBody = new KS.Views.UserEdit({ model: this._getCurrentUserInfo() });
+    var showBody = new KS.Views.UserEdit({
+      model: this._getCurrentUserInfo(),
+      userEdit: "true"
+    });
     this._swapView(showBody);
   }
 

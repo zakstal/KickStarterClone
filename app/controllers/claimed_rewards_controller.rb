@@ -1,6 +1,7 @@
 class ClaimedRewardsController < ApplicationController
 
   def create
+    
     @claimed = ClaimedRewards.new(claimed_params)
 
     @claimed.save

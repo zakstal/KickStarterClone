@@ -5,7 +5,11 @@ KS.Routers.ProjectRoute = KS.RootRouter.extend({
     "project/new": "new",
     "project/:id": "show",
     "project/:id/edit": "edit",
-    "project/reward/:id": "showReward"
+    "project/reward/:id": "showReward",
+    "project/:id/basic": "basicNew",
+    "project/:id/rewards": "rewardsNew",
+    "project/:id/story": "storyNew",
+    "project/:id/about": "userAbout"
   },
 
   show: function(id) {
@@ -20,11 +24,11 @@ KS.Routers.ProjectRoute = KS.RootRouter.extend({
   },
 
   new: function () {
-    console.log(this.currentUser(),"in new")
+    // console.log(this.currentUser(),"in new")
     var emptyProject = new KS.Models.Project()
     var newProject = new KS.Views.ProjectNew({
       project: emptyProject,
-      currentUser: this.currentUser
+      currentUser: this.currentUser()
     });
 
     this._swapView(newProject)
@@ -40,6 +44,7 @@ KS.Routers.ProjectRoute = KS.RootRouter.extend({
   },
 
   showReward: function(id) {
+    this.currentUser = this._getCurrentUserInfo
     console.log("in show reward")
 
     var reward = new KS.Models.Reward({ id: id})
@@ -47,9 +52,64 @@ KS.Routers.ProjectRoute = KS.RootRouter.extend({
 
     console.log(reward.get('project_id'))
     var rewardView = new KS.Views.RewardConfirm({
-      reward: reward
+      reward: reward,
+      currentUser: this.currentUser
     });
 
     this._swapView(rewardView)
+  },
+
+  basicNew: function (id) {
+    console.log(id, "in basic")
+
+
+    var project = new KS.Models.Project({ id: id })
+    project.fetch()
+
+    var basic = new KS.Views.ProjectPartialBasic({
+      project: project
+    });
+
+    this._swapView(basic)
+  },
+
+  rewardsNew: function (id) {
+    console.log(id, "in rewards")
+
+
+    var project = new KS.Models.Project({ id: id })
+    project.fetch()
+    console.log(project, "in rewards")
+    var basic = new KS.Views.ProjectPartialReward({
+      project: project
+    });
+
+    this._swapView(basic)
+  },
+
+  storyNew: function (id) {
+    console.log(id, "in story")
+
+
+    var project = new KS.Models.Project({ id: id })
+    project.fetch()
+
+    console.log(project, "in story")
+    var basic = new KS.Views.ProjectPartialStory({
+      project: project,
+      model: project
+    });
+
+    this._swapView(basic)
+  },
+
+  userAbout: function() {
+    var showBody = new KS.Views.UserEdit({
+      model: this._getCurrentUserInfo(),
+      userEdit: "false"
+    });
+    this._swapView(showBody);
   }
+
+
 });

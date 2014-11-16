@@ -17,7 +17,7 @@
   max-height: auto;
   margin: auto;
   margin-bottom: 80px;
-  width: 1002px;
+  width: 960px;
   border: 1px solid lightgray;
   background: white;
   border-radius: 4px;
@@ -53,6 +53,7 @@
   height: 480px;
   width: 600px;
   border-radius: 3px;
+  border: 1px soild #333;
 }
 
 // .project-runner > a {
@@ -94,8 +95,8 @@
   background: #000;
   text-align: center;
   font-weight: bold;
-  margin-top: 34%;
-  margin-left: 43%;
+  margin-top: 30%;
+  margin-left: 40%;
   border-radius: 5px;
   transition: all .3s;
   border: 5px solid #fff;
@@ -146,4 +147,31 @@
   margin-right: 30px;
   right: 0;
   top: 0;
+}
+
+div.reward-project {
+  display: block;
+  padding: 20px 10px 20px 20px;
+  border-radius: 1px;
+  background: #fff;
+  transition: all .2s;
+  border-bottom: 1px solid lightgray;
+}
+
+div.reward-project h4 {
+  padding: 5px;
+  font-weight: bold;
+
+}
+
+div.reward-project p {
+  font-weight: 10px;
+  padding: 5px;
+  // color: #e88;
+  font-weight: normal;
+}
+
+.reward-project:hover {
+  background: #e45;
+  opacity: .5%;
 }

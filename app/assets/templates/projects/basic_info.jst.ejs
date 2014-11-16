@@ -1,8 +1,35 @@
+<div class="background-project">
+  <div class="user-edit">
+
+
+  <div class="project-runner">
+    <div class="container">
+        <h2></h2>
+        <div class="menue group">
+            <ul>
+            <li class="float-left highlight" ><a class="new-menu-box" id="basic-info-new-project">Basic Info</a></li>
+            <li class="float-left" ><a class="new-menu-box" id="reward-info-new-project">Rewards</a></li>
+            <li class="float-left" ><a class="new-menu-box" id="story-info-new-project">Story</a></li>
+            <li class="float-left" ><a class="new-menu-box" id="about-info-new-project">About You</a></li>
+
+            </ul>
+        </div>
+
+    </div>
+
+  </div>
+
+  <div class="project-main group">
+
+    <div class="project-body group">
+
 <%= project.escape('duration') %>
 
-<form class="start-project-form" data-id="basic">
-  <input type="hidden" name="_method" value="">
+<form class="update-settings-form form" data-id="basic">
 
+  <label for="photo">Upload a project picture</label>
+  <br>
+  <input type="file" class="my-photo-upload" id="photo">
   <input type="hidden" name="project[user_id]" value="<%= window.currentUserId %>">
   <br>
   <label for="title">Title</label>
@@ -34,8 +61,21 @@
   <br>
   <input type="text" name="project[fundinggoal]" id="goal" value="<%= project.escape('fundinggoal') %>">
   <br>
-  <button id="project-button-save">Save</button>
+  <button id="project-button-save" class="submit" >Save</button>
 </form>
 
 
-  <button id="project-button-save">Next</button>
+  <button id="project-button-save" class="submit">Next</button>
+
+
+</div>
+
+<div class="right-container">
+
+
+</div>
+
+
+
+</div>
+</div>

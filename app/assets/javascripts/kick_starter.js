@@ -25,7 +25,3 @@ window.KS = {
     Backbone.history.start()
   }
 };
-
-$(document).ready(function(){
-  KS.initialize();
-});

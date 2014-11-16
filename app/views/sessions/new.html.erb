@@ -1,18 +1,26 @@
 <!-- <%= render 'shared/header_and_errors' %> -->
+<div class="singin-container">
+  <div class="signin-container-two">
 
-<h1>Sign In</h1>
+  <div class="border-div">
 
-<form action="<%= session_url %>" method="POST">
 
-  <%= form_auth %>
+    <h1>Sign In</h1>
 
-  <label for="email">Email</label>
-    <br>
-  <input type="text" name="user[email]" id="email" value="<%= @user.email %>">
-    <br>
-  <label for="pass">Password</label>
-    <br>
-  <input type="password" name="user[password]" id="pass">
-    <br>
-  <input type="submit" value="Submit">
-</form>
+    <form class="sign-in" action="<%= session_url %>" method="POST">
+
+      <%= form_auth %>
+
+      <label for="email">Email</label>
+        <br>
+      <input class="user-input" type="text" name="user[email]" id="email" value="<%= @user.email %>">
+        <br>
+      <label for="pass">Password</label>
+        <br>
+      <input class="user-input" type="password" name="user[password]" id="pass">
+        <br>
+      <input  class="submit" type="submit" value="Submit">
+    </form>
+  </div>
+  </div>
+</div>

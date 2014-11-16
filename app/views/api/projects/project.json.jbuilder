@@ -10,10 +10,10 @@
   json.active             @project.active
   json.funded             @project.funded
 
-  if @project.pictures.first.nil?
+  if @project.pictures.first.nil? || @project.user.pictures.last.pic.url.include?("missing")
     json.that_url image_path('cute.jpg')
   else
-    json.that_url @project.pictures.first.pic.url()
+    json.that_url @project.pictures.last.pic.url
   end
 
   json.username               @project.username
@@ -24,10 +24,10 @@
   json.backers                @project.backers
   json.amt_pledged            @project.amt_pledged
 
-  if @project.user.pictures.first.nil?
+  if @project.user.pictures.first.nil? || @project.user.pictures.last.pic.url.include?("missing")
     json.user_pic image_path('dog.jpg')
   else
-    json.user_pic @project.user.pictures.first.pic.url()
+    json.user_pic @project.user.pictures.last.pic.url
   end
 
   json.rewards            @project.rewards do |reward|
@@ -37,3 +37,7 @@
     json.description        reward.description
     json.times_backed       reward.times_backed
   end
+
+if !@project.story.nil?
+  json.story            @project.story
+end

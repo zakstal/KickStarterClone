@@ -17,6 +17,8 @@
  <script>
   <% if logged_in? %>
     window.currentUserId = <%= current_user.id %>
+    window.formAuth = <%= form_authenticity_token %>
+
   <% end %>
 
 </script>

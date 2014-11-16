@@ -60,7 +60,6 @@ end
 
 Users.create(email: 'james@me.com', password: 'password')
 
-UserBio.create({ username: "james", bio: "I like blue sharks", user_id: 3})
 
 Project.create({
 title: "Sun for Summer",
@@ -83,7 +82,7 @@ description: "Creating the secret poliece of the Wombat order. Hoping for some s
 user_id: 4,
 catagory_id: "food",
 duration: "30",
-fundinggoal: "$5",
+fundinggoal: "5",
 })
 
 Story.create({
@@ -92,6 +91,9 @@ Story.create({
  project_id: 4
 })
 
+
+UserBio.create({username: "James Adams", bio: "love to go wing suiting", user_id: 4})
+
 Reward.create({ project_id: 4, pledge_amt: 5, description: "great thing to have", est_delivery: "11/30/14", qty: 5})
 Reward.create({ project_id: 4, pledge_amt: 10, description: "bad reward", est_delivery: "11/30/14", qty: 6})
 Reward.create({ project_id: 4, pledge_amt: 20, description: "having things is good :)", est_delivery: "11/30/14", qty: 9})
@@ -99,3 +101,54 @@ Reward.create({ project_id: 4, pledge_amt: 20, description: "having things is go
 ClaimedRewards.create({ reward_id: 7, user_id: 1})
 ClaimedRewards.create({ reward_id: 8, user_id: 2})
 ClaimedRewards.create({ reward_id: 7, user_id: 3})
+
+
+
+
+
+
+
+
+Users.create(email: 'zak@me.com', password: 'password')
+
+UserBio.create({ username: "Zak", bio: "I like blue sharks", user_id: 5})
+
+Project.create({
+title: "Homes clothes",
+description: "Solar manipulation device for summer",
+user_id: 4,
+catagory_id: "technology",
+duration: "30",
+fundinggoal: "10000",
+})
+
+Story.create({
+ story: "We’re the Young@Heart Chorus and we’re launching the Young@Heart Prison Project, a series of rehearsals and ",
+ challenges: "this is my challenge",
+ project_id: 3
+})
+
+Project.create({
+title: "Hours of power",
+description: "n 2006, the Young@Heart (Y@H) performed at the Hampshire County House of Correction. The concert was filmed ”",
+user_id: 4,
+catagory_id: "food",
+duration: "30",
+fundinggoal: "5",
+})
+
+Story.create({
+ story: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+ challenges: "this is my challenge",
+ project_id: 4
+})
+
+
+UserBio.create({username: "Zak Stallings", bio: "love to go wing suiting too", user_id: 5})
+
+Reward.create({ project_id: 4, pledge_amt: 5, description: "great thing to have", est_delivery: "11/30/14", qty: 5})
+Reward.create({ project_id: 4, pledge_amt: 10, description: "bad reward", est_delivery: "11/30/14", qty: 6})
+Reward.create({ project_id: 4, pledge_amt: 20, description: "having things is good :)", est_delivery: "11/30/14", qty: 9})
+
+ClaimedRewards.create({ reward_id: 7, user_id: 1})
+ClaimedRewards.create({ reward_id: 8, user_id: 2})
