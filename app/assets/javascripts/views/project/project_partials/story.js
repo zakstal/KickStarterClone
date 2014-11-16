@@ -36,7 +36,7 @@ KS.Views.ProjectPartialStory = Backbone.View.extend({
         this.project.story().save(attr)
       }
 
-    Backbone.history.navigate("/user/" + KS.currentUserId + "/edit", { trigger: true })
+    Backbone.history.navigate("/project/" + KS.currentUserId + "/about", { trigger: true })
   },
 
   handleFile: function(event) {

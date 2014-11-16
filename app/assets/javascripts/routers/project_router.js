@@ -8,7 +8,8 @@ KS.Routers.ProjectRoute = KS.RootRouter.extend({
     "project/reward/:id": "showReward",
     "project/:id/basic": "basicNew",
     "project/:id/rewards": "rewardsNew",
-    "project/:id/story": "storyNew"
+    "project/:id/story": "storyNew",
+    "project/:id/about": "userAbout"
   },
 
   show: function(id) {
@@ -99,6 +100,14 @@ KS.Routers.ProjectRoute = KS.RootRouter.extend({
     });
 
     this._swapView(basic)
+  },
+
+  userAbout: function() {
+    var showBody = new KS.Views.UserEdit({
+      model: this._getCurrentUserInfo(),
+      userEdit: "false"
+    });
+    this._swapView(showBody);
   }
 
 

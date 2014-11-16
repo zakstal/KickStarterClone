@@ -26,7 +26,10 @@ KS.Routers.UserRoute = KS.RootRouter.extend({
   },
 
   edit: function() {
-    var showBody = new KS.Views.UserEdit({ model: this._getCurrentUserInfo() });
+    var showBody = new KS.Views.UserEdit({
+      model: this._getCurrentUserInfo(),
+      userEdit: "true"
+    });
     this._swapView(showBody);
   }
 

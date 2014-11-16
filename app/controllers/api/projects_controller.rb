@@ -14,7 +14,7 @@ module Api
 
       if @project.save
 
-        @project.pictures.destroy if !photo_params.empty? && !@project.pictures.nil?
+        # @project.pictures.destroy if !photo_params.empty? && !@project.pictures.nil?
 
         @project.pictures.create!(photo_params)
         puts "!!!!!!!!!!!!!!!!!!"

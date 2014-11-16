@@ -23,7 +23,7 @@ module Api
         puts @user.pictures
         puts"!!!!!!!!!!!!!!!!!!!!!!"
 
-          @user.pictures.destroy if !photo_params.empty? && !@user.pictures.nil?
+          # @user.pictures.destroy if !photo_params.empty? && !@user.pictures.nil?
 
           @user.pictures.create!(photo_params)
           if @user.user_bio.nil?
