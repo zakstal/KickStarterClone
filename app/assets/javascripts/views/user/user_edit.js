@@ -55,7 +55,6 @@ KS.Views.UserEdit = Backbone.View.extend({
     reader.onload = function(event) {
 
       view.model.set('pic', this.result);
-      debugger;
     }
 
     reader.readAsDataURL(file);

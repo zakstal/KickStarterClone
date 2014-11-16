@@ -28,15 +28,35 @@ KS.Views.ProjectPartialStory = Backbone.View.extend({
     event.preventDefault();
 
     var attr = this.$('.project-story-form').serializeJSON();
-
+    var navigate = function () {
+      Backbone.history.navigate("/project/" + KS.currentUserId + "/about", { trigger: true })
+    }
     // if (this.project.story) {
       if (this.project.story().isNew()) {
-        this.project.story().save(attr, { patch: true })
+        console.log("in update")
+        this.project.story().save(attr, {
+          patch: true,
+          // success: navigate
+          success: function () {
+            this.render
+          }
+        });
       } else {
-        this.project.story().save(attr)
+        console.log("in save")
+        this.project.story().save(attr, {
+          // success: navigate
+          success: function () {
+            console.log("success")
+            this.render
+          },
+
+          error: function() {
+            console.log("error")
+          }
+        });
       }
 
-    Backbone.history.navigate("/project/" + KS.currentUserId + "/about", { trigger: true })
+
   },
 
   handleFile: function(event) {
@@ -45,7 +65,7 @@ KS.Views.ProjectPartialStory = Backbone.View.extend({
     var view = this;
     var reader = new FileReader();
     reader.onload = function(event) {
-      view.project.set('pic', this.result);
+      view.model.set('pic', this.result);
     }
 
     reader.readAsDataURL(file);

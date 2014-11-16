@@ -96,7 +96,8 @@ KS.Routers.ProjectRoute = KS.RootRouter.extend({
 
     console.log(project, "in story")
     var basic = new KS.Views.ProjectPartialStory({
-      project: project
+      project: project,
+      model: project
     });
 
     this._swapView(basic)

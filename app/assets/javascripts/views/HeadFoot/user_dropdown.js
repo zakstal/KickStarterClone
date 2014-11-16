@@ -11,7 +11,7 @@ KS.Views.Dropdown = Backbone.View.extend({
 
   events: {
     "click .user-tab": "toggleDropDown",
-    "click": "hideDropdownToNavigate",
+    "click ": "hideDropdownToNavigate",
     "click .sign-Out": "signOut"
   },
 
