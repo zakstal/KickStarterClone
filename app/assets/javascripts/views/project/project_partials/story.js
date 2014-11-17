@@ -67,7 +67,6 @@ KS.Views.ProjectPartialStory = Backbone.View.extend({
     reader.onload = function(event) {
       view.model.set('pic', this.result);
     }
-
     reader.readAsDataURL(file);
   }
 

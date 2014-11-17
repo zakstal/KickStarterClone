@@ -12,6 +12,11 @@
  *= require_tree .
  */
 
+@font-face {
+  font-family: 'RNS BARUTA BLACK';
+  src: url('http://www.fontsaddict.com/fontface/rns-baruta-black.TTF');
+}
+
 body, html {
   position: relative;
   min-height: 100%;
@@ -74,6 +79,10 @@ font-weight: bold;
   font-weight: bold;
   font-size: 2em;
   padding: 10px;
+  height: 40px;
+  width: 328px;
+  font-family: RNS BARUTA BLACK;
+  // background: image-url("kickstarter-logo.png") no-repeat center;
 }
 
 .discover-start {
