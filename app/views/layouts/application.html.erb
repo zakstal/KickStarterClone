@@ -21,6 +21,12 @@
 
   <% end %>
 
+  $(document).ready(function() {
+    setInterval(function () {
+      console.log("change")
+      $('.front-page').css('background', 'background: image-url("front-page17.gif") no-repeat center;')
+    }, 3000)
+  });
 </script>
 </body>
 </html>
