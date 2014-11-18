@@ -11,9 +11,10 @@ KS.Views.Dropdown = Backbone.View.extend({
 
   events: {
     "click .user-tab": "toggleDropDown",
-    "click ": "hideDropdownToNavigate",
     "click .sign-Out": "signOut"
   },
+
+  //close dropdown is in header.js under closeDropdown event
 
   initialize: function () {
     this.projects = this.model.projects()
@@ -82,15 +83,7 @@ KS.Views.Dropdown = Backbone.View.extend({
       }
   },
 
-  hideDropdownToNavigate: function(event) {
 
-    if (!$(event.target).hasClass('user-tab')) {
-    var dropDown = $('.dropdown-container');
-      if (!dropDown.hasClass('hidden')) {
-        dropDown.addClass('hidden')
-      }
-    }
-  },
 
   signOut: function (event) {
     console.log("in sign out")

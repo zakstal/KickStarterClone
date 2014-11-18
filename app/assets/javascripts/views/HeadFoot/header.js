@@ -2,6 +2,10 @@ KS.Views.Head = Backbone.View.extend({
   header: JST['headfoot/header'],
 
 
+  events: {
+    "click": "closeDropdown"
+  },
+
 
   initialize: function(options) {
     this.currentUser = options.currentUser
@@ -29,6 +33,18 @@ KS.Views.Head = Backbone.View.extend({
 
       this.$('#signed-in-out').html(rendered)
   },
+
+  closeDropdown: function (event) {
+      console.log("clicked", event.target)
+      // if (!$(event.target).hasClass('user-tab')) {
+      var dropDown = $('.dropdown-container');
+      if (!$(event.target).hasClass('user-tab')){
+        if (!dropDown.hasClass('hidden')) {
+          dropDown.addClass('hidden')
+        }
+      }
+
+  }
 
 
 });
