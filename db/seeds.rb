@@ -155,9 +155,48 @@
 
 
 #-------------Random Users-------------------
+def random_cat
+  a = ["dance", "food", "technology", "design", "games"]
+  a[rand(a.length)]
+end
 
+def rand_funding_goal
+  goal = 0
+  while goal < 2000
+    goal = rand(100000)
+  end
+  goal
+end
 
 20.times do |i|
 Users.create(email: Faker::Internet.email, password: 'password')
-UserBio.create({username: Faker::Name.name, bio: Faker::Name.title, user_id: i + 1 })
+UserBio.create({username: Faker::Name.name, bio: Faker::Name.title, user_id: i + 21 })
+end
+
+100.times do |i|
+user_id = i + 1
+Users.create(email: Faker::Internet.email, password: 'password')
+UserBio.create({username: Faker::Name.name, bio: Faker::Name.title, user_id: user_id })
+
+  Project.create({
+  title: "Homes clothes",
+  description: "Solar manipulation device for summer",
+  user_id: user_id ,
+  catagory_id: random_cat,
+  duration: rand(41),
+  fundinggoal: "10000",
+  })
+
+  Story.create({
+   story: "We’re the Young@Heart Chorus and we’re launching the Young@Heart Prison Project, a series of rehearsals and ",
+   challenges: "this is my challenge",
+   project_id: 3
+  })
+
+
+  Reward.create({ project_id: 4, pledge_amt: 5, description: "great thing to have", est_delivery: "11/30/14", qty: 5})
+  Reward.create({ project_id: 4, pledge_amt: 10, description: "bad reward", est_delivery: "11/30/14", qty: 6})
+  Reward.create({ project_id: 4, pledge_amt: 20, description: "having things is good :)", est_delivery: "11/30/14", qty: 9})
+  Reward.create({ project_id: 4, pledge_amt: 20, description: "having things is good :)", est_delivery: "11/30/14", qty: 9})
+
 end

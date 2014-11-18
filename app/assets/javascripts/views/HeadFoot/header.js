@@ -35,8 +35,6 @@ KS.Views.Head = Backbone.View.extend({
   },
 
   closeDropdown: function (event) {
-      console.log("clicked", event.target)
-      // if (!$(event.target).hasClass('user-tab')) {
       var dropDown = $('.dropdown-container');
       if (!$(event.target).hasClass('user-tab')){
         if (!dropDown.hasClass('hidden')) {
