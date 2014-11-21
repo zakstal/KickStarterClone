@@ -19,13 +19,11 @@ KS.Views.Dropdown = Backbone.View.extend({
   initialize: function () {
     this.projects = this.model.projects()
     this.backedProjects = this.model.backedProjects()
-    console.log("backedprojects in dropdown", this.model)
     this.listenTo(this.projects, "add", this.render)
     this.listenTo(this.backedProjects, "add", this.render)
   },
 
   render: function () {
-
     if (typeof KS.currentUserId === 'undefined') {
 
       var signedOut = this.signedOutTemplate()
@@ -36,10 +34,16 @@ KS.Views.Dropdown = Backbone.View.extend({
       var dropdown = this.dropdownTemplate({ user: this.model })
 
       this.$el.html(signedIn);
-      this.$el.append(dropdown)
+      var that = this;
+      // console.log("backed projects", this.backedProjects)
+      // this.backedProjects.each(function (project, index){
+      //     that.$el.append(index)
+      // })
+     this.$el.append(dropdown)
       this.renderProjectList(this.projects)
 
       this.renderBackedProjectList(this.backedProjects)
+
     }
 
     return this;
@@ -67,9 +71,12 @@ KS.Views.Dropdown = Backbone.View.extend({
       if (projectType.length !== 0) {
         projectType.each(function (project) {
           var projectThumb = that.projectThumbNail({
-            project: project
+            project: project,
+            title: project.attributes.title.slice(0,15) + "..." ,
+            id: project.attributes.id,
+            that_url: project.attributes.that_url
           });
-
+          console.log("project", projectThumb)
           that.$('.backed-projects-in-dropdown').append(projectThumb)
         });
         this.$('.backed-projects-in-dropdown').prepend('<h4>Backed Projects</h4>')
@@ -93,7 +100,6 @@ KS.Views.Dropdown = Backbone.View.extend({
 
 
   signOut: function (event) {
-    console.log("in sign out")
     this.model = nil
   }
 });
