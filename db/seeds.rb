@@ -220,12 +220,12 @@ Users.find_by_id(user_id).pictures.create({pic: Faker::Avatar.image("project-#{p
   duration: duration,
   fundinggoal: rand_number_from_to(2000,100000),
   })
-  # begin
-  #   Project.find_by_id(project_id).pictures.create({pic: suckr.get_image_url})
-  # rescue Exception => e
-  #   puts "Oops I'll try again"
-  # retry
-  # end
+  begin
+    Project.find_by_id(project_id).pictures.create({pic: suckr.get_image_url})
+  rescue Exception => e
+    puts "Oops I'll try again"
+  retry
+  end
   Story.create({
    story: markov.number_of_sentences_from_to(5,20),
    challenges: markov.number_of_sentences_from_to(5,10),
