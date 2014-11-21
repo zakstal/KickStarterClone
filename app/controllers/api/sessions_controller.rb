@@ -1,30 +1,30 @@
-class SessionsController < ApplicationController
+module Api
+  class SessionsController < ApplicationController
 
-  # before_filter :require_logged_in
-  def new
-    @user = Users.new
-  end
+    # before_filter :require_logged_in
 
-  def create
-    @user = Users.find_by_credentials(
-      params[:user][:email],
-      params[:user][:password]
-    )
+    def create
+      puts params
+      puts "here***************************"
+      @user = Users.find_by_credentials(
+        params[:user][:email],
+        params[:user][:password]
+      )
 
-    if @user
-      log_in?(@user)
-      # redirect_after_require_login_or(user_url(@user))
-      redirect_to root_url
-    else
-      @user = Users.new
-      flash.now[:erros] = ['Invalid username or password']
-      render :new
+      if @user
+        log_in?(@user)
+        # redirect_after_require_login_or(user_url(@user))
+        render json: @user
+      else
+        # @user = Users.new
+        render json: 'Invalid username or password'
+      end
     end
-  end
 
-  def destroy
-    log_out
-    redirect_to root_url
-  end
+    def destroy
+      log_out
+      redirect_to root_url
+    end
 
+  end
 end

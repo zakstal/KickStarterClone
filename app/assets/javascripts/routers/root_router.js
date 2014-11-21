@@ -28,7 +28,8 @@ KS.RootRouter = Backbone.Router.extend({
     "project/:id/story"   : "storyNew",
     "project/:id/about"   : "userAbout",
     "catagory"            : "catagoryindex",
-    "catagory/:id"        : "catagoryshow"
+    "catagory/:id"        : "catagoryshow",
+    "session/new"         : "newSession"
   },
 
   index: function () {
@@ -60,128 +61,133 @@ KS.RootRouter = Backbone.Router.extend({
 
 //-----------project routes-----------------
 
-projectshow: function(id) {
-  var project = new KS.Models.Project({ id: id })
-  project.fetch()
+  projectshow: function(id) {
+    var project = new KS.Models.Project({ id: id })
+    project.fetch()
 
-  var showBody = new KS.Views.ProjectShow({
-    project: project
-  });
+    var showBody = new KS.Views.ProjectShow({
+      project: project
+    });
 
-  this._swapView(showBody);
-},
+    this._swapView(showBody);
+  },
 
-projectnew: function () {
-  // console.log(this.currentUser(),"in new")
-  var emptyProject = new KS.Models.Project()
-  var newProject = new KS.Views.ProjectNew({
-    project: emptyProject,
-    currentUser: this.currentUser
-  });
+  projectnew: function () {
+    // console.log(this.currentUser(),"in new")
+    var emptyProject = new KS.Models.Project()
+    var newProject = new KS.Views.ProjectNew({
+      project: emptyProject,
+      currentUser: this.currentUser
+    });
 
-  this._swapView(newProject)
-},
+    this._swapView(newProject)
+  },
 
-projectedit: function (id) {
-  var project = new KS.Models.Project({ id: id })
-  project.fetch()
+  projectedit: function (id) {
+    var project = new KS.Models.Project({ id: id })
+    project.fetch()
 
-  var newProject = new KS.Views.ProjectNew({ project: project })
+    var newProject = new KS.Views.ProjectNew({ project: project })
 
-  this._swapView(newProject)
-},
+    this._swapView(newProject)
+  },
 
-showReward: function(id) {
-  this.currentUser
-  console.log("in show reward", this.currentUser)
+  showReward: function(id) {
+    this.currentUser
+    console.log("in show reward", this.currentUser)
 
-  var reward = new KS.Models.Reward({ id: id})
-  reward.fetch()
+    var reward = new KS.Models.Reward({ id: id})
+    reward.fetch()
 
-  console.log(reward.get('project_id'))
-  var rewardView = new KS.Views.RewardConfirm({
-    reward: reward,
-    currentUser: this.currentUser
-  });
+    console.log(reward.get('project_id'))
+    var rewardView = new KS.Views.RewardConfirm({
+      reward: reward,
+      currentUser: this.currentUser
+    });
 
-  this._swapView(rewardView)
-},
+    this._swapView(rewardView)
+  },
 
-basicNew: function (id) {
-  console.log(id, "in basic")
-
-
-  var project = new KS.Models.Project({ id: id })
-  project.fetch()
-
-  var basic = new KS.Views.ProjectPartialBasic({
-    project: project
-  });
-
-  this._swapView(basic)
-},
-
-rewardsNew: function (id) {
-  console.log(id, "in rewards")
+  basicNew: function (id) {
+    console.log(id, "in basic")
 
 
-  var project = new KS.Models.Project({ id: id })
-  project.fetch()
-  console.log(project, "in rewards")
-  var basic = new KS.Views.ProjectPartialReward({
-    project: project
-  });
+    var project = new KS.Models.Project({ id: id })
+    project.fetch()
 
-  this._swapView(basic)
-},
+    var basic = new KS.Views.ProjectPartialBasic({
+      project: project
+    });
 
-storyNew: function (id) {
-  console.log(id, "in story")
+    this._swapView(basic)
+  },
+
+  rewardsNew: function (id) {
+    console.log(id, "in rewards")
 
 
-  var project = new KS.Models.Project({ id: id })
-  project.fetch()
+    var project = new KS.Models.Project({ id: id })
+    project.fetch()
+    console.log(project, "in rewards")
+    var basic = new KS.Views.ProjectPartialReward({
+      project: project
+    });
 
-  console.log(project, "in story")
-  var basic = new KS.Views.ProjectPartialStory({
-    project: project,
-    model: project
-  });
+    this._swapView(basic)
+  },
 
-  this._swapView(basic)
-},
+  storyNew: function (id) {
+    console.log(id, "in story")
 
-userAbout: function() {
-  var showBody = new KS.Views.UserEdit({
-    model: this._getCurrentUserInfo(),
-    userEdit: "false"
-  });
-  this._swapView(showBody);
-},
+
+    var project = new KS.Models.Project({ id: id })
+    project.fetch()
+
+    console.log(project, "in story")
+    var basic = new KS.Views.ProjectPartialStory({
+      project: project,
+      model: project
+    });
+
+    this._swapView(basic)
+  },
+
+  userAbout: function() {
+    var showBody = new KS.Views.UserEdit({
+      model: this._getCurrentUserInfo(),
+      userEdit: "false"
+    });
+    this._swapView(showBody);
+  },
 
 
 //-------------catagory raoutes ----------------
 
-catagoryindex: function() {
-  var index = new KS.Views.CatagoryIndex();
+  catagoryindex: function() {
+    var index = new KS.Views.CatagoryIndex();
 
-  this._swapView(index);
-},
+    this._swapView(index);
+  },
 
-catagoryshow: function(id) {
+  catagoryshow: function(id) {
 
-  var catagory = new KS.Models.Catagory({ id: id })
-  catagory.fetch()
-  console.log(catagory, "in show")
+    var catagory = new KS.Models.Catagory({ id: id })
+    catagory.fetch()
+    console.log(catagory, "in show")
 
-  var showBody = new KS.Views.CatagoryShow({
-    catagory: catagory
-  });
+    var showBody = new KS.Views.CatagoryShow({
+      catagory: catagory
+    });
 
-  this._swapView(showBody);
-},
+    this._swapView(showBody);
+  },
 
+//---------------Sign in, Sign up------------------
 
+  newSession: function () {
+    var sessionView = new KS.Views.SignIn();
+    this._swapView(sessionView);
+  },
 
   _swapView: function(view) {
     this._current && this._current.remove()
