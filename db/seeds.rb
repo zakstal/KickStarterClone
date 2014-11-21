@@ -156,7 +156,7 @@
 
 #-------------Generate Random Images---------
 
-# suckr = ImageSuckr::GoogleSuckr.new
+suckr = ImageSuckr::GoogleSuckr.new
 
 #-------------Markov Chain-------------------
 
@@ -210,7 +210,7 @@ duration = rand(41)
 cat_id = random_cat
 Users.create(email: Faker::Internet.email, password: 'password')
 UserBio.create({username: Faker::Name.name, bio: Faker::Name.title, user_id: user_id })
-# Users.find_by_id(user_id).pictures.create({pic: Faker::Avatar.image("project-#{project_id}")})
+Users.find_by_id(user_id).pictures.create({pic: Faker::Avatar.image("project-#{project_id}")})
 
   Project.create({
   title: Faker::Commerce.product_name,
