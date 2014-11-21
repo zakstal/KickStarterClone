@@ -107,15 +107,31 @@ overflow: auto;
   float: left;
 }
 
+.dropdown-sub h4 {
+  padding-bottom: 20px;
+  padding-top:  10px;
+  font-weight: bold;
+}
+
 .project-thumnail {
   height: 30px;
   width: auto;
   margin-bottom: 3px;
+  padding-bottom: 5px;
 }
 
 .project-image-thumnail {
   height: 30px;
   width: 40px;
+  padding-right: 5px;
+  display: inline-block;
+}
+
+.project-decription-container {
+  display: inline-block;
+  position: relative;
+  height: 15px;
+  top: 15px;
 }
 
 form.update-settings-form  a.submit {

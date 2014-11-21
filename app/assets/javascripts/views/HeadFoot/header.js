@@ -10,10 +10,12 @@ KS.Views.Head = Backbone.View.extend({
   initialize: function(options) {
     this.currentUser = options.currentUser
     this.listenTo(this.currentUser, "sync", this.render)
+    console.log("in header initialie currentUser", this.currentUser)
   },
 
 
   render: function () {
+
     var header = this.header({
       currentUser: this.currentUser
     });
@@ -35,6 +37,7 @@ KS.Views.Head = Backbone.View.extend({
   },
 
   closeDropdown: function (event) {
+    console.log("close userdropdown")
       var dropDown = $('.dropdown-container');
       if (!$(event.target).hasClass('user-tab')){
         if (!dropDown.hasClass('hidden')) {

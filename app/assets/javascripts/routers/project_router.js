@@ -44,8 +44,8 @@ KS.Routers.ProjectRoute = KS.RootRouter.extend({
   },
 
   showReward: function(id) {
-    this.currentUser = this._getCurrentUserInfo
-    console.log("in show reward")
+    this.currentUser
+    console.log("in show reward", this.currentUser)
 
     var reward = new KS.Models.Reward({ id: id})
     reward.fetch()
