@@ -199,7 +199,7 @@ end
   puts "user #{i}"
 Users.create(email: (i == 0 ? "user@user.com" : Faker::Internet.email ), password: 'password')
 UserBio.create({username: Faker::Name.name, bio: Faker::Name.title, user_id: i + 1})
-# Users.find_by_id((i + 1)).pictures.create({pic: Faker::Avatar.image("user-#{i + 21}")})
+Users.find_by_id((i + 1)).pictures.create({pic: Faker::Avatar.image("user-#{i + 21}")})
 end
 
 100.times do |i|
