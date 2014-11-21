@@ -23,7 +23,6 @@ KS.Views.CatagoryShow = Backbone.View.extend({
     var that = this;
 
     this.catagory.projects().forEach(function (project) {
-      console.log(project, "in render")
         var renderedProject = that.projectThumbTemplate({
           project: project
         });

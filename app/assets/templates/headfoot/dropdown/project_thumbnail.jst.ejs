@@ -1,8 +1,8 @@
 <div class="project-thumnail group">
-  <a href="/#/project/<%= id %>" class="float-left">
-    <img class="project-image-thumnail float-left"src="<%= that_url %>">
+  <a href="/#/project/<%= project.escape('id') %>" class="float-left">
+    <img class="project-image-thumnail float-left"src="<%= project.escape('that_url') %>">
     <div class="project-decription-container">
-      <%= title.slice(0,15) + "..." %>
+      <%= project.escape('title').slice(0,15) + "..." %>
     </div>
   </a>
 </div>
