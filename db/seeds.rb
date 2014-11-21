@@ -220,9 +220,13 @@ Users.find_by_id(user_id).pictures.create({pic: Faker::Avatar.image("project-#{p
   duration: duration,
   fundinggoal: rand_number_from_to(2000,100000),
   })
+  retry_count = 0
   begin
-    Project.find_by_id(project_id).pictures.create({pic: suckr.get_image_url})
+    if retry_count < 10
+      Project.find_by_id(project_id).pictures.create({pic: suckr.get_image_url})
+    end
   rescue Exception => e
+    retry_count += 1
     puts "Oops I'll try again"
   retry
   end
