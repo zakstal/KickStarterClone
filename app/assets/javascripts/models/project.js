@@ -11,6 +11,7 @@ KS.Models.Project = Backbone.Model.extend({
   },
 
   story: function () {
+
     if(!this._story) {
       this._story = new KS.Models.Story({
         project: this
@@ -20,8 +21,8 @@ KS.Models.Project = Backbone.Model.extend({
   },
 
   parse: function(response) {
+    // console.log(response.story, "in project model")
 
-    // console.log(response, "in project model")
     if (response.rewards) {
       this.rewards().set(response.rewards, { parse: true });
       delete response.rewards

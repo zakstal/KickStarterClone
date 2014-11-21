@@ -154,49 +154,88 @@
 # ClaimedRewards.create({ reward_id: 8, user_id: 2})
 
 
+#-------------Generate Random Images---------
+
+# suckr = ImageSuckr::GoogleSuckr.new
+
+#-------------Markov Chain-------------------
+
+markov = MarkyMarkov::Dictionary.new('dictionary',3)
+markov.parse_file "db/seed_for_markov_chain.txt"
+
 #-------------Random Users-------------------
+
+markov.class_eval do
+  def number_of_sentences_from_to(from, to)
+    eval "self.generate_#{rand_number_from_to(from,to)}_sentences"
+  end
+end
+
+
+def rand_number_from_to(from,to)
+  goal = 0
+  while goal < from
+    goal = rand(to)
+  end
+  goal
+end
+
+
+
+def random_date
+  rand_number_from_to(from,to)
+  Faker::Date.forward(23)
+end
+
+
 def random_cat
   a = ["dance", "food", "technology", "design", "games"]
   a[rand(a.length)]
 end
 
-def rand_funding_goal
-  goal = 0
-  while goal < 2000
-    goal = rand(100000)
-  end
-  goal
-end
+
 
 20.times do |i|
-Users.create(email: Faker::Internet.email, password: 'password')
-UserBio.create({username: Faker::Name.name, bio: Faker::Name.title, user_id: i + 21 })
+  puts "user #{i}"
+Users.create(email: (i == 0 ? "user@user.com" : Faker::Internet.email ), password: 'password')
+UserBio.create({username: Faker::Name.name, bio: Faker::Name.title, user_id: i + 1})
+# Users.find_by_id((i + 1)).pictures.create({pic: Faker::Avatar.image("user-#{i + 21}")})
 end
 
 100.times do |i|
-user_id = i + 1
+  puts "Project #{i}"
+user_id = i + 21
+project_id = i + 1
+duration = rand(41)
+cat_id = random_cat
 Users.create(email: Faker::Internet.email, password: 'password')
 UserBio.create({username: Faker::Name.name, bio: Faker::Name.title, user_id: user_id })
+# Users.find_by_id(user_id).pictures.create({pic: Faker::Avatar.image("project-#{project_id}")})
 
   Project.create({
-  title: "Homes clothes",
-  description: "Solar manipulation device for summer",
+  title: Faker::Commerce.product_name,
+  description:  markov.generate_1_sentences,
   user_id: user_id ,
-  catagory_id: random_cat,
-  duration: rand(41),
-  fundinggoal: "10000",
+  catagory_id: cat_id,
+  duration: duration,
+  fundinggoal: rand_number_from_to(2000,100000),
   })
-
+  # begin
+  #   Project.find_by_id(project_id).pictures.create({pic: suckr.get_image_url})
+  # rescue Exception => e
+  #   puts "Oops I'll try again"
+  # retry
+  # end
   Story.create({
-   story: "We’re the Young@Heart Chorus and we’re launching the Young@Heart Prison Project, a series of rehearsals and ",
-   challenges: "this is my challenge",
-   project_id: 3
+   story: markov.number_of_sentences_from_to(5,20),
+   challenges: markov.number_of_sentences_from_to(5,10),
+   project_id: project_id
   })
 
+  Catagorie.create(catagory: cat_id, project_id: project_id)
 
-  Reward.create({ project_id: 4, pledge_amt: 5, description: "great thing to have", est_delivery: "11/30/14", qty: 5})
-  Reward.create({ project_id: 4, pledge_amt: 10, description: "bad reward", est_delivery: "11/30/14", qty: 6})
-  Reward.create({ project_id: 4, pledge_amt: 20, description: "having things is good :)", est_delivery: "11/30/14", qty: 9})
-  Reward.create({ project_id: 4, pledge_amt: 20, description: "having things is good :)", est_delivery: "11/30/14", qty: 9})
-
+  rand_number_from_to(2,10).times do |j|
+    puts "reward #{j} 0f project #{i}"
+    Reward.create({ project_id: project_id, pledge_amt: rand_number_from_to(1,20), description: markov.number_of_sentences_from_to(2,3), est_delivery: Faker::Date.forward(duration + rand(40)), qty: rand_number_from_to(10,20)})
+  end
 end

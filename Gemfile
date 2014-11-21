@@ -37,3 +37,7 @@ end
 #
 
 gem 'faker'
+
+gem 'marky_markov'
+
+gem 'image_suckr'
