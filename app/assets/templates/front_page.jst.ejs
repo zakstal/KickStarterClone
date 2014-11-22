@@ -1,3 +1,14 @@
 <div class="front-title">
   <p>Totally Wicked Projects!</p>
 </div>
+
+
+<script charset="utf-8">
+  $(document).ready(function() {
+    $('.front-page').css('background: image-url("front-page.gif") no-repeat center;')
+    setInterval(function () {
+      console.log("change")
+      $('.front-page').css('background', 'image-url("front-page17.gif") no-repeat center;')
+    }, 3000)
+  });
+</script>

@@ -35,3 +35,9 @@ group :production do
   gem 'rails_12factor'
 end
 #
+
+gem 'faker'
+
+gem 'marky_markov'
+
+gem 'image_suckr'

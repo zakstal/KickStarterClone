@@ -73,12 +73,15 @@ GEM
     ejs (1.1.1)
     erubis (2.7.0)
     execjs (2.2.2)
+    faker (1.4.3)
+      i18n (~> 0.5)
     figaro (1.0.0)
       thor (~> 0.14)
     filepicker-rails (1.2.0)
       rails (>= 3.2)
     hike (1.2.3)
     i18n (0.6.11)
+    image_suckr (0.2.0)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
@@ -89,10 +92,13 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    marky_markov (0.3.5)
+      msgpack
     method_source (0.8.2)
     mime-types (1.25.1)
     mini_portile (0.6.0)
     minitest (4.7.5)
+    msgpack (0.5.9)
     multi_json (1.10.1)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
@@ -178,10 +184,13 @@ DEPENDENCIES
   binding_of_caller
   coffee-rails (~> 4.0.0)
   ejs
+  faker
   figaro
   filepicker-rails
+  image_suckr
   jbuilder (~> 1.2)
   jquery-rails
+  marky_markov
   paperclip (~> 4.2)
   pry-rails
   quiet_assets

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141115201901) do
+ActiveRecord::Schema.define(version: 20141118233843) do
 
   create_table "catagories", force: true do |t|
     t.string   "catagory"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20141115201901) do
 
   create_table "projects", force: true do |t|
     t.string   "title",                       null: false
-    t.string   "description"
+    t.text     "description"
     t.string   "catagory_id"
     t.string   "user_id"
     t.datetime "created_at"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20141115201901) do
   create_table "rewards", force: true do |t|
     t.integer  "project_id",   null: false
     t.integer  "pledge_amt",   null: false
-    t.string   "description",  null: false
+    t.text     "description",  null: false
     t.string   "est_delivery", null: false
     t.integer  "qty"
     t.datetime "created_at"
@@ -69,8 +69,8 @@ ActiveRecord::Schema.define(version: 20141115201901) do
   add_index "rewards", ["project_id"], name: "index_rewards_on_project_id"
 
   create_table "stories", force: true do |t|
-    t.string   "story"
-    t.string   "challenges"
+    t.text     "story"
+    t.text     "challenges"
     t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"

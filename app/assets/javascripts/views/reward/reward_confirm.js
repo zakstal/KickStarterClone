@@ -23,8 +23,8 @@ KS.Views.RewardConfirm = Backbone.View.extend({
 
   confirm: function (event) {
     event.preventDefault();
-    console.log(this.currentUser())
     if( typeof KS.currentUserId === 'undefined') {
+      //navigate to new session in rails
       Backbone.history.navigate("session/new", { trigger: true })
     } else {
       var form = this.$('.confirm-reward-form')
@@ -33,12 +33,18 @@ KS.Views.RewardConfirm = Backbone.View.extend({
 
 
       var claimed = new KS.Models.ClaimedReward();
-      console.log(attr, "attributes", KS.currentUserId)
       var that = this;
       claimed.save(attr, {
-        success: function () {
-          console.log("claim saved")
-          // this.$('.confirm-window').removeClass('hidden')
+        success: function (resp) {
+
+
+          var newBackedProject = new KS.Models.Project({id: that.reward.get('project_id')})
+          newBackedProject.fetch({
+            success: function () {
+                that.currentUser.backedProjects().add(newBackedProject)
+            }
+          })
+
           this.$('.confirm-window').addClass('show-confirm-window')
         }
       });

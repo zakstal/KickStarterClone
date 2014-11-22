@@ -16,6 +16,7 @@ KickStarter::Application.routes.draw do
     resources :claimed_rewards, only: [:create]
     resources :catagories, only: [:show]
     resources :stories, only: [:create, :update]
+    resource :session, only: [:create, :destroy]
   end
 
   resources :user_bio, only: [:create, :edit, :update, :destroy]

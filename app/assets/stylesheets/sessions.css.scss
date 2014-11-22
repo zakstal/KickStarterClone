@@ -3,9 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 form.sign-in {
+  margin: 0px;
   margin: auto;
-  display: block;
+  display: inline-block;
   // text-align: center;
+  // background: red;
+  width: 330px;
 
 }
 
@@ -15,9 +18,9 @@ form.sign-in label {
 
 form.sign-in > input.user-input {
   // margin: none;
-  padding: 10px;
-  margin-right: 5px;
-  margin-bottom: 15px;
+
+  // margin-right: 5px;
+  // margin-bottom: 15px;
   display: block;
   // width: 100%
 }

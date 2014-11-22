@@ -3,7 +3,8 @@ class Picture < ActiveRecord::Base
   has_attached_file :pic, :styles => {
     :big => "600x600#",
     :small => "50x50#",
-    :thumb => "28x28#"
+    :thumb => "28x28#",
+    
   }
 
   validates_attachment_content_type(

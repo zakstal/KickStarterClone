@@ -11,9 +11,10 @@ KS.Views.Dropdown = Backbone.View.extend({
 
   events: {
     "click .user-tab": "toggleDropDown",
-    "click ": "hideDropdownToNavigate",
     "click .sign-Out": "signOut"
   },
+
+  //close dropdown is in header.js under closeDropdown event
 
   initialize: function () {
     this.projects = this.model.projects()
@@ -23,7 +24,6 @@ KS.Views.Dropdown = Backbone.View.extend({
   },
 
   render: function () {
-
     if (typeof KS.currentUserId === 'undefined') {
 
       var signedOut = this.signedOutTemplate()
@@ -38,6 +38,7 @@ KS.Views.Dropdown = Backbone.View.extend({
       this.renderProjectList(this.projects)
 
       this.renderBackedProjectList(this.backedProjects)
+
     }
 
     return this;
@@ -46,26 +47,33 @@ KS.Views.Dropdown = Backbone.View.extend({
   renderProjectList: function (projectType) {
     var that = this
     if ( typeof projectType !== 'undefined') {
-      projectType.each(function (project) {
-        var projectThumb = that.projectThumbNail({
-          project: project
-        });
+      if (projectType.length !== 0) {
+        projectType.each(function (project) {
+          var projectThumb = that.projectThumbNail({
+            project: project
+          });
 
-        that.$('.user-projects-in-dropdown').append(projectThumb)
-      });
+          that.$('.user-projects-in-dropdown').append(projectThumb)
+        });
+        this.$('.user-projects-in-dropdown').prepend('<h4>Created Projects</h4>')
+      }
     }
   },
 
   renderBackedProjectList: function (projectType) {
     var that = this
     if ( typeof projectType !== 'undefined') {
-      projectType.each(function (project) {
-        var projectThumb = that.projectThumbNail({
-          project: project
-        });
+      if (projectType.length !== 0) {
+        projectType.each(function (project) {
+          console.log("this project", project)
+          var projectThumb = that.projectThumbNail({
+            project: project
+          });
 
-        that.$('.backed-projects-in-dropdown').append(projectThumb)
-      });
+          that.$('.backed-projects-in-dropdown').append(projectThumb)
+        });
+        this.$('.backed-projects-in-dropdown').prepend('<h4>Backed Projects</h4>')
+      }
     }
   },
 
@@ -82,18 +90,9 @@ KS.Views.Dropdown = Backbone.View.extend({
       }
   },
 
-  hideDropdownToNavigate: function(event) {
 
-    if (!$(event.target).hasClass('user-tab')) {
-    var dropDown = $('.dropdown-container');
-      if (!dropDown.hasClass('hidden')) {
-        dropDown.addClass('hidden')
-      }
-    }
-  },
 
   signOut: function (event) {
-    console.log("in sign out")
     this.model = nil
   }
 });

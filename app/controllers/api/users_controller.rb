@@ -18,10 +18,10 @@ module Api
 
       if @user.update(user_params)
 
-        puts "!!!!!!!!!!!!!!!!!!"
+        puts "yes !!!!!!!!!!!!!!!!!!"
         puts photo_params
         puts @user.pictures
-        puts"!!!!!!!!!!!!!!!!!!!!!!"
+        puts"no!!!!!!!!!!!!!!!!!!!!!!"
 
           # @user.pictures.destroy if !photo_params.empty? && !@user.pictures.nil?
 

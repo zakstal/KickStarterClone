@@ -1,6 +1,16 @@
 <script>
 $(document).ready(function(){
   KS.initialize();
+
+  $('body').on("click", function (event) {
+      var dropDown = $('.dropdown-container');
+      if (!$(event.target).hasClass('user-tab')){
+        if (!dropDown.hasClass('hidden')) {
+          dropDown.addClass('hidden')
+        }
+      }
+
+  });
 });
 
 </script>
