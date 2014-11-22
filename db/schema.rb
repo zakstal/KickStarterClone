@@ -39,16 +39,16 @@ ActiveRecord::Schema.define(version: 20141118233843) do
   end
 
   create_table "projects", force: true do |t|
-    t.string   "title",                       null: false
-    t.text     "description"
+    t.string   "title",                                   null: false
+    t.text     "description", limit: 255
     t.string   "catagory_id"
     t.string   "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "duration"
     t.string   "fundinggoal"
-    t.boolean  "active",      default: true
-    t.boolean  "funded",      default: false
+    t.boolean  "active",                  default: true
+    t.boolean  "funded",                  default: false
   end
 
   add_index "projects", ["catagory_id"], name: "index_projects_on_catagory_id"
@@ -56,10 +56,10 @@ ActiveRecord::Schema.define(version: 20141118233843) do
   add_index "projects", ["user_id"], name: "index_projects_on_user_id"
 
   create_table "rewards", force: true do |t|
-    t.integer  "project_id",   null: false
-    t.integer  "pledge_amt",   null: false
-    t.text     "description",  null: false
-    t.string   "est_delivery", null: false
+    t.integer  "project_id",               null: false
+    t.integer  "pledge_amt",               null: false
+    t.text     "description",  limit: 255, null: false
+    t.string   "est_delivery",             null: false
     t.integer  "qty"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -69,8 +69,8 @@ ActiveRecord::Schema.define(version: 20141118233843) do
   add_index "rewards", ["project_id"], name: "index_rewards_on_project_id"
 
   create_table "stories", force: true do |t|
-    t.text     "story"
-    t.text     "challenges"
+    t.text     "story",      limit: 255
+    t.text     "challenges", limit: 255
     t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -7,12 +7,13 @@ module Api
       puts params
       puts "here***************************"
       @user = Users.find_by_credentials(
-        params[:user][:email],
-        params[:user][:password]
+        params[:body][:user][:email],
+        params[:body][:user][:password]
       )
 
       if @user
         log_in?(@user)
+        puts "succesful"
         # redirect_after_require_login_or(user_url(@user))
         render json: @user
       else

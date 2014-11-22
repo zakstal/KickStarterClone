@@ -6,7 +6,9 @@ KS.Views.SignIn = Backbone.View.extend({
   },
 
   render: function () {
-    var renderedSignup = this.template();
+    var renderedSignup = this.template({
+      error: this.errors
+    });
 
     this.$el.html(renderedSignup);
     return this;
@@ -15,15 +17,19 @@ KS.Views.SignIn = Backbone.View.extend({
   signIn: function (events) {
     events.preventDefault();
     var attr = this.$('form').serializeJSON()
-    console.log(attr)
-    console.log('here')
-
+    var that = this;
     $.ajax({
-			type: "GET",
-			url: "/api/sessions/new",
-			data: { 'body':attr },
+			type: "POST",
+			url: "/api/session",
+			data: { 'body': attr },
+      error: function (resp) {
+        console.log(resp.responseText)
+        that.errors = resp.responseText
+        that.render()
+      },
 			success: function (resp) {
 				console.log("sent", resp)
+        Backbone.history.navigate("", { trigger: true })
 			}
     });
   }
