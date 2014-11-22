@@ -4,7 +4,8 @@ KS.Views.SignIn = Backbone.View.extend({
   className: 'signin-container',
 
   events: {
-    "click .submit": "signIn"
+    "click .submit": "signIn",
+    "click #guest": 'signInAsGuest'
   },
 
   initialize: function () {
@@ -45,6 +46,20 @@ KS.Views.SignIn = Backbone.View.extend({
         Backbone.history.navigate("", { trigger: true })
 			}
     });
+  },
+
+  signInAsGuest: function (event) {
+    event.preventDefault();
+    $.ajax({
+      type: "POST",
+      url: "/api/session",
+      data: { 'body': {'user': { 'email': 'user@user.com', 'password': 'password'}}},
+      success: function (resp) {
+        console.log("sent")
+        Backbone.history.navigate("", { trigger: true })
+      }
+    });
+
   },
 
   signInSlideDown: function () {
