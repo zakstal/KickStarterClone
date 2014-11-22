@@ -1,8 +1,14 @@
 KS.Views.SignUp = Backbone.View.extend({
   template: JST['signup'],
 
+  className: 'signin-container',
+
   events: {
-    "click #signup": "signUp"
+    "click .submit": "signUp"
+  },
+
+  initialize: function () {
+    this.rendered = false
   },
 
   render: function () {
@@ -11,6 +17,7 @@ KS.Views.SignUp = Backbone.View.extend({
     });
 
     this.$el.html(renderedSignup);
+    this.signInSlideDown();
     return this;
   },
 
@@ -34,5 +41,19 @@ KS.Views.SignUp = Backbone.View.extend({
         Backbone.history.navigate("", { trigger: true })
       }
     });
+  },
+
+
+  signInSlideDown: function () {
+
+    if (!this.rendered){
+      setTimeout(function() {
+        this.$('#div-border').toggleClass('border-div-hidden')
+        this.$('#div-border').toggleClass('border-div')
+      },500)
+    } else {
+      this.$('#div-border').css('top', 0)
+    }
+
   }
 })

@@ -1,28 +1,28 @@
 
-
-
-<div class="singin-container">
   <div class="signin-container-two">
     <div id="errors">
       <%= error %>
     </div>
-  <div class="border-div">
+  <div id="div-border" class="border-div-hidden">
 
 
     <h1>Sign In</h1>
 
     <form class="sign-in" >
-      <label for="email">Email</label>
+      <!-- <label for="email">Email</label>
+        <br> -->
+      <input class="user-input" placeholder="Email" type="text" name="user[email]" id="email">
         <br>
-      <input class="user-input" type="text" name="user[email]" id="email">
+      <!-- <label for="pass">Password</label>
+        <br> -->
+      <input  class="user-input" placeholder="Password" type="password" name="user[password]" id="pass">
         <br>
-      <label for="pass">Password</label>
-        <br>
-      <input  class="user-input" type="password" name="user[password]" id="pass">
-        <br>
-      <button id="signin">Sign In</button>
+      <button class="submit">Sign In</button>
     </form>
-
+    <div id="guest">
+      <p>
+        Sign in as a guest
+      </p>
+    </div>
   </div>
   </div>
-</div>

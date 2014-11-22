@@ -1,8 +1,14 @@
 KS.Views.SignIn = Backbone.View.extend({
   template: JST['signin'],
 
+  className: 'signin-container',
+
   events: {
-    "click #signin": "signIn"
+    "click .submit": "signIn"
+  },
+
+  initialize: function () {
+    this.rendered = false
   },
 
   render: function () {
@@ -11,11 +17,16 @@ KS.Views.SignIn = Backbone.View.extend({
     });
 
     this.$el.html(renderedSignup);
+
+    this.signInSlideDown();
+
     return this;
   },
 
   signIn: function (events) {
     events.preventDefault();
+
+    this.rendered = true;
     var attr = this.$('form').serializeJSON()
     var that = this;
 
@@ -34,5 +45,18 @@ KS.Views.SignIn = Backbone.View.extend({
         Backbone.history.navigate("", { trigger: true })
 			}
     });
+  },
+
+  signInSlideDown: function () {
+
+    if (!this.rendered){
+      setTimeout(function() {
+        this.$('#div-border').toggleClass('border-div-hidden')
+        this.$('#div-border').toggleClass('border-div')
+      },500)
+    } else {
+      this.$('#div-border').css('top', 0)
+    }
+
   }
-})
+});

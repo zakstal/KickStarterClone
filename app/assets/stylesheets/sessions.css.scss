@@ -21,31 +21,102 @@ form.sign-in > input.user-input {
 
   // margin-right: 5px;
   // margin-bottom: 15px;
+  padding: 15px;
   display: block;
-  // width: 100%
+  width: 93%
 }
 
 div.signin-container-two h1 {
   // text-align: center;
   // padding-left: 20px;
   padding-bottom: 30px;
+  font-size: 40px;
   font-weight: none;
 }
 
-.signin-container {
+div.signin-container {
   display: block;
+  position: relative;
+  top: -20px;
+  background: #333;
+  height: 100%;
+  background: image-url("front-page17.gif") no-repeat center;
+  background-size: 100%;
 }
 
 .signin-container-two {
   padding: 20px;
   width: 400px;
-  height: 400px;
-  padding-top: 100px;
+  height: 640px;
+  padding-top: 0px;
   margin: auto;
+
 }
 
 .border-div {
+  position: relative;
+  top: 0px;
   padding: 30px;
+  border-radius: 10px;
+  border: 1px solid #aaa;
+  background: #fff;
+  transition: all 0.5s;
+}
+
+.border-div-hidden {
+  position: relative;
+  top: -600px;
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid #aaa;
+  background: #fff;
+  transition: all 0.5s;
+}
+
+.submit {
+  display: inline-block;
+  margin-top: 5px;
+  cursor: pointer;
+  padding: 15px;
   border-radius: 5px;
-  border: 1px solid #888;
+  background: #e45;
+  color: #fff;
+}
+
+#errors {
+  text-align: center;
+  padding: 20px;
+  color: red;
+  font-size: 22px;
+  margin: 20px;
+}
+
+#guest {
+  bottom: -70px;
+  display: block;
+  position: absolute;
+  height: 75px;
+  width: 398px;
+  left: -1px;
+  background: #abd;
+  z-index: 100;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-right: 1px solid #aaa;
+  border-left: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+  cursor: pointer;
+}
+
+
+#guest:hover {
+  background: #aac;
+}
+
+
+#guest p {
+  text-align: center;
+  font-size: 25px;
+  color: #fff;
+  padding-top: 20px;
 }
