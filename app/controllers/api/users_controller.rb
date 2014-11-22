@@ -12,6 +12,24 @@ module Api
       end
     end
 
+
+    def create
+      puts params
+      user = params[:body][:user]
+      @user = Users.new(email: user[:email], password: user[:password])
+      if @user.save
+        log_in?(@user)
+
+        # redirect_to user_url(@user)
+        # make a swich if last url is from backbone got to below
+        redirect_to root_url
+
+      else
+        flash.now[:errors] = @user.errors.full_messages
+        render :new
+      end
+    end
+
     def update
       @user = Users.find(params[:id])
       puts @user.pictures.nil?

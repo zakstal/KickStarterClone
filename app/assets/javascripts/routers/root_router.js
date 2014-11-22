@@ -5,13 +5,13 @@ KS.RootRouter = Backbone.Router.extend({
     this.$rootEl = options.$rootEl
     this.$rootBody = options.$rootBody
 
-    this._getCurrentUserInfo
-
-    var view = new KS.Views.Head({
-        currentUser: this._getCurrentUserInfo()
-    });
-    console.log("after initailze of head",this.currentUser)
-    this.$rootEl.html(view.render().$el)
+    // this._getCurrentUserInfo
+    //
+    // var view = new KS.Views.Head({
+    //     currentUser: this._getCurrentUserInfo()
+    // });
+    // console.log("after initailze of head",this.currentUser)
+    // this.$rootEl.html(view.render().$el)
   },
 
   routes: {
@@ -33,9 +33,16 @@ KS.RootRouter = Backbone.Router.extend({
   },
 
   index: function () {
-    this.currentUser = this._getCurrentUserInfo
-    var front = new KS.Views.FrontPage();
+    // this._getCurrentUserInfo
+    this._getCurrentUserInfo
 
+    var view = new KS.Views.Head({
+      currentUser: this._getCurrentUserInfo()
+    });
+    console.log("after initailze of head",this.currentUser)
+    // this.$rootEl.html(view.render().$el)
+    var front = new KS.Views.FrontPage();
+    this._swapViewHead(view);
     this._swapView(front);
   },
 
@@ -195,22 +202,28 @@ KS.RootRouter = Backbone.Router.extend({
     this.$rootBody.html(view.render().$el)
   },
 
+  _swapViewHead: function(view) {
+    this._currentHead && this._current.remove()
+    this._currentHead = view;
+    this.$rootEl.html(view.render().$el)
+  },
+
 
   _getCurrentUserInfo: function () {
-    if (typeof this.currentUser === 'undefined') {
+    // if (typeof this.currentUser === 'undefined') {
 
       var currentUser = new KS.Models.CurrentUser()
       currentUser.fetch({
         success: function (){
-          if ( typeof currentUser.get('id') !== 'undefined') {
+          // if ( typeof currentUser.get('id') !== 'undefined') {
 
             KS.currentUserId = currentUser.get('id')
-          }
+          // }
         }
       });
 
       this.currentUser = currentUser
-    }
+    // }
 
     return this.currentUser
   }
