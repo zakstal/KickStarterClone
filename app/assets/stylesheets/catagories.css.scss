@@ -251,3 +251,51 @@ a.project-thum-catagory-a > img {
 .catagory-container-show li a ul li p {
   padding-top: 0px;
 }
+
+.percent-bar {
+  display: block;
+  float: left;
+  position: absolute;
+  bottom: 60px;
+  left: 0px;
+  height: 10px;
+  width: 210px;
+  margin: 0 10px 0 10px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.color-container {
+  position: relative;
+  height: 100%;
+  width: 210px;
+  // margin: 0 10px 0 10px;
+  border-radius: 10px;
+}
+
+.gray {
+  background: #ddd;
+  display: block;
+  float: left;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  height: 10px;
+  width: 210px;
+  // margin: 0 10px 0 10px;
+  border-radius: 10px;
+}
+
+.green {
+  background:  #11cc77;
+  display: block;
+  float: left;
+  position: absolute;
+  bottom: 0px;
+  // left: -210px;
+  height: 10px;
+  width: 210px;
+  // margin: 0 10px 0 10px;
+  border-radius: 10px;
+  z-index: 4;
+}

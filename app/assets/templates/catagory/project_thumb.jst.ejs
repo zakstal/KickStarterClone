@@ -6,6 +6,13 @@
     <p>
       <%= project.escape('description').slice(0,175) + "..."%>
     </p>
+
+    <div class="percent-bar">
+      <div class="color-container">
+        <div class="green" style="left:<%= ((project.escape('percent_funded')/100) * 210) - 210 %>px"></div>
+        <div class="gray"></div>
+      </div>
+    </div>
     <ul class="group">
       <li>
         <h4>
