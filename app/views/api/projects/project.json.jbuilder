@@ -9,6 +9,7 @@
   json.fundinggoal        @project.fundinggoal
   json.active             @project.active
   json.funded             @project.funded
+  json.amt_pledged        @project.amt_pledged
 
   if @project.pictures.first.nil? || @project.user.pictures.last.pic.url.include?("missing")
     json.that_url image_path('cute.jpg')

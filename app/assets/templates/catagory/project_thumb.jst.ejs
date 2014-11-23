@@ -3,10 +3,36 @@
     <img src="<%= project.escape('that_url') %>" >
     <h4><%= project.escape('title')%></h4>
     <h5>by <%= project.escape('username')%></h5>
-    <br>
     <p>
-      <%= project.escape('description')%>
+      <%= project.escape('description').slice(0,175) + "..."%>
     </p>
+    <ul class="group">
+      <li>
+        <h4>
+          % <%= project.escape('percent_funded') %>
+        </h4>
+        <p>
+          funded
+        </p>
+      </li>
 
+      <li>
+        <h4>
+          $ <%= project.escape('amt_pledged') %>
+        </h4>
+        <p>
+          pledged
+        </p>
+      </li>
+
+      <li>
+        <h4>
+          <%= project.escape('duration') %>
+        </h4>
+        <p>
+          days to go
+        </p>
+      </li>
+    </ul>
   </a>
 </li>

@@ -11,8 +11,8 @@ class Project < ActiveRecord::Base
   belongs_to  :user,            class_name: "Users",        foreign_key: :user_id,      primary_key: :id
   belongs_to  :catagory,        class_name: "Catagorie",    foreign_key: :catagory_id,  primary_key: :catagory
 
-  has_many  :pictures, as: :image
-  
+  has_many    :pictures, as: :image
+
   def backers
     claimed_rewards.map do |claimed|
       claimed.user.id
@@ -20,9 +20,9 @@ class Project < ActiveRecord::Base
   end
 
   def amt_pledged
-    claimed_rewards.map do |claimed|
-      claimed.reward.pledge_amt
-    end.inject(:+)
+    claimed = claimed_rewards.map { |claimed| claimed.reward.pledge_amt }.inject(:+)
+
+    claimed.nil? ? 0 : claimed
   end
 
   def how_many_backers
@@ -42,6 +42,11 @@ class Project < ActiveRecord::Base
   def project_challenges
     return if story.nil?
     story.challenges
+  end
+
+  def percent_funded
+    return 0 if amt_pledged == 0
+    (amt_pledged * 100)/self.fundinggoal.to_i
   end
 
 end
