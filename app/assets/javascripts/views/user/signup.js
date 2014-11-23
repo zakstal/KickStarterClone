@@ -50,7 +50,7 @@ KS.Views.SignUp = Backbone.View.extend({
       setTimeout(function() {
         this.$('#div-border').toggleClass('border-div-hidden')
         this.$('#div-border').toggleClass('border-div')
-      },500)
+      },200)
     } else {
       this.$('#div-border').css('top', 0)
     }

@@ -37,7 +37,7 @@ div.signin-container-two h1 {
 div.signin-container {
   display: block;
   position: relative;
-  top: -20px;
+  top: 0px;
   background: #333;
   height: 100%;
   background: image-url("front-page17.gif") no-repeat center;
@@ -48,14 +48,14 @@ div.signin-container {
   padding: 20px;
   width: 400px;
   height: 640px;
-  padding-top: 0px;
+  padding-top: 20px;
   margin: auto;
 
 }
 
 .border-div {
   position: relative;
-  top: 0px;
+  top: 30px;
   padding: 30px;
   border-radius: 10px;
   border: 1px solid #aaa;

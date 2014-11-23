@@ -1,10 +1,25 @@
 
 
 
+  def get_month(num)
+    mons = %w(Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec)
+    mons[num]
+  end
+
+  def make_date_string
+    month = @user.created_at.month
+    year = @user.created_at.year.to_s
+    get_month(month.to_i - 1) + " " + year
+  end
+
+
+
   json.user do
-    json.id            @user.id
-    json.email         @user.email
-    json.session_token @user.session_token
+    json.id                         @user.id
+    json.email                      @user.email
+    json.session_token              @user.session_token
+    json.joined                     make_date_string
+    json.number_of_backed_projects  @user.number_of_backed_projects
   end
 
   if !@user.user_bio.nil?
@@ -56,7 +71,7 @@
 
     end
   end
-  
+
   if @user.pictures.first.nil?
     json.that_url image_path('dog.jpg')
   else

@@ -4,7 +4,7 @@
 .front-page-image-container {
 
   height: 640px;
-  widht: 100%;
+
 //  margin-left: 20px;
 //  background: image-url();
 }
@@ -22,6 +22,7 @@
   height: 160px;
   width: 160px;
   margin: 30px 10px 25px 10px;
+  border-radius: 10px;
 }
 
 .user-image-edit {
@@ -42,6 +43,16 @@
   height: 92px;
   width: 700px;
   margin: 29px 10px 30px 10px;
+}
+
+.user-container h2 {
+  font-size: 30px;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.user-container p {
+  padding: 10px 10px 10px 5px;
 }
 
 .project-title {
