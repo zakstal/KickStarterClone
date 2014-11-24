@@ -9,7 +9,8 @@
 
     <div class="percent-bar">
       <div class="color-container">
-        <div class="green" style="left:<%= ((project.escape('percent_funded')/100) * 210) - 210 %>px"></div>
+        <%= percentFunded = ((project.escape('percent_funded')/100) * 210) - 210 %>
+        <div class="green" style="left:<%= percentFunded > 0 ? 0 : percentFunded %>px"></div>
         <div class="gray"></div>
       </div>
     </div>
