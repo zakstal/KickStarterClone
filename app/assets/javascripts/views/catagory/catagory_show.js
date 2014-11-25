@@ -2,6 +2,14 @@ KS.Views.CatagoryShow = Backbone.View.extend({
 
   template: JST['catagory/catagory_show'],
 
+  colors: {
+    'technology': '#e45',
+    'food':'#f8a',
+    'dance': '#abf',
+    'design': '#0e8',
+    'games': '#3af'
+  },
+
   projectThumbTemplate: JST['catagory/project_thumb'],
 
   initialize: function (options) {
@@ -10,8 +18,10 @@ KS.Views.CatagoryShow = Backbone.View.extend({
   },
 
   render: function () {
+    var catagory = this.catagory.get('id')
     var template = this.template({
-      cat: this.catagory.get('id')
+      cat: catagory,
+      color: this.colors[catagory]
     });
 
     this.$el.html(template);

@@ -11,7 +11,10 @@
   </div>
 
   <div class="project-main group">
-    <a href="#/catagory/<%= project.escape('catagory_id') %>" class="cat-in-project-show" ><%= project.escape("catagory_id") %></a>
+    <a href="#/catagory/<%= project.escape('catagory_id') %>" class="cat-in-project-show" >
+      <span class="icon-tag"></span>
+      <%= project.escape("catagory_id") %>
+    </a>
 
 
     <div class="project-body group">
@@ -38,7 +41,7 @@
         <p>Backers</p>
         <br>
         <h1>$<%= project.escape('amt_pledged') %> </h1>
-        <p>pledged of a $<%= project.escape("fundinggoal") %></p>
+        <p>pledged of a $<%= project.escape("fundinggoal") %> goal</p>
         <br>
 
         <h1><%= project.escape("duration") %></h1>

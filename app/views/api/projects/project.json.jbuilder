@@ -1,4 +1,8 @@
 
+  def format_money(amt)
+    goal_split_in_three_digits = amt.reverse.scan(/.{1,3}/)
+    goal_split_in_three_digits.join(",").reverse
+  end
 
   json.title              @project.title
   json.description        @project.description
@@ -6,7 +10,7 @@
   json.created_at         @project.created_at
   json.updated_at         @project.updated_at
   json.duration           @project.duration
-  json.fundinggoal        @project.fundinggoal
+  json.fundinggoal        format_money(@project.fundinggoal)
   json.active             @project.active
   json.funded             @project.funded
   json.amt_pledged        @project.amt_pledged
@@ -17,6 +21,7 @@
     json.that_url @project.pictures.last.pic.url
   end
 
+  json.user_id                @project.user.id
   json.username               @project.username
   json.users_backed_projects  @project.user.number_of_backed_projects
   json.users_projects         @project.user.number_of_projects

@@ -26,6 +26,11 @@ form.sign-in > input.user-input {
   width: 93%
 }
 
+
+form.sign-in > input.user-input:focus {
+    outline-color: #333;
+}
+
 div.signin-container-two h1 {
   // text-align: center;
   // padding-left: 20px;
