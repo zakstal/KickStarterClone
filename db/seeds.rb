@@ -59,6 +59,7 @@ user_id = i + 21
 project_id = i + 1
 duration = rand(41)
 cat_id = random_cat
+funding_goal = rand_number_from_to(2000,100000)
 Users.create(email: Faker::Internet.email, password: 'password')
 UserBio.create({username: Faker::Name.name, bio: Faker::Name.title, user_id: user_id })
 Users.find_by_id(user_id).pictures.create({pic: Faker::Avatar.image("project-#{project_id}")})
@@ -69,7 +70,7 @@ Users.find_by_id(user_id).pictures.create({pic: Faker::Avatar.image("project-#{p
   user_id: user_id ,
   catagory_id: cat_id,
   duration: duration,
-  fundinggoal: rand_number_from_to(2000,100000),
+  fundinggoal: funding_goal,
   })
   retry_count = 0
   begin
@@ -89,8 +90,21 @@ Users.find_by_id(user_id).pictures.create({pic: Faker::Avatar.image("project-#{p
 
   Catagorie.create(catagory: cat_id, project_id: project_id)
 
-  rand_number_from_to(2,10).times do |j|
+  number_of_rewards = rand_number_from_to(2,10)
+
+  pledge_amt = funding_goal/20
+  slice_of_pledge_amt = funding_goal/number_of_rewards
+
+  number_of_rewards.times do |j|
     puts "reward #{j} 0f project #{i}"
-    Reward.create({ project_id: project_id, pledge_amt: rand_number_from_to(1,20), description: markov.number_of_sentences_from_to(2,3), est_delivery: Faker::Date.forward(duration + rand(40)), qty: rand_number_from_to(10,20)})
+    max_rand_amt = slice_of_pledge_amt * j
+    min_rand_amt = max_rand_amt - slice_of_pledge_amt
+
+    Reward.create({ project_id: project_id, pledge_amt: rand_number_from_to(min_rand_amt,max_rand_amt), description: markov.number_of_sentences_from_to(2,3), est_delivery: Faker::Date.forward(duration + rand(40)), qty: rand_number_from_to(10,20)})
+
+    rand_number_from_to(0, 10).times do |k|
+      puts "claimed reward #{k} of reward #{j}"
+      ClaimedRewards.create({ reward_id: j, user_id: rand_number_from_to(1, 120)})
+    end
   end
 end
