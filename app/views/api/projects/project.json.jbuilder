@@ -1,7 +1,11 @@
 
   def format_money(amt)
-    goal_split_in_three_digits = amt.reverse.scan(/.{1,3}/)
-    goal_split_in_three_digits.join(",").reverse
+    if amt == 0
+      0
+    else
+      goal_split_in_three_digits = amt.to_s.reverse.scan(/.{1,3}/)
+      goal_split_in_three_digits.join(",").reverse
+    end
   end
 
   json.title              @project.title
@@ -13,7 +17,7 @@
   json.fundinggoal        format_money(@project.fundinggoal)
   json.active             @project.active
   json.funded             @project.funded
-  json.amt_pledged        @project.amt_pledged
+  json.amt_pledged        format_money(@project.amt_pledged)
 
   if @project.pictures.first.nil? || @project.user.pictures.last.pic.url.include?("missing")
     json.that_url image_path('cute.jpg')
@@ -44,6 +48,17 @@
     json.times_backed       reward.times_backed
   end
 
-if !@project.story.nil?
-  json.story            @project.story
-end
+  if !@project.story.nil?
+    json.story            @project.story
+  end
+
+  json.backers                  @project.claimed_rewards do |backer|
+    json.backer_id                backer.user.id
+    json.backer_username          backer.user.name
+    json.other_backed_projects    backer.user.number_of_backed_projects
+    if backer.user.pictures.first.nil?
+      json.user_pic image_path('dog.jpg')
+    else
+      json.user_pic backer.user.pictures.last.pic.url
+    end
+  end

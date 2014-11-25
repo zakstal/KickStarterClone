@@ -299,3 +299,17 @@ a.project-thum-catagory-a > img {
   border-radius: 10px;
   z-index: 4;
 }
+
+.percent-bar-successfully-funded {
+  display: block;
+  float: left;
+  position: absolute;
+  bottom: 60px;
+  left: 0px;
+  height: 30px;
+  width: 230px;
+  // margin: 0 10px 0 10px;
+  // border-radius: 20px;
+  overflow: hidden;
+  background:  #11cc77;
+}
