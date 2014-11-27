@@ -69,8 +69,9 @@ KS.RootRouter = Backbone.Router.extend({
 //-----------project routes-----------------
 
   projectshow: function(id) {
-    var project = new KS.Models.Project({ id: id })
-    project.fetch()
+    var project = KS.projects.get(id)//new KS.Models.Project({ id: id })
+    console.log(project)
+    // project.fetch()
 
     var showBody = new KS.Views.ProjectShow({
       project: project

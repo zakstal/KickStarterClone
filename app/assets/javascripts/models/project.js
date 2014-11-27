@@ -20,9 +20,9 @@ KS.Models.Project = Backbone.Model.extend({
     return this._story
   },
 
-  backers : function () {
-    if(!this.backers) {
-      this._backers = KS.Collections.Users([],{
+  backers: function () {
+    if(!this._backers) {
+      this._backers = new KS.Collections.Users([],{
         project: this
       });
     }
@@ -30,7 +30,7 @@ KS.Models.Project = Backbone.Model.extend({
   },
 
   parse: function(response) {
-    console.log(response, "in project model")
+    // console.log(response, "in project model")
 
     if (response.rewards) {
       this.rewards().set(response.rewards, { parse: true });
@@ -41,11 +41,11 @@ KS.Models.Project = Backbone.Model.extend({
       this.story().set(response.story, { parse: true });
       delete response.story
     }
-    //
-    // if (respose.backers) {
-    //   this.backers().set(response.backers, { parse: true });
-    //   delete response.backers
-    // }
+
+    if (response.backers) {
+      this.backers().set(response.backers, { parse: true });
+      delete response.backers
+    }
 
     return response
   }

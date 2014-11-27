@@ -11,8 +11,10 @@ KS.Models.Catagory = Backbone.Model.extend({
   },
 
   parse: function(response) {
+    debugger;
     if (response.projects){
        this.projects().set(response.projects, { parse: true })
+       KS.projects.add(this.projects().models)
        delete response.projects
      }
 
