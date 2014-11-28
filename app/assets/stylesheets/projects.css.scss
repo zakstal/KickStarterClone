@@ -16,6 +16,7 @@
   position: relative;
   max-height: auto;
   margin: auto;
+  margin-top: 30px;
   margin-bottom: 80px;
   width: 960px;
   border: 1px solid lightgray;
@@ -46,9 +47,10 @@
   float: left;
   height: auto;
   width: 640px;
+
 }
 
-.project-body h3 {
+div.project-body h3 {
   padding: 20px 0px 20px 0px;
 }
 
@@ -60,10 +62,6 @@
   border: 1px soild #333;
 }
 
-// .project-runner > a {
-//   position: absolute;
-//
-// }
 
 .background-project {
   margin: 0;
@@ -107,11 +105,7 @@
   color: #fff;
 }
 
-.play-center:before {
-  // content: "▶    ";
-}
 .play-center {
-
   color: #fff;
   font-size:25px;
   height: 30px;
@@ -119,10 +113,6 @@
   padding-left: 24px;
   padding-top: 15px;
   transition: all .3s;
-  // border-top:1px solid lightgray;
-  // border-left: 1px solid lightgray;
-  // border-right:1px solid lightgray;
-  // border-bottom:0;
 }
 
 .play:hover {
@@ -143,6 +133,27 @@
 .project-picture-container {
     position: relative;
     display: block
+}
+
+.project-nav {
+  position: absolute;
+  margin-top: -30px;
+  margin-right: 30px;
+  left: 10;
+  top: 0;
+}
+
+.project-nav-element {
+  display: inline-block;
+  padding: 0px 10px 8px 10px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  border-bottom: 5px solid transparent;
+}
+
+.project-nav-element-active {
+  border-bottom: 5px solid #0f3;
 }
 
 .cat-in-project-show {
@@ -197,4 +208,38 @@ div.reward-project p {
   padding: 5px;
   // color: #e88;
   font-weight: normal;
+}
+
+.user-image-backer {
+  display: block;
+  float: left;
+  height: 80px;
+  width: 80px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.project-body ul {
+  max-width: 100%;
+}
+
+.project-body ul li {
+  border-bottom: 1px solid lightgray;
+}
+
+.user-container-backer {
+  float: left;
+  height: 92px;
+  margin: 10px;
+}
+
+.user-container-backer h2 {
+  // float:left;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.user-container-backer p {
+  padding: 10px 10px 10px 5px;
 }

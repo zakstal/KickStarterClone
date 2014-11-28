@@ -16,7 +16,7 @@
   json.duration           @project.duration
   json.fundinggoal        format_money(@project.fundinggoal)
   json.active             @project.active
-  json.funded             @project.funded
+  json.funded             format_money(@project.funded)
   json.amt_pledged        format_money(@project.amt_pledged)
 
   if @project.pictures.first.nil? || @project.user.pictures.last.pic.url.include?("missing")
@@ -57,8 +57,8 @@
     json.backer_username          backer.user.name
     json.other_backed_projects    backer.user.number_of_backed_projects
     if backer.user.pictures.first.nil?
-      json.user_pic image_path('dog.jpg')
+      json.that_url image_path('dog.jpg')
     else
-      json.user_pic backer.user.pictures.last.pic.url
+      json.that_url backer.user.pictures.last.pic.url
     end
   end

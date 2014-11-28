@@ -1,12 +1,12 @@
 
-  <li>
-    <div class="container">
-      <image class="user-image" src="<%= user.get('that_url') %>">
-        <div class="user-container">
+  <li class="group">
+    <div class="container-backer group">
+      <image class="user-image-backer" src="<%= user.that_url %>">
+        <div class="user-container-backer">
           <% if (typeof user !== 'undefined') { %>
-          <h2><%= user.escape('username') %></h2>
-          <p>Backed <%= user.escape('number_of_backed_projects') %> projects - joined <%= user.escape('joined') %></p>
-          <p><%= user.escape('bio') %></p>
+          <h2><%= user.backer_username %></h2>
+          <p>Backed <%= user.number_of_backed_projects %> projects - joined <%= user.joined %></p>
+          <p><%= user.bio %></p>
           <% } %>
       </div>
     </div>

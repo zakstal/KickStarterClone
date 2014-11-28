@@ -7,16 +7,21 @@ KS.Views.ProjectShow = Backbone.View.extend({
 
   userPartialTemplate: JST['projects/user_partial'],
 
-  ProjectBackers: JST['projects/project_body_backed_users'],
+  projectBackers: JST['projects/project_body_backed_users'],
+
+  events: {
+    "click .project-nav-element": "swichMainViews"
+  },
 
   initialize: function(options){
     this.project = options.project
+    this.currentNavId = "home"
     this.listenTo(this.project, "sync", this.render)
 
   },
 
   render: function () {
-    // console.log(this.project.backers(), "in show")
+    console.log(this.project.get('backers'), "in show")
     var template = this.template({
       project: this.project
     });
@@ -29,19 +34,31 @@ KS.Views.ProjectShow = Backbone.View.extend({
   },
 
   renderMainView: function () {
-    var mainTemplate = this.mainTemplate({
-      project: this.project,
-      story: this.project.story().attributes.story,
-      challenges: this.project.story().attributes.challenges
-    })
-    this.$('.project-body').html(mainTemplate)
+
+      var mainTemplate = this.mainTemplate({
+        project: this.project,
+        story: this.project.story().attributes.story,
+        challenges: this.project.story().attributes.challenges
+      })
+      this.$('.project-body').html(mainTemplate)
   },
 
   renderBackingUsers: function () {
-    var backingUsersTemplate = this.ProjectBackers({
+    if (typeof this.project.get('backers') !== 'undefined') {
+      var list = $('<ul></ul>')
+      var that = this
 
-    });
-    this.$('.project-body').html()
+      this.project.get('backers').forEach( function(backer){
+        console.log(backer.that_url, "backer")
+        var backingUsersTemplate = that.projectBackers({
+          user: backer
+        });
+
+        list.append(backingUsersTemplate)
+      });
+
+      this.$('.project-body').html(list)
+    }
   },
 
   renderRewards: function () {
@@ -63,5 +80,30 @@ KS.Views.ProjectShow = Backbone.View.extend({
     });
 
     this.$el.find('.user-blurb-in-project').html(userPartialTemplate)
+  },
+
+  swichMainViews: function (event) {
+    event.preventDefault();
+    var subPage = $(event.currentTarget).attr('id')
+    this.swichCssWhenMainViewSwich(subPage);
+
+    if (subPage === "home") {
+      this.renderMainView();
+    } else if (subPage === "backers") {
+      this.renderBackingUsers();
+    } else {
+      console.log("none")
+    }
+  },
+
+  swichCssWhenMainViewSwich: function (newNavId) {
+    console.log('in swich')
+    var nav = this.currentNavId;
+    console.log($('#' + nav),'in swich')
+    this.currentNavId = newNavId;
+    $('#' + nav).removeClass('project-nav-element-active')
+    $('#' + newNavId).addClass('project-nav-element-active')
   }
+
+
 });
