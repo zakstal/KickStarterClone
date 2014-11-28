@@ -53,8 +53,11 @@ KS.RootRouter = Backbone.Router.extend({
     this._swapView(showSignUp);
   },
 
-  usershow: function () {
-    var showBody = new KS.Views.UserShow({ model: this._getCurrentUserInfo() });
+  usershow: function (id) {
+    var userInfo = new KS.Models.User({ id: id })
+    userInfo.fetch()
+    
+    var showBody = new KS.Views.UserShow({ model: userInfo });
     this._swapView(showBody);
   },
 

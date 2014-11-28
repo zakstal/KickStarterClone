@@ -57,6 +57,14 @@ module Api
 
     end
 
+    def show
+      @user = Users.find(params[:id])
+
+      render :get_user_info
+    end
+
+    private
+
     def user_params
       params.require(:user).permit(:email, :password)
     end
