@@ -1,3 +1,12 @@
+def format_numbers(amt)
+  if amt == 0
+    0
+  else
+    goal_split_in_three_digits = amt.to_s.reverse.scan(/.{1,3}/)
+    goal_split_in_three_digits.join(",").reverse
+  end
+end
+
 
 json.catagory @catagory.catagory
 
@@ -14,7 +23,7 @@ json.catagory @catagory.catagory
     json.active         project.active
     json.funded         project.funded
     json.username       project.username
-    json.amt_pledged    project.amt_pledged
+    json.amt_pledged    format_numbers(project.amt_pledged)
     json.percent_funded project.percent_funded
 
     if project.pictures.first.nil?

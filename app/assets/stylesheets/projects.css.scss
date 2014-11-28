@@ -2,6 +2,43 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.modal-space {
+  overflow: hidden;
+  position: fixed;
+  // opacity: 0.75;
+  background: transparent;
+  z-index: 5;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.modal-background {
+  position: fixed;
+  opacity: 0.75;
+  background: #fff;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.modal {
+  position: absolute;
+  z-index: 7;
+  background: blue;
+  height: 30px;
+  width: 30px;
+  border-radius: 10px;
+  left: 50%;
+  top: 100px;
+}
+
+.modal-center-spacer {
+  margin: auto;
+}
+
 .project-thumbnail-large {
   float: left;
 }
@@ -40,7 +77,7 @@
 .project-runner > .container > h2 {
   font-size: 32px;
   margin: 0;
-  padding: 40px 0 40px 0;
+  padding: 40px 0 20px 0;
 }
 
 .project-body {
@@ -71,12 +108,37 @@ div.project-body h3 {
   background: #F7F7F7;
 }
 
+.user-partial-in-project {
+  padding: 20px;
+  font-weight: bold;
+}
+
 .user-blurb-in-project {
   margin-top: 20px;
-  border-top: 1px solid lightgray;
-  border-bottom: 1px solid lightgray;
-  padding: 20px;
+  margin-bottom: 20px;
+  // border-top: 1px solid lightgray;
+  // border-bottom: 1px solid lightgray;
   background: #eef;
+  border-radius: 10px;
+
+}
+
+.contact-userblurb-project-show {
+    text-align: center;
+    color: #49f;
+    font-size: 15px;
+    font-weight: bold;
+    display: block;
+    // height: 50px;
+    padding: 20px 20px;
+    border-top: 1px solid #ccf;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    cursor: pointer;
+}
+
+.circle-picture img {
+  margin-bottom: 10px;
 }
 
 .new-menu-box {

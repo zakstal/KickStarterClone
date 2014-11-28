@@ -10,7 +10,7 @@
     get_month(month.to_i - 1) + " " + year
   end
 
-  def format_money(amt)
+  def format_numbers(amt)
     if amt == 0
       0
     else
@@ -25,10 +25,10 @@
   json.created_at         @project.created_at
   json.updated_at         @project.updated_at
   json.duration           @project.duration
-  json.fundinggoal        format_money(@project.fundinggoal)
+  json.fundinggoal        format_numbers(@project.fundinggoal)
   json.active             @project.active
-  json.funded             format_money(@project.funded)
-  json.amt_pledged        format_money(@project.amt_pledged)
+  json.funded             format_numbers(@project.funded)
+  json.amt_pledged        format_numbers(@project.amt_pledged)
   json.comment_count      @project.comment_count
 
   if @project.pictures.first.nil? || @project.user.pictures.last.pic.url.include?("missing")
@@ -42,9 +42,8 @@
   json.users_backed_projects  @project.user.number_of_backed_projects
   json.users_projects         @project.user.number_of_projects
   json.story                  @project.project_story
-  json.number_of_backers      @project.how_many_backers
+  json.number_of_backers      format_numbers(@project.how_many_backers)
   json.backers                @project.backers
-  json.amt_pledged            @project.amt_pledged
 
   if @project.user.pictures.first.nil? || @project.user.pictures.last.pic.url.include?("missing")
     json.user_pic image_path('dog.jpg')

@@ -7,7 +7,7 @@ KS.Models.User = Backbone.Model.extend({
         user: this
       });
     }
-      return this._projects;
+    return this._projects;
   },
 
   comments: function() {
@@ -16,7 +16,7 @@ KS.Models.User = Backbone.Model.extend({
         user: this
       });
     }
-    return this._projects;
+    return this._comments;
   },
 
 

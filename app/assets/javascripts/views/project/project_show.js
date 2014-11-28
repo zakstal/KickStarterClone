@@ -16,7 +16,8 @@ KS.Views.ProjectShow = Backbone.View.extend({
 
   events: {
     "click .project-nav-element": "swichMainViews",
-    "click #post-comment"       : "postComment"
+    "click #post-comment"       : "postComment",
+    "click .contact-userblurb-project-show"   : "contactOpen"
   },
 
   initialize: function(options){
@@ -180,6 +181,16 @@ KS.Views.ProjectShow = Backbone.View.extend({
       }
     });
 
+  },
+
+  toggleModal: function () {
+    this.$('.modal-space').toggleClass('hidden')
+  },
+
+  contactOpen: function (event) {
+    event.preventDefault();
+    console.log("in contact");
+    this.toggleModal();
   }
 
 
