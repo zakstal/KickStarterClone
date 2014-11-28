@@ -21,7 +21,7 @@ KS.Views.ProjectShow = Backbone.View.extend({
   },
 
   render: function () {
-    console.log(this.project.get('backers'), "in show")
+    console.log(this.project, "in show")
     var template = this.template({
       project: this.project
     });

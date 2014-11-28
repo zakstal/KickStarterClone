@@ -5,7 +5,7 @@
         <div class="user-container-backer">
           <% if (typeof user !== 'undefined') { %>
           <h2><%= user.backer_username %></h2>
-          <p>Backed <%= user.number_of_backed_projects %> projects - joined <%= user.joined %></p>
+          <p>Backed <%= user.other_backed_projects %> projects</p>
           <p><%= user.bio %></p>
           <% } %>
       </div>
