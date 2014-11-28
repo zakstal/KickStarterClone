@@ -3,11 +3,12 @@ KS.Views.ProjectShow = Backbone.View.extend({
   template: JST['projects/projectshow'],
 
   mainTemplate: JST['projects/project_body_main'],
-  // rewardsTemplate: JST['projects/reward'],
 
   userPartialTemplate: JST['projects/user_partial'],
 
   projectBackers: JST['projects/project_body_backed_users'],
+
+  projectComments: JST['projects/project_body_comments'],
 
   events: {
     "click .project-nav-element": "swichMainViews"
@@ -21,7 +22,7 @@ KS.Views.ProjectShow = Backbone.View.extend({
   },
 
   render: function () {
-    console.log(this.project, "in show")
+    console.log(this.project.comments().first(), "in show")
     var template = this.template({
       project: this.project
     });
@@ -91,6 +92,10 @@ KS.Views.ProjectShow = Backbone.View.extend({
       this.renderMainView();
     } else if (subPage === "backers") {
       this.renderBackingUsers();
+
+    } else if (subPage === "comments") {
+      this.renderCommentsMainView();
+
     } else {
       console.log("none")
     }
@@ -103,6 +108,22 @@ KS.Views.ProjectShow = Backbone.View.extend({
     this.currentNavId = newNavId;
     $('#' + nav).removeClass('project-nav-element-active')
     $('#' + newNavId).addClass('project-nav-element-active')
+  },
+
+  renderCommentsMainView: function () {
+      var list = $('<ul></ul>')
+      var that = this
+
+      this.project.comments().forEach( function(user){
+        console.log(user, "indi user")
+        var commentsTemplate = that.projectComments({
+          user: user
+        });
+
+        list.append(commentsTemplate)
+      });
+
+      this.$('.project-body').html(list)
   }
 
 

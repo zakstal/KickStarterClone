@@ -8,9 +8,11 @@ class Users < ActiveRecord::Base
   has_many  :projects,         class_name: "Project",  foreign_key: :user_id,    primary_key: :id
   has_one   :user_bio,         class_name: "UserBio",  foreign_key: :user_id,    primary_key: :id
   has_many  :claimed_rewards,  class_name: "ClaimedRewards", foreign_key: :user_id
+  has_many  :comments,         class_name: "Comment",   foreign_key: :user_id
 
   has_many  :backed_projects,  through: :rewards,      source: :project
-  has_many  :pictures, as: :image 
+  has_many  :pictures, as: :image
+
 
 
    after_initialize :ensure_session

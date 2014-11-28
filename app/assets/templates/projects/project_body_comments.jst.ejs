@@ -1,0 +1,14 @@
+
+  <li class="group">
+    <div class="container-backer group">
+      <image class="user-image-backer" src="<%= user.that_url %>">
+        <div class="user-container-backer">
+          <% if (typeof user !== 'undefined') { %>
+          <h2><%= user.backer_username %></h2>
+          <p>Backed <%= user.other_backed_projects %> projects</p>
+          <p><%= user.bio %></p>
+          <% } %>
+      </div>
+    </div>
+
+  </li>

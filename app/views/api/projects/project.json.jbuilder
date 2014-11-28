@@ -18,6 +18,7 @@
   json.active             @project.active
   json.funded             format_money(@project.funded)
   json.amt_pledged        format_money(@project.amt_pledged)
+  json.comment_count      @project.comment_count
 
   if @project.pictures.first.nil? || @project.user.pictures.last.pic.url.include?("missing")
     json.that_url image_path('cute.jpg')
@@ -52,7 +53,9 @@
     json.story            @project.story
   end
 
-  json.backers                  @project.claimed_rewards do |backer|
+  uniq_claimed_rewards = @project.claimed_rewards.select(:user_id).distinct
+
+  json.backers                  uniq_claimed_rewards do |backer|
     json.backer_id                backer.user.id
     json.backer_username          backer.user.name
     json.other_backed_projects    backer.user.number_of_backed_projects
@@ -61,4 +64,17 @@
     else
       json.that_url backer.user.pictures.last.pic.url
     end
+  end
+
+  json.comments             @project.comment do |comment|
+    json.comment                comment.comment
+    json.comment_date           comment.created_at
+    json.user_id                comment.user.id
+    json.user_name              comment.user.name
+    if comment.user.pictures.first.nil?
+      json.that_url image_path('dog.jpg')
+    else
+      json.that_url comment.user.pictures.last.pic.url
+    end
+
   end

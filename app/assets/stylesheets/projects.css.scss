@@ -144,7 +144,8 @@ div.project-body h3 {
 }
 
 .project-nav-element {
-  display: inline-block;
+  // display: inline-block;
+  float: left;
   padding: 0px 10px 8px 10px;
   font-weight: bold;
   font-size: 15px;
@@ -158,12 +159,15 @@ div.project-body h3 {
 
 .qty-for-nav-element {
   float: right;
+  // position: absolute;
   color: #fff;
   background: #888;
-  border-radius: 10px;
-  // padding: 2px;
+  border-radius: 5px;
+  padding: 3px 5px 3px 5px;
   margin-left: 5px;
   font-size: 10px;
+  right: 0;
+  top:0;
 }
 
 .cat-in-project-show {

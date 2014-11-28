@@ -29,6 +29,15 @@ KS.Models.Project = Backbone.Model.extend({
     return this._backers;
   },
 
+  comments: function () {
+    if(!this._comments) {
+      this._comments = new KS.Collections.Comments([],{
+        project: this
+      });
+    }
+    return this._comments;
+  },
+
   parse: function(response) {
     // console.log(response, "in project model")
 
@@ -40,6 +49,12 @@ KS.Models.Project = Backbone.Model.extend({
     if (response.story) {
       this.story().set(response.story, { parse: true });
       delete response.story
+    }
+    // debugger;
+
+    if (response.comments) {
+      this.comments().set(response.comments, { parse: true });
+      delete response.comments
     }
 
     // if (response.backers) {
