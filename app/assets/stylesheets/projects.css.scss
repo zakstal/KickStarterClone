@@ -48,6 +48,10 @@
   width: 640px;
 }
 
+.project-body h3 {
+  padding: 20px 0px 20px 0px;
+}
+
 .user-video {
   display: block;
   height: 480px;
@@ -162,7 +166,25 @@ div.reward-project {
   background: #fff;
   transition: all .2s;
   border-bottom: 1px solid lightgray;
+  overflow: hidden;
 }
+
+.reward-project:hover {
+  background: #e45;
+  opacity: .1%;
+}
+
+// .reward-select-hover {
+//   float: left;
+//   background: #333;
+//   display: block;
+//   height: 100%;
+//   width: 100%;
+//   border-radius: 1px;
+//   transition: all .2s;
+//   border-bottom: 1px solid lightgray;
+//   z-index: 4;
+// }
 
 div.reward-project h4 {
   padding: 5px;
@@ -175,9 +197,4 @@ div.reward-project p {
   padding: 5px;
   // color: #e88;
   font-weight: normal;
-}
-
-.reward-project:hover {
-  background: #e45;
-  opacity: .5%;
 }
