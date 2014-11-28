@@ -12,6 +12,8 @@ KS.Views.ProjectShow = Backbone.View.extend({
 
   projectCommentForm: JST['projects/project_body_comments_form'],
 
+  projectNav: JST['projects/project_show_nav'],
+
   events: {
     "click .project-nav-element": "swichMainViews",
     "click #post-comment"       : "postComment"
@@ -19,7 +21,6 @@ KS.Views.ProjectShow = Backbone.View.extend({
 
   initialize: function(options){
     this.project = options.project
-    this.currentNavId = "home"
     this.listenTo(this.project, "sync", this.render)
     this.listenTo(this.project.comments(), "add", this.renderCommentsMainView)
   },
@@ -32,19 +33,30 @@ KS.Views.ProjectShow = Backbone.View.extend({
 
     this.$el.html(template);
     this.renderMainView();
+    this.renderProjectNav();
     this.renderRewards();
     this.renderUser();
     return this;
   },
 
-  renderMainView: function () {
+  renderProjectNav: function () {
+    this.currentNavId = "home"
+    var navTemplate = this.projectNav({
+      number_of_backers: this.project.escape('number_of_backers'),
+      number_of_comments: this.project.comments().length
+    });
 
+    this.$('.project-nav').html(navTemplate);
+  },
+
+  renderMainView: function () {
       var mainTemplate = this.mainTemplate({
         project: this.project,
         story: this.project.story().attributes.story,
         challenges: this.project.story().attributes.challenges
-      })
-      this.$('.project-body').html(mainTemplate)
+      });
+
+      this.$('.project-body').html(mainTemplate);
   },
 
   renderBackingUsers: function () {
@@ -86,6 +98,7 @@ KS.Views.ProjectShow = Backbone.View.extend({
 
   swichMainViews: function (event) {
     event.preventDefault();
+
     var subPage = $(event.currentTarget).attr('id')
     this.swichCssWhenMainViewSwich(subPage);
 
@@ -98,23 +111,22 @@ KS.Views.ProjectShow = Backbone.View.extend({
       this.renderCommentsMainView();
 
     } else {
-      console.log("none")
+      console.log("none");
     }
   },
 
   swichCssWhenMainViewSwich: function (newNavId) {
     var nav = this.currentNavId;
     this.currentNavId = newNavId;
-    $('#' + nav).removeClass('project-nav-element-active')
-    $('#' + newNavId).addClass('project-nav-element-active')
+    $('#' + nav).removeClass('project-nav-element-active');
+    $('#' + newNavId).addClass('project-nav-element-active');
+
   },
 
   renderCommentsMainView: function () {
       var list = $('<ul></ul>')
       var that = this
-      console.log("in render comments view", this.isCurrentUserABacker())
       if(this.isCurrentUserABacker()) {
-        console.log("is a backer")
         var renderForm = this.projectCommentForm({
           project_id: this.project.get('id')
         });
@@ -123,7 +135,6 @@ KS.Views.ProjectShow = Backbone.View.extend({
       }
 
       this.project.comments().forEach( function(user){
-        console.log(user, "indi user")
         var commentsTemplate = that.projectComments({
           user: user
         });
@@ -137,31 +148,37 @@ KS.Views.ProjectShow = Backbone.View.extend({
   isCurrentUserABacker: function () {
     var isOrIsNot = false;
     var that = this;
-    this.project.get('backers').forEach( function(user){
-      if (user.id = KS.currentUserId) {
-        isOrIsNot = true;
-      }
-    });
+    var backers = this.project.get('backers')
+    if (typeof backers !== 'undefined') {
+      backers.forEach( function(user){
+        if (user.id = KS.currentUserId) {
+          isOrIsNot = true;
+        }
+      });
+    }
+
     return isOrIsNot;
   },
 
   postComment: function (event) {
     event.preventDefault();
-    console.log("inpost comment")
-    var attr = $('.make-comment-form').serializeJSON()
+    var attr = $('.make-comment-form').serializeJSON();
 
     var newComment = new KS.Models.Comment();
-    var that = this
+    var that = this;
+
     newComment.save(attr, {
       success: function (resp) {
+
         newComment.fetch({
           success: function () {
-            console.log(newComment, "new comment")
-            that.project.comments().add(newComment)
+            that.project.comments().add(newComment);
+            that.renderProjectNav();
+            that.swichCssWhenMainViewSwich("comments")
           }
         });
       }
-    })
+    });
 
   }
 

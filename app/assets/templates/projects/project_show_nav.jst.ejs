@@ -1,0 +1,19 @@
+<div class="project-nav-element project-nav-element-active" id="home">
+  Home
+</div>
+<div class="project-nav-element group"  id="backers">
+  Backers
+  <% if (number_of_backers) { %>
+      <div class="qty-for-nav-element">
+        <%= number_of_backers %>
+      </div>
+  <% } %>
+</div>
+<div class="project-nav-element group"  id="comments">
+  Comments
+  <% if (number_of_comments) { %>
+    <div class="qty-for-nav-element">
+      <%= number_of_comments %>
+    </div>
+  <% } %>
+</div>

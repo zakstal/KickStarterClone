@@ -3,7 +3,7 @@
     <img src="<%= project.escape('user_pic') %>">
   </div>
 
-  <div><a href=""><%= project.escape('username') %></a></div>
+  <div><a href="#/user/<%= project.escape('user_id') %>"><%= project.escape('username') %></a></div>
   <div><a href=""><%= project.escape('users_backed_projects') %> Backed</a> | <a href=""><%= project.escape('users_projects') %> Created</a></div>
   <div></div>
 </div>

@@ -11,27 +11,11 @@
   </div>
 
   <div class="project-main group">
+
     <div class="project-nav">
-      <div class="project-nav-element project-nav-element-active" id="home">
-        Home
-      </div>
-      <div class="project-nav-element group"  id="backers">
-        Backers
-      <% if (project.escape('number_of_backers')) { %>
-          <div class="qty-for-nav-element">
-            <%= project.escape('number_of_backers') %>
-          </div>
-      <% } %>
-      </div>
-      <div class="project-nav-element group"  id="comments">
-        Comments
-        <% if (project.escape('comment_count')) { %>
-          <div class="qty-for-nav-element">
-            <%= project.escape('comment_count') %>
-          </div>
-          <% } %>
-        </div>
+
     </div>
+    
     <a href="#/catagory/<%= project.escape('catagory_id') %>" class="cat-in-project-show" >
       <i class="fa fa-tag fa-flip-horizontal"></i>
       <%= project.escape("catagory_id") %>
