@@ -1,4 +1,15 @@
 
+  def get_month(num)
+    mons = %w(Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec)
+    mons[num]
+  end
+
+  def make_date_string(user)
+    month = user.created_at.month
+    year = user.created_at.year.to_s
+    get_month(month.to_i - 1) + " " + year
+  end
+
   def format_money(amt)
     if amt == 0
       0
@@ -68,7 +79,7 @@
 
   json.comments             @project.comment do |comment|
     json.comment                comment.comment
-    json.comment_date           comment.created_at
+    json.comment_date           make_date_string(comment)
     json.user_id                comment.user.id
     json.user_name              comment.user.name
     if comment.user.pictures.first.nil?

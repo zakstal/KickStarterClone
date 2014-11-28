@@ -1,12 +1,11 @@
 
   <li class="group">
-    <div class="container-backer group">
-      <image class="user-image-backer" src="<%= user.that_url %>">
-        <div class="user-container-backer">
+    <div class="container-comments group">
+      <image class="user-image-comments" src="<%= user.escape('that_url') %>">
+        <div class="user-container-comments">
           <% if (typeof user !== 'undefined') { %>
-          <h2><%= user.backer_username %></h2>
-          <p>Backed <%= user.other_backed_projects %> projects</p>
-          <p><%= user.bio %></p>
+          <h2><%= user.escape('user_name') %></h2><figure>on <%= user.escape('comment_date') %></figure>
+          <p><%= user.escape('comment') %></p>
           <% } %>
       </div>
     </div>

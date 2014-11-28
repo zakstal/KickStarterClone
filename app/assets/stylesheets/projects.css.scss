@@ -237,7 +237,7 @@ div.reward-project p {
   max-width: 100%;
 }
 
-.project-body ul li {
+.user_backer_list {
   border-bottom: 1px solid lightgray;
 }
 
@@ -248,12 +248,62 @@ div.reward-project p {
 }
 
 .user-container-backer h2 {
-  // float:left;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   padding: 5px;
 }
 
 .user-container-backer p {
   padding: 10px 10px 10px 5px;
+}
+
+
+.user-image-comments {
+  display: block;
+  float: left;
+  height: 80px;
+  width: 80px;
+  margin: 10px;
+  border-radius: 100px;
+}
+
+.user-container-comments {
+  float: left;
+  height: 92px;
+  margin: 10px;
+}
+
+.user-container-comments h2 {
+  // float:left;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.user-container-comments figure {
+  margin: 0;
+  display: inline-block
+}
+
+.user-container-comments p {
+  padding: 10px 10px 10px 5px;
+}
+
+.from-container-project-comment {
+  max-width: 100%;
+  padding: 30px;
+  background: #eef;
+}
+
+.from-container-project-comment textarea {
+  display: block;
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.make-comment-form {
+  position: relative;
+  // width: 400px;
 }

@@ -1,0 +1,10 @@
+<div class="from-container-project-comment">
+
+  <form class="make-comment-form">
+    <input type="hidden" name="comment[user_id]" value="<%= KS.currentUserId %>">
+    <input type="hidden" name="comment[project_id]" value="<%= project_id %>">
+    <textarea name="comment[comment]"></textarea>
+
+    <a id="post-comment" class="submit">Post Comment</a>
+  </form>
+</div>

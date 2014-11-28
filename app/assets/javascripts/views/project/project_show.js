@@ -10,15 +10,18 @@ KS.Views.ProjectShow = Backbone.View.extend({
 
   projectComments: JST['projects/project_body_comments'],
 
+  projectCommentForm: JST['projects/project_body_comments_form'],
+
   events: {
-    "click .project-nav-element": "swichMainViews"
+    "click .project-nav-element": "swichMainViews",
+    "click #post-comment"       : "postComment"
   },
 
   initialize: function(options){
     this.project = options.project
     this.currentNavId = "home"
     this.listenTo(this.project, "sync", this.render)
-
+    this.listenTo(this.project.comments(), "add", this.renderCommentsMainView)
   },
 
   render: function () {
@@ -114,16 +117,55 @@ KS.Views.ProjectShow = Backbone.View.extend({
       var list = $('<ul></ul>')
       var that = this
 
+      if(this.isCurrentUserABacker()) {
+        var renderForm = this.projectCommentForm({
+          project_id: this.project.get('id')
+        });
+
+        list.prepend(renderForm)
+      }
+
       this.project.comments().forEach( function(user){
         console.log(user, "indi user")
         var commentsTemplate = that.projectComments({
           user: user
         });
 
-        list.append(commentsTemplate)
+        list.append(commentsTemplate);
       });
 
-      this.$('.project-body').html(list)
+      this.$('.project-body').html(list);
+  },
+
+  isCurrentUserABacker: function () {
+    var isOrIsNot = false;
+    var that = this;
+    this.project.comments().forEach( function(user){
+      if (user.id = KS.currentUserId) {
+        isOrIsNot = true;
+      }
+    });
+    return isOrIsNot;
+  },
+
+  postComment: function (event) {
+    event.preventDefault();
+    console.log("inpost comment")
+    var attr = $('.make-comment-form').serializeJSON()
+
+    var newComment = new KS.Models.Comment();
+    var that = this
+    newComment.save(attr, {
+      success: function (resp) {
+        newComment.fetch({
+          success: function () {
+            console.log(newComment, "new comment")
+            that.project.comments().add(newComment)
+          }
+        });
+      }
+    })
+
   }
 
 
