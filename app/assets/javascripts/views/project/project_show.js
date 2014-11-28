@@ -53,7 +53,6 @@ KS.Views.ProjectShow = Backbone.View.extend({
       var that = this
 
       this.project.get('backers').forEach( function(backer){
-        console.log(backer.that_url, "backer")
         var backingUsersTemplate = that.projectBackers({
           user: backer
         });
@@ -70,8 +69,7 @@ KS.Views.ProjectShow = Backbone.View.extend({
     var that = this
 
     this.project.rewards().forEach(function (reward){
-      // var rewardTemplate = that.rewardsTemplate({ reward: reward })
-        var rewardTemplate = new KS.Views.RewardSubShow({ reward: reward })
+      var rewardTemplate = new KS.Views.RewardSubShow({ reward: reward })
       appendRewards.append(rewardTemplate.render().$el)
 
     });
@@ -105,9 +103,7 @@ KS.Views.ProjectShow = Backbone.View.extend({
   },
 
   swichCssWhenMainViewSwich: function (newNavId) {
-    console.log('in swich')
     var nav = this.currentNavId;
-    console.log($('#' + nav),'in swich')
     this.currentNavId = newNavId;
     $('#' + nav).removeClass('project-nav-element-active')
     $('#' + newNavId).addClass('project-nav-element-active')
@@ -116,8 +112,9 @@ KS.Views.ProjectShow = Backbone.View.extend({
   renderCommentsMainView: function () {
       var list = $('<ul></ul>')
       var that = this
-
+      console.log("in render comments view", this.isCurrentUserABacker())
       if(this.isCurrentUserABacker()) {
+        console.log("is a backer")
         var renderForm = this.projectCommentForm({
           project_id: this.project.get('id')
         });
@@ -140,7 +137,7 @@ KS.Views.ProjectShow = Backbone.View.extend({
   isCurrentUserABacker: function () {
     var isOrIsNot = false;
     var that = this;
-    this.project.comments().forEach( function(user){
+    this.project.get('backers').forEach( function(user){
       if (user.id = KS.currentUserId) {
         isOrIsNot = true;
       }
