@@ -7,6 +7,8 @@ KS.Views.ProjectShow = Backbone.View.extend({
 
   userPartialTemplate: JST['projects/user_partial'],
 
+  ProjectBackers: JST['projects/project_body_backed_users'],
+
   initialize: function(options){
     this.project = options.project
     this.listenTo(this.project, "sync", this.render)
@@ -14,7 +16,7 @@ KS.Views.ProjectShow = Backbone.View.extend({
   },
 
   render: function () {
-    // console.log(this.project, "in show")
+    // console.log(this.project.backers(), "in show")
     var template = this.template({
       project: this.project
     });
@@ -36,6 +38,9 @@ KS.Views.ProjectShow = Backbone.View.extend({
   },
 
   renderBackingUsers: function () {
+    var backingUsersTemplate = this.ProjectBackers({
+
+    });
     this.$('.project-body').html()
   },
 

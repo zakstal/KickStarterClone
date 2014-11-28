@@ -36,15 +36,8 @@ KS.Views.RewardConfirm = Backbone.View.extend({
       var that = this;
       claimed.save(attr, {
         success: function (resp) {
-
-
-          var newBackedProject = new KS.Models.Project({id: that.reward.get('project_id')})
-          newBackedProject.fetch({
-            success: function () {
-                that.currentUser.backedProjects().add(newBackedProject)
-            }
-          })
-
+            var project_id = that.reward.get('project_id')
+            that.currentUser.backedProjects().add([KS.projects.get(project_id)]);
           this.$('.confirm-window').addClass('show-confirm-window')
         }
       });

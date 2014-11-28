@@ -103,7 +103,9 @@ Users.find_by_id(user_id).pictures.create({pic: Faker::Avatar.image("project-#{p
     Reward.create({ project_id: project_id, pledge_amt: rand_number_from_to(min_rand_amt,max_rand_amt), description: markov.number_of_sentences_from_to(2,3), est_delivery: Faker::Date.forward(duration + rand(40)), qty: rand_number_from_to(10,20)})
 
     rand_number_from_to(1, 10).times do |k|
-      puts "claimed reward  of reward #{j}"
+
+      puts "claimed reward #{k} of reward #{j}"
+
       ClaimedRewards.create({ reward_id: j, user_id: rand_number_from_to(1, 120)})
     end
   end

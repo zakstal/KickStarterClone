@@ -5,6 +5,7 @@ window.KS = {
   Routers: {},
 
   initialize: function() {
+    KS.projects = new KS.Collections.Projects();
     var $main = $('main');
     var $body = $('.main-body')
     new KS.RootRouter({
