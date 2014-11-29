@@ -25,18 +25,61 @@
 }
 
 .modal {
-  position: absolute;
+  position: relative;
   z-index: 7;
-  background: blue;
-  height: 30px;
-  width: 30px;
   border-radius: 10px;
-  left: 50%;
   top: 100px;
+  width: 500px;
+  margin: auto;
+  border: 1px solid #aaa;
+}
+
+.body-in-contact-modal {
+  padding: 0px 20px 20px 20px;
+}
+
+.contact-form {
+  position: relative;
+}
+
+.contact-form textarea {
+  padding-bottom: 30px;
+}
+
+.modal h2 {
+  padding: 20px;
+  font-weight: bold;
+}
+
+#contact-modal {
+  background: #fff;
 }
 
 .modal-center-spacer {
   margin: auto;
+}
+
+.close-modal {
+  color: #888;
+  font-size: 30px;
+  position: absolute;
+  right: -10px;
+  top: -20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.head-in-contact-modal {
+  position: relative;
+  display: block;
+  height: 60px;
+  background: #eee;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+#contact-send {
+  margin-top: 20px;
 }
 
 .project-thumbnail-large {

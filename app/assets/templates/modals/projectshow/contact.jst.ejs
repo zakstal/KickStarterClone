@@ -1,14 +1,17 @@
 <div class="modal" id="contact-modal">
   <div class="head-in-contact-modal">
-    <figure>&times;</figure>
+    <h2>Send a message to: <%= project.escape('username') %></h2>
+    <figure class="close-modal">&times;</figure>
   </div>
   <div class="body-in-contact-modal">
-    <form class="make-comment-form">
-      <input type="hidden" name="comment[user_id]" value="<%= KS.currentUserId %>">
-      <input type="hidden" name="comment[project_id]" value="<%= project_id %>">
-      <textarea name="comment[comment]"></textarea>
+    <h2>To: <%= project.escape('username') %></h2>
+    <form class="contact-form">
+      <input type="hidden" name="user[from_user_id]" value="<%= KS.currentUserId %>">
+      <input type="hidden" name="user[to_user_id]" value="<%= project.escape('user_id') %>">
+      <input type="hidden" name="user[project_id]" value="<%= project.escape('id') %>">
+      <textarea name="user[message]"></textarea>
 
-      <a id="post-comment" class="submit">Post Comment</a>
+      <a id="contact-send" class="submit">Send</a>
     </form>
   </div>
 </div>

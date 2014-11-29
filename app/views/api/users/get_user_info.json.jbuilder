@@ -14,12 +14,12 @@ end
 
 
 
-json.user do
+
   json.id                         @user.id
   json.email                      @user.email
   json.joined                     make_date_string(@user)
   json.number_of_backed_projects  @user.number_of_backed_projects
-end
+
 
 if !@user.user_bio.nil?
   json.username       @user.user_bio.username
@@ -82,7 +82,7 @@ json.comments             @user.comments do |comment|
   json.comment                comment.comment
   json.comment_date           make_date_string(comment)
   json.project_id             comment.project.id
-  json.user_name              comment.project.title
+  json.project_title          comment.project.title
   if comment.user.pictures.first.nil?
     json.that_url image_path('dog.jpg')
   else

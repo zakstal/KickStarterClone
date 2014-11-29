@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141128142516) do
+ActiveRecord::Schema.define(version: 20141129161015) do
 
   create_table "catagories", force: true do |t|
     t.string   "catagory"
@@ -36,6 +36,18 @@ ActiveRecord::Schema.define(version: 20141128142516) do
   end
 
   add_index "comments", ["project_id"], name: "index_comments_on_project_id"
+
+  create_table "messages", force: true do |t|
+    t.integer  "from_user_id"
+    t.integer  "to_user_id"
+    t.text     "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "thread"
+  end
+
+  add_index "messages", ["from_user_id"], name: "index_messages_on_from_user_id"
+  add_index "messages", ["to_user_id"], name: "index_messages_on_to_user_id"
 
   create_table "pictures", force: true do |t|
     t.integer  "image_id"

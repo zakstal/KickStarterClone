@@ -14,11 +14,16 @@ KS.Views.ProjectShow = Backbone.View.extend({
 
   projectNav: JST['projects/project_show_nav'],
 
+  contactModal: JST['modals/projectshow/contact'],
+
   events: {
-    "click .project-nav-element": "swichMainViews",
-    "click #post-comment"       : "postComment",
-    "click .contact-userblurb-project-show"   : "contactOpen"
+    "click .project-nav-element"              : "swichMainViews",
+    "click #post-comment"                     : "postComment",
+    "click .contact-userblurb-project-show"   : "contactOpen",
+    "click .close-modal"                      : "toggleModal",
+    "click #contact-send"                     : "sendComment"
   },
+
 
   initialize: function(options){
     this.project = options.project
@@ -185,12 +190,31 @@ KS.Views.ProjectShow = Backbone.View.extend({
 
   toggleModal: function () {
     this.$('.modal-space').toggleClass('hidden')
+    this.$('.modal-center-spacer').html();
   },
 
   contactOpen: function (event) {
     event.preventDefault();
     console.log("in contact");
     this.toggleModal();
+    this.renderContactModal();
+  },
+
+  renderContactModal: function () {
+    var contactModal = this.contactModal({
+      project: this.project
+    });
+
+    this.$('.modal-center-spacer').html(contactModal);
+  },
+
+  sendComment: function (event) {
+    event.preventDefault();
+    this.toggleModal();
+
+    var attr = this.$('.contact-form').serializeJSON();
+
+    console.log(attr, "in send comment")
   }
 
 

@@ -212,3 +212,87 @@ form.update-settings-form input.my-photo-upload:hover {
 .sing-out {
   cursor: pointer;
 }
+
+.user-main-user-info {
+  position: relative;
+  max-height: auto;
+  margin: auto;
+  margin-top: 60px;
+  margin-bottom: 80px;
+  width: 960px;
+  // border: 1px solid lightgray;
+  background: white;
+  border-radius: 4px;
+  padding: 30px 20px 30px 20px;
+}
+
+.user-show-nav {
+  position: absolute;
+  margin-top: -30px;
+  margin-right: 30px;
+  left: 10;
+  top: 0;
+}
+
+.user-body-user-show li {
+  display: block;
+}
+
+.user-body-user-show {
+  float: left;
+  height: auto;
+}
+
+.project-show-li-in-user-show {
+  float: left;
+  padding: 10px;
+}
+
+.project-user-show-container a {
+  height: 193px;
+  width: 220px;
+}
+
+
+.project-user-show-container img {
+  height: 163px;
+  width: 220px;
+}
+
+.project-user-show-container h5 {
+  font-weight: bold;
+}
+
+
+.user-comment-li-user-show {
+  display: block;
+  max-width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  background: #eef;
+  margin: 10px 0 10px 0;
+}
+
+.user-body-user-show {
+  display: block;
+  max-width: 100%;
+}
+
+.user-body-user-show  ul {
+  display: block;
+  max-width: 100%;
+}
+
+.user-comment-user-show-container p {
+  font-size: 25px;
+}
+
+.user-comment-user-show-container a {
+  display: inline-block;
+  color: #69f;
+  font-size: 15px;
+}
+
+.user-comment-user-show-container h5 {
+  display: inline-block;
+}

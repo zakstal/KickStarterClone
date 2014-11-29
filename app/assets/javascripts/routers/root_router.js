@@ -56,7 +56,7 @@ KS.RootRouter = Backbone.Router.extend({
   usershow: function (id) {
     var userInfo = new KS.Models.User({ id: id })
     userInfo.fetch()
-    
+
     var showBody = new KS.Views.UserShow({ model: userInfo });
     this._swapView(showBody);
   },
@@ -72,9 +72,9 @@ KS.RootRouter = Backbone.Router.extend({
 //-----------project routes-----------------
 
   projectshow: function(id) {
-    var project = KS.projects.get(id)//new KS.Models.Project({ id: id })
+    var project = KS.projects.getOrFetch(id)//new KS.Models.Project({ id: id })
     console.log(project)
-    project.fetch()
+    // project.fetch()
 
     var showBody = new KS.Views.ProjectShow({
       project: project
