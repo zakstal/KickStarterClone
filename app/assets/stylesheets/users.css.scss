@@ -244,9 +244,60 @@ form.update-settings-form input.my-photo-upload:hover {
 }
 
 .project-show-li-in-user-show {
+  position: relative;
   float: left;
   padding: 10px;
 }
+
+.project-user-show-container:hover .hover-color {
+  position: absolute;
+  opacity: 0.75;
+  background: #e45;
+  height: 163px;
+  width: 220px;
+  z-index: 6;
+  top: 10px;
+  transition: 0.2s;
+}
+
+.hover-color {
+  position: absolute;
+  opacity: 0.75;
+  height: 163px;
+  width: 220px;
+  z-index: 6;
+  top: 10px;
+  transition: 0.2s;
+  background: transparent;
+}
+
+.prject-description-hover-user-show {
+  position: absolute;
+  padding: 20px;
+  height: 143px;
+  width: 200px;
+  top: 10px;
+  left: -10px;
+  transition: 0.2s;
+  color: #fff;
+  font-weight: bold;
+  opacity: 0;
+}
+
+.project-user-show-container:hover .prject-description-hover-user-show {
+  position: absolute;
+  padding: 20px;
+  height: 133px;
+  width: 190px;
+  z-index: 7;
+  font-size: 12px;
+  top: 10px;
+  left: 10px;
+  transition: 0.2s;
+  color: #fff;
+  opacity: 100;
+}
+
 
 .project-user-show-container a {
   height: 193px;
