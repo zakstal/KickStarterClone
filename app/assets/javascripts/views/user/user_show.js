@@ -32,8 +32,9 @@ KS.Views.UserShow = Backbone.View.extend({
     console.log("in user nav show");
     this.currentNavId = "backed"
     var navTemplate = this.userShowNav({
-      number_of_backers: this.model.get('number_of_backed_projects'),
-      number_of_comments: this.model.comments().length
+      number_of_backers:  this.model.get('number_of_backed_projects'),
+      number_of_comments: this.model.comments().length,
+      number_of_created:  this.model.projects().length
     });
 
     this.$('.user-show-nav').html(navTemplate);
@@ -50,8 +51,7 @@ KS.Views.UserShow = Backbone.View.extend({
     } else if (subPage === "comments") {
       this.renderUserComments();
     } else if (subPage === "created") {
-
-
+      this.renderProjects();
     } else {
       console.log("none");
     }
@@ -79,6 +79,22 @@ KS.Views.UserShow = Backbone.View.extend({
       });
 
       this.$('.user-body-user-show').html(list)
+  },
+
+  renderProjects: function () {
+    console.log("render backed projects")
+    var list = $('<ul class="group"></ul>')
+    var that = this
+
+    this.model.projects().forEach( function(project){
+      var createdTemplate = that.projectBacked({
+        project: project
+      });
+
+      list.append(createdTemplate)
+    });
+
+    this.$('.user-body-user-show').html(list)
   },
 
   renderUserComments: function () {

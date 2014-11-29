@@ -8,6 +8,15 @@
 </div>
 <% } %>
 
+<% if (number_of_created > 0) { %>
+  <div class="project-nav-element group"  id="backed">
+    Created
+    <div class="qty-for-nav-element">
+      <%= number_of_created %>
+    </div>
+  </div>
+  <% } %>
+
 <% if (number_of_comments > 0 || number_of_backers > 0) { %>
 <div class="project-nav-element group"  id="comments">
   Comments

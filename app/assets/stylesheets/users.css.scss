@@ -267,7 +267,7 @@ form.update-settings-form input.my-photo-upload:hover {
 .user-comment-li-user-show {
   display: block;
   max-width: 100%;
-  padding: 20px;
+  padding: 40px 20px 20px 20px;
   border-radius: 10px;
   background: #eef;
   margin: 10px 0 10px 0;
@@ -285,6 +285,7 @@ form.update-settings-form input.my-photo-upload:hover {
 
 .user-comment-user-show-container p {
   font-size: 25px;
+  display: inline-block;
 }
 
 .user-comment-user-show-container a {
@@ -295,4 +296,16 @@ form.update-settings-form input.my-photo-upload:hover {
 
 .user-comment-user-show-container h5 {
   display: inline-block;
+}
+
+.user-comment-user-show-container figure {
+  font-size: 30px;
+  color: #999;
+  display: inline-block
+}
+
+
+.user-comment-user-show-container div {
+    display: block;
+    padding-left: 90px;
 }
