@@ -91,7 +91,7 @@ json.comments             @user.comments do |comment|
 end
 
 
-json.messages      @user.sent_messages do |message|
+json.messagesSent   @user.sent_messages do |message|
   json.from           message.from_user_id
   json.to             message.to_user_id
   json.message        message.message
@@ -99,9 +99,9 @@ json.messages      @user.sent_messages do |message|
 end
 
 
-json.messages      @user.received_messages do |message|
-  json.from           message.from_user_id
-  json.to             message.to_user_id
-  json.message        message.message
-  json.thread         message.thread
+json.messagesReceived   @user.received_messages do |message|
+  json.from               message.from_user_id
+  json.to                 message.to_user_id
+  json.message            message.message
+  json.thread             message.thread
 end
