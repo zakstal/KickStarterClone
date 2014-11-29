@@ -17,6 +17,7 @@ KickStarter::Application.routes.draw do
     resources :catagories, only: [:show]
     resources :stories, only: [:create, :update]
     resources :comments, only: [:create, :show]
+    resources :messages, only: [:create]
     resource :session, only: [:create, :destroy]
   end
 

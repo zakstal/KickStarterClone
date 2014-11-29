@@ -92,29 +92,17 @@
 
   end
 
+  json.messages      @user.sent_messages do |message|
+    json.from           message.from_user_id
+    json.to             message.to_user_id
+    json.message        message.message
+    json.thread         message.thread
+  end
 
-# do |backed_project|
-#   json.title backed_project.backed_projects.title
-# end
 
-
-# json.(@user, :email, :password_digest, :session_token, :created_at, :updated_at)
-#
-#
-#
-# if !@user.user_bio.nil?
-#   json.user_bio @user.user_bio do |bio|
-#     json.(bio, :username, :bio, :filepicker_url)
-#   end
-#
-# end
-#
-# json.backed_projects @user.backed_projects do |backed_project|
-#   json.(backed_projects, :title, :description, :catagory_id, :created_at, :updated_at, :duration, :fundinggoal,
-#   :active, :funded)
-# end
-#
-# json.projects @user.projects do |projects|
-#   json.(projects, :title, :description, :catagory_id, :created_at, :updated_at, :duration, :fundinggoal,
-#   :active, :funded)
-# end
+  json.messages      @user.received_messages do |message|
+    json.from           message.from_user_id
+    json.to             message.to_user_id
+    json.message        message.message
+    json.thread         message.thread
+  end

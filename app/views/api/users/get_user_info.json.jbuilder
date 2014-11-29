@@ -89,3 +89,19 @@ json.comments             @user.comments do |comment|
     json.that_url comment.user.pictures.last.pic.url
   end
 end
+
+
+json.messages      @user.sent_messages do |message|
+  json.from           message.from_user_id
+  json.to             message.to_user_id
+  json.message        message.message
+  json.thread         message.thread
+end
+
+
+json.messages      @user.received_messages do |message|
+  json.from           message.from_user_id
+  json.to             message.to_user_id
+  json.message        message.message
+  json.thread         message.thread
+end

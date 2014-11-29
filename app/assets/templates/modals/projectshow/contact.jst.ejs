@@ -6,10 +6,10 @@
   <div class="body-in-contact-modal">
     <h2>To: <%= project.escape('username') %></h2>
     <form class="contact-form">
-      <input type="hidden" name="user[from_user_id]" value="<%= KS.currentUserId %>">
-      <input type="hidden" name="user[to_user_id]" value="<%= project.escape('user_id') %>">
-      <input type="hidden" name="user[project_id]" value="<%= project.escape('id') %>">
-      <textarea name="user[message]"></textarea>
+      <input type="hidden" name="message[from_user_id]" value="<%= KS.currentUserId %>">
+      <input type="hidden" name="message[to_user_id]" value="<%= project.escape('user_id') %>">
+      <input type="hidden" name="message[project_id]" value="<%= project.escape('id') %>">
+      <textarea name="message[message]"></textarea>
 
       <a id="contact-send" class="submit">Send</a>
     </form>

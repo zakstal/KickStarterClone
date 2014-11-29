@@ -5,10 +5,12 @@ class Users < ActiveRecord::Base
   validates :password_digest, length: { minimum: 6, allow_nil: true }
 
   has_many  :rewards,          through: :claimed_rewards, source: :reward
-  has_many  :projects,         class_name: "Project",  foreign_key: :user_id,    primary_key: :id
-  has_one   :user_bio,         class_name: "UserBio",  foreign_key: :user_id,    primary_key: :id
-  has_many  :claimed_rewards,  class_name: "ClaimedRewards", foreign_key: :user_id
-  has_many  :comments,         class_name: "Comment",   foreign_key: :user_id
+  has_many  :projects,            class_name: "Project",         foreign_key: :user_id,    primary_key: :id
+  has_one   :user_bio,            class_name: "UserBio",         foreign_key: :user_id,    primary_key: :id
+  has_many  :claimed_rewards,     class_name: "ClaimedRewards",  foreign_key: :user_id
+  has_many  :comments,            class_name: "Comment",         foreign_key: :user_id
+  has_many  :received_messages,   class_name: "Message",        foreign_key: :to_user_id,   primary_key: :id
+  has_many  :sent_messages,       class_name: "Message",        foreign_key: :from_user_id, primary_key: :id
 
   has_many  :backed_projects,  through: :rewards,      source: :project
   has_many  :pictures, as: :image

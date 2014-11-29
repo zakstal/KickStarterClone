@@ -21,7 +21,7 @@ KS.Views.ProjectShow = Backbone.View.extend({
     "click #post-comment"                     : "postComment",
     "click .contact-userblurb-project-show"   : "contactOpen",
     "click .close-modal"                      : "toggleModal",
-    "click #contact-send"                     : "sendComment"
+    "click #contact-send"                     : "sendContact"
   },
 
 
@@ -208,12 +208,19 @@ KS.Views.ProjectShow = Backbone.View.extend({
     this.$('.modal-center-spacer').html(contactModal);
   },
 
-  sendComment: function (event) {
+  sendContact: function (event) {
     event.preventDefault();
     this.toggleModal();
 
     var attr = this.$('.contact-form').serializeJSON();
 
+    var message = new KS.Models.Message();
+
+    message.save(attr, {
+      success: function () {
+        console.log('saved')
+      }
+    });
     console.log(attr, "in send comment")
   }
 
