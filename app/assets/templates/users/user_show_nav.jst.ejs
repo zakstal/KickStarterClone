@@ -1,6 +1,6 @@
 
 <% if (number_of_backers > 0) { %>
-<div class="project-nav-element group"  id="backed">
+<div class="project-nav-element group project-nav-element-active"  id="backed">
   Backed
       <div class="qty-for-nav-element">
         <%= number_of_backers %>
@@ -9,7 +9,7 @@
 <% } %>
 
 <% if (number_of_created > 0) { %>
-  <div class="project-nav-element group"  id="backed">
+  <div class="project-nav-element group"  id="created">
     Created
     <div class="qty-for-nav-element">
       <%= number_of_created %>
