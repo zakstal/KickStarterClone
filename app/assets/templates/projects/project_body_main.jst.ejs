@@ -1,14 +1,16 @@
-  <div class="project-picture-container">
-        <a class="play">
-          <div class="play-center">
-            ▶
-          </div>
-        <a>
-      <image class="user-video" src="<%= project.get('that_url') %>">
+<div class="project-picture-container">
+  <div class="play-container">
+    <a class="play">
+      <div class="play-center">
+        ▶
       </div>
-      <br>
-      <h3>Our Story</h3>
-      <a><%= story %></a>
-      <br>
-      <h3>Challenges</h3>
-      <a><%= challenges %></a>
+    <a>
+  </div>
+  <image class="user-video-image" src="<%= project.get('that_url') %>">
+  <iframe id="user-video"></iframe>
+</div>
+<h3>Our Story</h3>
+<a><%= story %></a>
+
+<h3>Challenges</h3>
+<a><%= challenges %></a>

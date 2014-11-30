@@ -21,12 +21,14 @@ KS.Views.ProjectShow = Backbone.View.extend({
     "click #post-comment"                     : "postComment",
     "click .contact-userblurb-project-show"   : "contactOpen",
     "click .close-modal"                      : "toggleModal",
-    "click #contact-send"                     : "sendContact"
+    "click #contact-send"                     : "sendContact",
+    "click .play-container"                   : "playVideo"
   },
 
 
   initialize: function(options){
     this.project = options.project
+    this.played = true;
     this.listenTo(this.project, "sync", this.render)
     this.listenTo(this.project.comments(), "add", this.renderCommentsMainView)
   },
@@ -222,6 +224,20 @@ KS.Views.ProjectShow = Backbone.View.extend({
       }
     });
     console.log(attr, "in send comment")
+  },
+
+  playVideo: function (event) {
+    var vcode = "-FHay-Lj0MA";
+    if (this.played) {
+      this.$(".project-picture-container").append('<iframe id="user-video-play" src="https://www.youtube.com/embed/'+vcode+'?autoplay=1&loop=1&rel=0&wmode=transparent" frameborder="0" allowfullscreen wmode="Opaque"></iframe>');
+      this.played = false;
+    }
+    event.preventDefault();
+    this.$('.play-container').toggleClass('hidden');
+    this.$('.user-video-image').toggleClass('hidden');
+    this.$('.play').toggleClass('hidden');
+
+
   }
 
 

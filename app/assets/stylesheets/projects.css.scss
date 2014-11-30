@@ -134,8 +134,29 @@ div.project-body h3 {
   padding: 20px 0px 20px 0px;
 }
 
-.user-video {
+#user-video {
   display: block;
+  height: 480px;
+  width: 600px;
+  border-radius: 3px;
+  border: 1px solid #333;
+}
+
+#user-video-play {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  height: 480px;
+  width: 600px;
+  border-radius: 3px;
+  border: 1px solid #333;
+}
+
+.user-video-image {
+  position: absolute;
+  top: 0;
+  left: 0;
   height: 480px;
   width: 600px;
   border-radius: 3px;
@@ -194,12 +215,9 @@ div.project-body h3 {
 }
 
 .play {
-  display: block;
   position: absolute;
-  // margin-left: 100px;
   height: 60px;
   width: 100px;
-  // background: #3ef;
   background: #000;
   text-align: center;
   font-weight: bold;
@@ -221,7 +239,18 @@ div.project-body h3 {
   transition: all .3s;
 }
 
-.play:hover {
+.play-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  height: 480px;
+  width: 600px;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.play-container:hover .play {
   background: #090;
 }
 
@@ -257,10 +286,16 @@ div.project-body h3 {
   font-size: 15px;
   cursor: pointer;
   border-bottom: 5px solid transparent;
+  color: #888;
+}
+
+.project-nav-element:hover {
+  color: #333;
 }
 
 .project-nav-element-active {
   border-bottom: 5px solid #0f3;
+  color: #333;
 }
 
 .qty-for-nav-element {
@@ -282,6 +317,11 @@ div.project-body h3 {
   margin-right: 30px;
   right: 0;
   top: 0;
+  color: #888;
+}
+
+.cat-in-project-show:hover {
+  color: #333;
 }
 
 .icon-tag {
