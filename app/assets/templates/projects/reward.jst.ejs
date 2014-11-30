@@ -1,14 +1,15 @@
-
-  <a href="#/project/reward/<%= reward.escape('id') %>" class="project-sub-reward group">
-
-    <div>
-
-
+<a href="#/project/reward/<%= reward.escape('id') %>" class="project-sub-reward group">
+  <div>
     <h4>$<%= reward.escape('pledge_amt') %> pledge<h4>
-
     <p>Backed <%= reward.escape('times_backed')%> times</p>
-
     <p><%= reward.escape('description') %><p>
+  </div>
+</a>
+<div class="reward-select-hover">
 
-    </div>
-  </a>
+</div>
+<a href="#/project/reward/<%= reward.escape('id') %>" class="reward-select-hover-words">
+  <p>
+    Select this reward
+  </p>
+</a>
