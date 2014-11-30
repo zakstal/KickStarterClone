@@ -34,7 +34,7 @@ KS.Views.ProjectShow = Backbone.View.extend({
   },
 
   render: function () {
-    console.log(this.project.comments().first(), "in show")
+    console.log(this.project.comments(), "in show")
     var template = this.template({
       project: this.project
     });
