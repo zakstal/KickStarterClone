@@ -236,8 +236,7 @@ KS.Views.ProjectShow = Backbone.View.extend({
     this.$('.play-container').toggleClass('hidden');
     this.$('.user-video-image').toggleClass('hidden');
     this.$('.play').toggleClass('hidden');
-
-
+    this.$('.play-container').off();
   }
 
 
