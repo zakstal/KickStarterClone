@@ -473,9 +473,12 @@ div.reward-project p {
   padding: 10px 10px 10px 5px;
 }
 
+.container-comments {
+  margin: 20px 0 20px 0;
+}
 
 .user-image-comments {
-  display: block;
+  display: inline-block;
   float: left;
   height: 80px;
   width: 80px;
@@ -484,8 +487,10 @@ div.reward-project p {
 }
 
 .user-container-comments {
-  float: left;
+  // float: left;
+  display: inline-block;
   height: 92px;
+  width: 500px;
   margin: 10px;
 }
 
