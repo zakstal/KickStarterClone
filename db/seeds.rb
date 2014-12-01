@@ -132,7 +132,19 @@ end
     all_errors << e
   retry
   end
-  # # Users.find_by_id(user_id).pictures.create({pic: Faker::Avatar.image("project-#{project_id}")})
+
+  retry_count = 0
+  begin
+  if retry_count < 10
+   Users.find_by_id(user_id).pictures.create({pic: Faker::Avatar.image("project-#{project_id}")})
+ end
+  rescue Exception => e
+    retry_count += 1
+    puts "error"
+    all_errors << e
+  retry
+  end
+
   retry_count = 0
   begin
   if retry_count < 10
@@ -152,17 +164,17 @@ end
   retry
   end
 
-  # retry_count = 0
-  # begin
-  #   if retry_count < 10
-  #     Project.find_by_id(project_id).pictures.create!({pic: suckr.get_image_url})
-  #   end
-  # rescue Exception => e
-  #   retry_count += 1
-  #   puts "Oops I'll try again"
-  #   all_errors << e
-  # retry
-  # end
+  retry_count = 0
+  begin
+    if retry_count < 10
+      Project.find_by_id(project_id).pictures.create!({pic: suckr.get_image_url})
+    end
+  rescue Exception => e
+    retry_count += 1
+    puts "Oops I'll try again"
+    all_errors << e
+  retry
+  end
 
   retry_count = 0
   begin
