@@ -227,7 +227,7 @@ KS.Views.ProjectShow = Backbone.View.extend({
   },
 
   playVideo: function (event) {
-    var vcode = "-FHay-Lj0MA";
+    var vcode = this.project.vcode;
     if (this.played) {
       this.$(".project-picture-container").append('<iframe id="user-video-play" src="https://www.youtube.com/embed/'+vcode+'?autoplay=1&loop=1&rel=0&wmode=transparent" frameborder="0" allowfullscreen wmode="Opaque"></iframe>');
       this.played = false;

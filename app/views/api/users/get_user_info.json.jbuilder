@@ -81,7 +81,7 @@ end
 json.comments             @user.comments do |comment|
   json.comment                comment.comment
   json.comment_date           make_date_string(comment)
-  json.project_id             comment.project.id
+  json.project_id             comment.project_id
   json.project_title          comment.project.title
   if comment.user.pictures.first.nil?
     json.that_url image_path('dog.jpg')

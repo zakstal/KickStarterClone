@@ -30,6 +30,7 @@
   json.funded             format_numbers(@project.funded)
   json.amt_pledged        format_numbers(@project.amt_pledged)
   json.comment_count      @project.comment_count
+  json.vcode              @project.vcode
 
   if @project.pictures.first.nil? || @project.user.pictures.last.pic.url.include?("missing")
     json.that_url image_path('cute.jpg')
@@ -51,7 +52,7 @@
     json.user_pic @project.user.pictures.last.pic.url
   end
 
-  json.rewards            @project.rewards do |reward|
+  json.rewards            @project.rewards.reverse do |reward|
     json.id                 reward.id
     json.project_id         reward.project_id
     json.pledge_amt         reward.pledge_amt
