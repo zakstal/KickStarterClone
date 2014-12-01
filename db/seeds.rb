@@ -1,8 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-
-# ClaimedRewards.create({ reward_id: 7, user_id: 1})
-# ClaimedRewards.create({ reward_id: 8, user_id: 2})
 
 def new_client
   client = YouTubeIt::Client.new(:dev_key => "AI39si4JAMw83R4TIzHRaCJ2W1Yp7aAI06RVcBe9l6Adu8KENFlrcS_7-ZL8UjfXp_1_56_6uqLjx24p5Aw7o6EWWHiodV4PTA")
