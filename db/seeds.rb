@@ -67,38 +67,11 @@ end
 
 all_errors = []
 cr = []
-20.times do |i|
-  puts "user #{i}"
 
-  retry_count = 0
-  begin
-  if retry_count < 10
-    Users.create!(email: (i == 0 ? "user@user.com" : Faker::Internet.email ), password: 'password')
-  end
-  rescue Exception => e
-    retry_count += 1
-    puts "error"
-    all_errors << e
-  retry
-  end
 
-  retry_count = 0
-  begin
-  if retry_count < 10
-    UserBio.create!({username: Faker::Name.name, bio: Faker::Name.title, user_id: i + 1})
-  end
-  rescue Exception => e
-    retry_count += 1
-    puts "error"
-    all_errors << e
-  retry
-  end
-# Users.find_by_id((i + 1)).pictures.create({pic: Faker::Avatar.image("user-#{i + 21}")})
-end
-
-90.times do |i|
+101.times do |i|
     puts "Project #{i}"
-  user_id = i + 21
+  user_id = i + 1
   project_id = i + 1
   duration = rand(41)
   cat_id = random_cat
@@ -204,6 +177,7 @@ end
   pledge_amt = funding_goal/20
   slice_of_pledge_amt = funding_goal * 0.01
   multiply_percent = 0.01
+  
   number_of_rewards.times do |j|
     puts "reward #{j} 0f project #{i}"
 
@@ -256,6 +230,34 @@ end
   end
 end
 
+15.times do |i|
+  puts "user #{i}"
+
+  retry_count = 0
+  begin
+  if retry_count < 10
+    Users.create!(email: (i == 0 ? "user@user.com" : Faker::Internet.email ), password: 'password')
+  end
+  rescue Exception => e
+    retry_count += 1
+    puts "error"
+    all_errors << e
+  retry
+  end
+
+  retry_count = 0
+  begin
+  if retry_count < 10
+    UserBio.create!({username: Faker::Name.name, bio: Faker::Name.title, user_id: i + 1})
+  end
+  rescue Exception => e
+    retry_count += 1
+    puts "error"
+    all_errors << e
+  retry
+  end
+# Users.find_by_id((i + 1)).pictures.create({pic: Faker::Avatar.image("user-#{i + 21}")})
+end
 
 add_vidoes_to_projects
 
