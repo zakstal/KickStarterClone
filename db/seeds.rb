@@ -177,7 +177,7 @@ cr = []
   pledge_amt = funding_goal/20
   slice_of_pledge_amt = funding_goal * 0.01
   multiply_percent = 0.01
-  
+
   number_of_rewards.times do |j|
     puts "reward #{j} 0f project #{i}"
 
@@ -198,7 +198,7 @@ cr = []
     rand_number_from_to(1, 20).times do |k|
 
       puts "claimed reward #{k} of reward #{j}"
-      user_id = rand_number_from_to(1, 120)
+      user_id = rand_number_from_to(1, 100)
 
       retry_count = 0
       begin

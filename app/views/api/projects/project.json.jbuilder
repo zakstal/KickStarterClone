@@ -18,7 +18,7 @@
       goal_split_in_three_digits.join(",").reverse
     end
   end
-
+  #
   json.title              @project.title
   json.description        @project.description
   json.catagory_id        @project.catagory_id
