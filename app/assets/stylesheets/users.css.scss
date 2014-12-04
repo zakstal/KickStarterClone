@@ -327,7 +327,7 @@ form.update-settings-form input.my-photo-upload:hover {
 .user-comment-li-user-show {
   display: block;
   max-width: 100%;
-  padding: 40px 20px 20px 20px;
+  padding: 20px 20px 20px 20px;
   border-radius: 10px;
   background: #eef;
   margin: 10px 0 10px 0;
@@ -345,7 +345,7 @@ form.update-settings-form input.my-photo-upload:hover {
 
 .user-comment-user-show-container p {
   font-size: 25px;
-  display: inline-block;
+  // display: inline-block;
 }
 
 .user-comment-user-show-container a {
@@ -359,13 +359,15 @@ form.update-settings-form input.my-photo-upload:hover {
 }
 
 .user-comment-user-show-container figure {
-  font-size: 30px;
+  margin: 10px 20px 30px 20px;
+  font-size: 70px;
   color: #999;
-  display: inline-block
+  float:left;
 }
 
 
 .user-comment-user-show-container div {
-    display: block;
-    padding-left: 90px;
+    float: left;
+    width: 855px;
+    padding-top: 20px;
 }

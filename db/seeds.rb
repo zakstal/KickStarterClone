@@ -96,7 +96,7 @@ cr = []
 # Users.find_by_id((i + 1)).pictures.create({pic: Faker::Avatar.image("user-#{i + 21}")})
 end
 
-101.times do |i|
+90.times do |i|
     puts "Project #{i}"
   user_id = i + 21
   project_id = i + 1

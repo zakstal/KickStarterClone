@@ -1,7 +1,8 @@
 <li class="user-comment-li-user-show">
-  <div class="user-comment-user-show-container">
-    <figure>"</figure><p><%= comment.escape('comment') %></p>
+  <div class="user-comment-user-show-container group">
+    <figure>“</figure>
     <div>
+      <p><%= comment.escape('comment') %></p>
       <a href="#/project/<%= comment.escape('project_id') %>"><%= comment.escape('comment_date') %></a> on <h5><%= comment.escape('project_title') %></h5>
     </div>
   </div>
