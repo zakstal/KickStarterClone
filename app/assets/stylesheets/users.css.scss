@@ -275,11 +275,20 @@ form.update-settings-form input.my-photo-upload:hover {
 }
 
 .prject-description-hover-user-show {
+  // position: absolute;
+  // padding: 20px;
+
+  // top: 10px;
+  // left: -10px;
+  // transition: 0.2s;
+  // color: #fff;
+  // font-weight: bold;
+  // opacity: 0;
   position: absolute;
   padding: 20px;
-  height: 133px;
-  width: 190px;
-  z-index: 7;
+  height: 143px;
+  width: 200px;
+  z-index: -1;
   font-size: 12px;
   top: 10px;
   left: 10px;
@@ -290,10 +299,14 @@ form.update-settings-form input.my-photo-upload:hover {
 }
 
 .project-user-show-container:hover .prject-description-hover-user-show {
+  z-index: 7;
   opacity: 100;
 -webkit-transform: scale(1);
 }
 
+.project-user-show-container {
+  overflow: hidden;
+}
 
 .project-user-show-container a {
   height: 193px;
