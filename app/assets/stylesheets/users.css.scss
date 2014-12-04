@@ -277,19 +277,6 @@ form.update-settings-form input.my-photo-upload:hover {
 .prject-description-hover-user-show {
   position: absolute;
   padding: 20px;
-  height: 143px;
-  width: 200px;
-  top: 10px;
-  left: -10px;
-  transition: 0.2s;
-  color: #fff;
-  font-weight: bold;
-  opacity: 0;
-}
-
-.project-user-show-container:hover .prject-description-hover-user-show {
-  position: absolute;
-  padding: 20px;
   height: 133px;
   width: 190px;
   z-index: 7;
@@ -298,7 +285,13 @@ form.update-settings-form input.my-photo-upload:hover {
   left: 10px;
   transition: 0.2s;
   color: #fff;
+  opacity: 0;
+  -webkit-transform: scale(1.5);
+}
+
+.project-user-show-container:hover .prject-description-hover-user-show {
   opacity: 100;
+-webkit-transform: scale(1);
 }
 
 
