@@ -31,10 +31,11 @@ KS.Views.ProjectShow = Backbone.View.extend({
     this.played = true;
     this.listenTo(this.project, "sync", this.render)
     this.listenTo(this.project.comments(), "add", this.renderCommentsMainView)
+    // this.listenTo(this.)
   },
 
   render: function () {
-    console.log(this.project.comments(), "in show")
+    console.log(this.project.backers(), "in show")
     var template = this.template({
       project: this.project
     });
@@ -68,11 +69,11 @@ KS.Views.ProjectShow = Backbone.View.extend({
   },
 
   renderBackingUsers: function () {
-    if (typeof this.project.get('backers') !== 'undefined') {
+    if (typeof this.project.backers() !== 'undefined') {
       var list = $('<ul></ul>')
       var that = this
 
-      this.project.get('backers').forEach( function(backer){
+      this.project.backers().forEach( function(backer){
         var backingUsersTemplate = that.projectBackers({
           user: backer
         });

@@ -57,10 +57,10 @@ KS.Models.Project = Backbone.Model.extend({
       delete response.comments
     }
 
-    // if (response.backers) {
-    //   this.backers().set(response.backers, { parse: true });
-    //   delete response.backers
-    // }
+    if (response.backers) {
+      this.backers().set(response.backers, { parse: true });
+      delete response.backers
+    }
 
     return response
   }
