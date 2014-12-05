@@ -66,7 +66,7 @@
 
   uniq_claimed_rewards = @project.claimed_rewards.select(:user_id).distinct
 
-  json.backers                  uniq_claimed_rewards do |backer|
+  json.backers                  uniq_claimed_rewards.reverse do |backer|
     json.backer_id                backer.user.id
     json.backer_username          backer.user.name
     json.other_backed_projects    backer.user.number_of_backed_projects
@@ -77,7 +77,7 @@
     end
   end
 
-  json.comments             @project.comment do |comment|
+  json.comments             @project.comment.reverse do |comment|
     json.comment                comment.comment
     json.comment_date           make_date_string(comment)
     json.user_id                comment.user.id
