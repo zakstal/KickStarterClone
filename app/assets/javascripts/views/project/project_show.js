@@ -157,10 +157,10 @@ KS.Views.ProjectShow = Backbone.View.extend({
   isCurrentUserABacker: function () {
     var isOrIsNot = false;
     var that = this;
-    var backers = this.project.get('backers')
+    var backers = this.project.backers();
     if (typeof backers !== 'undefined') {
       backers.forEach( function(user){
-        if (user.id = KS.currentUserId) {
+        if (user.get('backer_id') === KS.currentUserId) {
           isOrIsNot = true;
         }
       });
