@@ -248,7 +248,7 @@ end
   retry_count = 0
   begin
   if retry_count < 10
-    UserBio.create!({username: Faker::Name.name, bio: Faker::Name.title, user_id: i + 1})
+    UserBio.create!({username: Faker::Name.name, bio: Faker::Name.title, user_id: i + 100})
   end
   rescue Exception => e
     retry_count += 1

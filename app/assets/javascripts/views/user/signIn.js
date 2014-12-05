@@ -53,7 +53,7 @@ KS.Views.SignIn = Backbone.View.extend({
     $.ajax({
       type: "POST",
       url: "/api/session",
-      data: { 'body': {'user': { 'email': 'user@user.com', 'password': 'password'}}},
+      data: { 'body': {'user': { 'email': 'lauren.klein@pfannerstill.com', 'password': 'password'}}},
       success: function (resp) {
         console.log("sent")
         Backbone.history.navigate("", { trigger: true })
