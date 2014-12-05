@@ -5,3 +5,4 @@ todo:
   -for contact modal put a saved notification
   -in user edit add a picture upload gif
   -in user edit add picture autosave when a picture is chosen
+  -fix comment and backer order on project show page
